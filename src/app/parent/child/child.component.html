@@ -1,0 +1,5 @@
+<div>
+    <p>Value from parent:- "{{ fromParent }}"</p>
+    <label for="text">From child to parent:- </label>
+    <input type="text" name="toParent" #text (input)="passValueToParent(text.value)">
+</div>

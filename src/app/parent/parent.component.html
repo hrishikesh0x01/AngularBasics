@@ -1,0 +1,6 @@
+<div>
+    <label for="text">From parent to child:- </label>
+    <input type="text" name="toParent" (input)="passValueToChild(this.textP.value)" #textP>
+    <app-child [fromParent]="toChild" (fromChild)="getValueFromChild($event)"></app-child>
+    <p>Value from child:- "{{this.valueFromChild}}"</p>
+</div>
