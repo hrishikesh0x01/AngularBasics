@@ -4,11 +4,19 @@
         <input type="text" name="toParent" (input)="passValueToChild(this.textP.value)" #textP>
         <p>Value from child:- "{{ this.valueFromChild }}"</p>
         <div class="border">
+            <!-- [] indicates that data is passed on to the child -->
+            <!-- () indicates that thsi parent component listens to fromChild event (EventEmitter) -->
             <app-child [fromParent]="toChild" (fromChild)="getValueFromChild($event)"></app-child>
         </div>
     </div>
     <div class="pad2r">
-        ngModel:- <input type="text" [(ngModel)] = "val">
-        {{ val }}
+        ngModel:- <input type="text" [(ngModel)] = "val_ngModel">
+        {{ val_ngModel }}
     </div>
+
+    <!-- property binding -->
+    <div [class]="{'not-vis': !isVisible}">
+        {{isVisible}}
+    </div>
+    <button (click)="toggleVisibility()">Show</button>
 </div>

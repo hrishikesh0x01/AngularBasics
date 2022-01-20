@@ -1,5 +1,6 @@
 <div class="pad2r">
     <p>Value from parent:- "{{ fromParent }}"</p>
     <label for="text">From child to parent:- </label>
+    <!-- event binding onInput -->
     <input type="text" name="toParent" #text (input)="passValueToParent(text.value)">
 </div>

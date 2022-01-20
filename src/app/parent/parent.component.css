@@ -6,3 +6,7 @@
 .pad2r {
     padding: 2rem;
 }
+
+.not-vis {
+    display: none;
+}
