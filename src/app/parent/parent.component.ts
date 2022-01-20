@@ -20,4 +20,6 @@ export class ParentComponent implements OnInit {
   passValueToChild(val: string) {
     this.toChild = val;
   }
+
+  val?:string;
 }

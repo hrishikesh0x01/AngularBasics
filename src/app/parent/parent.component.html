@@ -1,6 +1,14 @@
-<div>
-    <label for="text">From parent to child:- </label>
-    <input type="text" name="toParent" (input)="passValueToChild(this.textP.value)" #textP>
-    <app-child [fromParent]="toChild" (fromChild)="getValueFromChild($event)"></app-child>
-    <p>Value from child:- "{{this.valueFromChild}}"</p>
+<div class="border pad2r">
+    <div class="border pad2r">
+        <label for="text">From parent to child:- </label>
+        <input type="text" name="toParent" (input)="passValueToChild(this.textP.value)" #textP>
+        <p>Value from child:- "{{ this.valueFromChild }}"</p>
+        <div class="border">
+            <app-child [fromParent]="toChild" (fromChild)="getValueFromChild($event)"></app-child>
+        </div>
+    </div>
+    <div class="pad2r">
+        ngModel:- <input type="text" [(ngModel)] = "val">
+        {{ val }}
+    </div>
 </div>
