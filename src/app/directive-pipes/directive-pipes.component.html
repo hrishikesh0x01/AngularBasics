@@ -1,1 +1,6 @@
-<p>directive-pipes works!</p>
+<p appCustomDirective>directive-pipes works!</p>
+<div class="ListView">
+    <div class="ListItem" *ngFor="let post of this.postss, let i = index">
+        <app-post-view [index]="i" [pid]="post.id" [userId]="post.userId" [ptitle]="post.title" [body]="post.body"></app-post-view>
+    </div>
+</div>

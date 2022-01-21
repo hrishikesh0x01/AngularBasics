@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './parent/child/child.component';
 import { FormsModule } from '@angular/forms';
+import { DirectivePipesModule } from './directive-pipes/directive-pipes.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    DirectivePipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

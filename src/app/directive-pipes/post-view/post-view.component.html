@@ -1,0 +1,31 @@
+<div class="postView">
+    <button (click)="this.visible=!this.visible">>{{index}}</button>
+    <div [ngClass]="{hidden : !this.visible, pad2r : true}">
+        <dl>
+            <dt>
+                Id:
+            </dt>
+            <dd>
+                {{pid}}
+            </dd>
+            <dt>
+                UserId:
+            </dt>
+            <dd>
+                {{userId}}
+            </dd>
+            <dt>
+                Title:
+            </dt>
+            <dd>
+                {{ptitle}}
+            </dd>
+            <dt>
+                Body:
+            </dt>
+            <dd>
+                {{body}}
+            </dd>
+        </dl>
+    </div>
+</div>
