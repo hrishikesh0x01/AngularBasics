@@ -20,6 +20,7 @@ export class CustomDirectiveDirective {
     this.color = "red";
   }
 
-  constructor() {
+  constructor(el: ElementRef) {
+    el.nativeElement.style.margin = "15px 0";
   }
 }

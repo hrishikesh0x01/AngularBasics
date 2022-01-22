@@ -1,31 +1,24 @@
-<div class="postView">
-    <button (click)="this.visible=!this.visible">>{{index}}</button>
-    <div [ngClass]="{hidden : !this.visible, pad2r : true}">
-        <dl>
-            <dt>
-                Id:
-            </dt>
-            <dd>
-                {{pid}}
-            </dd>
-            <dt>
-                UserId:
-            </dt>
-            <dd>
-                {{userId}}
-            </dd>
-            <dt>
-                Title:
-            </dt>
-            <dd>
-                {{ptitle}}
-            </dd>
-            <dt>
-                Body:
-            </dt>
-            <dd>
-                {{body}}
-            </dd>
-        </dl>
+<div class="d-flex postView w100">
+    <div class="d-flex icon-div pad2pr h100" (click)="this.visible=!this.visible">
+        <img class="icon" src="data:image/png;base64,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" />
+        <span class="txt-1-5r h100">Post: {{index}}</span>
+    </div>
+    <div class="pad2r d-flex post-content bg-pink-op50" [ngClass]="{hidden : !this.visible}">
+        <div class="d-flex pad2pr">
+            <div class="attribute">Id:</div>
+            <div>{{pid}}</div>
+        </div>
+        <div class="d-flex pad2pr">
+            <div class="attribute">UserId:</div>
+            <div>{{userId}}</div>
+        </div>
+        <div class="d-flex pad2pr">
+            <div class="attribute">Title:</div>
+            <div>{{ptitle}}</div>
+        </div>
+        <div class="d-flex pad2pr">
+            <div class="attribute">Body:</div>
+            <div>{{pbody}}</div>
+        </div>
     </div>
 </div>

@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.f-grow {
+    flex-grow: 1;
+}
+
+.pad2r {
+    padding: 2rem;
+}
+
+.pad2pr {
+    padding: 2%;
+}
+
+.bg-pink-op50 {
+    background-color: rgba(255, 192, 203, 0.5);
+}
+
+.txt-1-5r {
+    font-size: 1.5rem;
+}

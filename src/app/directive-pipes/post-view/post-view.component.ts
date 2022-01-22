@@ -10,7 +10,7 @@ export class PostViewComponent implements OnInit {
   @Input() pid?:number;
   @Input() userId?:number;
   @Input() ptitle?:string;
-  @Input() body?:string;
+  @Input() pbody?:string;
 
   visible:boolean = false;
 
