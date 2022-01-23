@@ -1,12 +1,12 @@
-import { UserPosts } from "./UserPosts";
+import { User } from "./User";
 
-export let users: UserPosts[] = [
+export let users: User[] = [
     {
         "uid": 1,
         "name": "Leanne Graham",
         "uname": "Bret",
         "email": "Sincere@april.biz",
-        "website": "hildegard.org"
+        "website": "hildegard.org",
     },
     {
         "uid": 2,
