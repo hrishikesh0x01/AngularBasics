@@ -1,3 +1,27 @@
 .new-post-input {
     flex-direction: column;
+    width: max-content;
+    padding: 3rem;
+}
+
+.inp-div {
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.inp-div input {
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.inp-div label {
+    margin: auto 0;
+}
+
+.add-button-div button {
+    padding: 0.5rem 1.5rem;
+}
+
+.posts-table th, .posts-table td {
+    padding: 8px;
 }

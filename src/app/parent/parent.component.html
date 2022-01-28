@@ -1,7 +1,7 @@
 <div class="border pad2r">
     <div class="border pad2r">
         <label for="text">From parent to child:- </label>
-        <input type="text" name="toParent" (input)="passValueToChild(this.textP.value)" #textP>
+        <input type="text" name="toParent" (input)="passValueToChild(this.textP.value)" #textP placeholder="Illustrate parent to child data binding">
         <p>Value from child:- "{{ this.valueFromChild }}"</p>
         <div class="border">
             <!-- [] indicates that data is passed on to the child -->
@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="pad2r">
-        ngModel:- <input type="text" [(ngModel)] = "val_ngModel">
+        ngModel:- <input type="text" [(ngModel)] = "val_ngModel" placeholder="Illustrate the use of ngModel">
         {{ val_ngModel }}
     </div>
 

@@ -25,6 +25,11 @@ export class PostsTableViewComponent implements OnInit {
   }
 
   addPost(userid:string, pid:string, ptitle:string, pbody:string) {
-    
+    posts.push({
+      "userId": parseInt(userid),
+      "id": parseInt(pid),
+      "title": ptitle,
+      "body": pbody
+    });
   }
 }

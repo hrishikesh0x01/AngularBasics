@@ -1,28 +1,28 @@
 <fieldset class="d-flex new-post-input">
     <legend>Add New Post</legend>
-    <div class="d-flex w100">
+    <div class="d-flex w100 inp-div">
         <label for="userid">User Id: </label>
-        <input type="number" name="userid" #userid>
+        <input type="number" name="userid" #userid placeholder="Enter UserId">
     </div>
-    <div>
+    <div class="d-flex w100 inp-div">
         <label for="pid">Id: </label>
-        <input type="number" name="pid" #pid>
+        <input type="number" name="pid" #pid placeholder="Enter PostId">
     </div>
-    <div>
+    <div class="d-flex w100 inp-div">
         <label for="ptitle">Title: </label>
-        <input type="text" name="ptitle" #ptitle>
+        <input type="text" name="ptitle" #ptitle placeholder="Enter post title">
     </div>
-    <div>
+    <div class="d-flex w100 inp-div">
         <label for="pbody">Body: </label>
-        <input type="text" name="pbody" #pbody>
+        <input type="text" name="pbody" #pbody placeholder="Enter post body">
     </div>
-    <div>
+    <div class="add-button-div inp-div">
         <button (click)="addPost(userid.value, pid.value, ptitle.value, pbody.value)">Add</button>
     </div>
 </fieldset>
 <div class="pad2r">
     <span class="selectedPost">{{this.selectedPostTitle}}</span>
-    <table>
+    <table class="posts-table">
         <thead appCustomDirective>
             <th>Id</th>
             <th>UserId</th>
@@ -33,7 +33,7 @@
             <tr class="PostItem" *ngFor="let post of this.allPosts; let i = index; trackBy:postById" appHighlightOnHover (click)="selectPost(i)">
                 <td>{{ post.id }}</td>
                 <td>{{ post.userId }}</td>
-                <td>{{ post.title }}</td>
+                <td>{{ post.title | firstCapital }}</td>
                 <td>{{ post.body }}</td>
             </tr>
         </tbody>

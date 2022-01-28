@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostBinding, HostListener } from '@angular/core'
 })
 export class CustomDirectiveDirective {
 
-  defBgColor: string = "black";
+  defBgColor:string = "black";
 
   @HostBinding('style.background-color') bgColor = this.defBgColor;
   @HostBinding('style.color') color = "red";
