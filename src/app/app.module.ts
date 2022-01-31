@@ -7,6 +7,9 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './parent/child/child.component';
 import { FormsModule } from '@angular/forms';
 import { DirectivePipesModule } from './directive-pipes/directive-pipes.module';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { DataBindingModule } from './data-binding/data-binding.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { DirectivePipesModule } from './directive-pipes/directive-pipes.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    DirectivePipesModule
+    DirectivePipesModule,
+    CoreModule,
+    SharedModule,
+    DataBindingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
