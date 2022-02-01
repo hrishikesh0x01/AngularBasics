@@ -1,4 +1,4 @@
-import { Post } from "./Post";
+import { Post } from "./Post.model";
 
 export var posts: Post[] = [
     {

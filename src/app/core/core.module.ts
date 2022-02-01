@@ -19,8 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   exports:[
     HeaderComponent,
-    NavbarComponent,
-    PageNotFoundComponent
+    NavbarComponent
   ]
 })
 export class CoreModule { }
