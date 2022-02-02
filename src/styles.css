@@ -21,6 +21,10 @@ html {
     display: flex;
 }
 
+.f-col {
+    flex-direction: column;
+}
+
 .f-grow {
     flex-grow: 1;
 }

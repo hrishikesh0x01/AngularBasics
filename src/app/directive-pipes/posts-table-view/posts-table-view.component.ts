@@ -13,8 +13,7 @@ export class PostsTableViewComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   selectPost(i:number):void {
     this.selectedPostTitle = this.allPosts[i].title;
