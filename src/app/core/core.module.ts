@@ -6,6 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormBasicsModule } from '../modules/reactive-form-basics/reactive-form-basics.module';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    FormsModule,
-    ReactiveFormsModule
+    RouterModule
   ],
   exports: [
     HeaderComponent,

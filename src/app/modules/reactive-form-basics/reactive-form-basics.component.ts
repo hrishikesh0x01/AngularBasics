@@ -10,19 +10,23 @@ export class ReactiveFormBasicsComponent implements OnInit {
   demoForm: FormGroup ;
  
   constructor(private fb: FormBuilder) { 
-    this.createContactForm();
+    this.demoForm = this.createContactForm();
   }
 
   ngOnInit(): void {
    
   }
 
-  createContactForm(){
-    this.demoForm = this.fb.group({
+  createContactForm():FormGroup {
+    return this.fb.group({
       fullName: [''],  
       email: [''],
       message: [''],
       mobile: ['']
     });
+  }
+
+  showData(): void {
+    console.log(this.demoForm);
   }
 }

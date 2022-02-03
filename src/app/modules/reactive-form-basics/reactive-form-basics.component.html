@@ -1,0 +1,19 @@
+<form [formGroup]="demoForm" (ngSubmit)="showData()">
+  <div>
+    <label for="">Name:</label>
+    <input type="text" formControlName="fullName">
+  </div>
+  <div>
+    <label for="">Email:</label>
+    <input type="text" formControlName="email">
+  </div>
+  <div>
+    <label for="">Message:</label>
+    <input type="text" formControlName="message">
+  </div>
+  <div>
+    <label for="">Mobile Number:</label>
+    <input type="number" formControlName="mobile">
+  </div>
+  <button type="submit">Submit</button>
+</form>
