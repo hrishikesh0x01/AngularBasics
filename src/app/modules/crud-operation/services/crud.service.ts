@@ -39,6 +39,7 @@ export class CrudService {
   }
 
   private editEmp(employee: Employee): Observable<Employee> {
+    console.log('hgasdf');
     return this.http.put<Employee>(`${this.apiLink}/employees/${employee.id}`, employee);
   }
 

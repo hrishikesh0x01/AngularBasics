@@ -1,5 +1,4 @@
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -22,13 +21,10 @@ export class EmployeeFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.empForm = this.generateForm();
-    console.log(this.empForm);
     this.getDepartmentData();
     if (this.activeRoute.snapshot.params['id']) {
       this.crudService.getEmployeeToEdit().subscribe((data) => {
-        console.log(data, 'gerighelirjgbselkr', this.empForm);
         this.empForm.patchValue(data);
-        console.log(this.empForm);
       }, errors => {
         console.log("Something went wrong!! -- edit" + errors);
       });
@@ -38,7 +34,6 @@ export class EmployeeFormComponent implements OnInit {
   getDepartmentData(): void {
     this.crudService.getDeptData().subscribe((data) => {
       this.departmentOptions = data;
-      // console.log(this.departmentOptions);
     }, errors => {
       alert("Something went wrong!!" + errors);
     });
@@ -60,11 +55,13 @@ export class EmployeeFormComponent implements OnInit {
     console.log(this.empForm);
     if (this.empForm.status === 'VALID') {
       let emp: Employee;
+      console.log(id);
       if (id) {
         emp = {...this.empForm.value, id:id};
       } else {
         emp = this.empForm.value;
       }
+      console.log(emp);
       this.crudService.saveEmp(emp).subscribe(data => {
         console.log("Like Share Subscribe...\nKeep supporting...");
       });
