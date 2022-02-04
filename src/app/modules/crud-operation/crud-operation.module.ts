@@ -7,6 +7,7 @@ import { CrudOperationComponent } from './crud-operation.component';
 import { EmployeeListViewComponent } from './employee-list-view/employee-list-view.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CrudService } from './services/crud.service';
 
 
 @NgModule({
@@ -19,8 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CrudOperationRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ]
 })
 export class CrudOperationModule { }

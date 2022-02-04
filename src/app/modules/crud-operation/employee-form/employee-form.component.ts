@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Department } from '../models/department.model';
+import { CrudService } from '../services/crud.service';
 
 @Component({
   selector: 'app-employee-form',
@@ -9,13 +12,26 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EmployeeFormComponent implements OnInit {
 
-  empForm: FormGroup;
+  @Input() depts: Observable<Department[]>;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  empForm: FormGroup;
+  departmentOptions: Department[];
+
+  constructor(private fb: FormBuilder, private router: Router, private crudService: CrudService) {
     this.empForm = this.generateForm();
   }
 
   ngOnInit(): void {
+    this.getDepartmentData();
+  }
+
+  getDepartmentData(): void {
+    this.crudService.getDeptData().subscribe(data => {
+      this.departmentOptions = data;
+      console.log(this.departmentOptions);
+    }, errors => {
+      alert("Something went wrong!!");
+    });
   }
 
   generateForm(): FormGroup {

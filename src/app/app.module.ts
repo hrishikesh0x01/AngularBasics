@@ -7,6 +7,8 @@ import { DirectivePipesModule } from './modules/directive-pipes/directive-pipes.
 import { DataBindingModule } from './modules/data-binding/data-binding.module';
 import { CoreModule } from './core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CrudService } from './modules/crud-operation/services/crud.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     AppRoutingModule,
     DirectivePipesModule,
-    DataBindingModule
+    DataBindingModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../models/employee.model';
+import { CrudService } from '../services/crud.service';
 
 @Component({
   selector: 'app-employee-list-view',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeListViewComponent implements OnInit {
 
-  constructor() { }
+  employeeData: Employee[];
+
+  constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
+    this.getEmployeeData();
+  }
+
+  getEmployeeData() {
+    this.crudService.getEmpData().subscribe(data => {
+      this.employeeData = data;
+    }, errors => {
+      alert("Something went wrong!! - emp");
+    })
   }
 
 }

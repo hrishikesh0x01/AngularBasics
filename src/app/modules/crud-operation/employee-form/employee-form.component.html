@@ -5,6 +5,7 @@
         <label for="fname">First Name: </label>
         <input type="text" formControlName="fname" id="fname">
     </div>
+    <div *ngIf="this.empForm.get('fname')?.touched && this.empForm.get('fname')?.errors?.['required']">This Field is Required</div>
     <div>
         <label for="lname">Last Name: </label>
         <input type="text" formControlName="lname" id="lname">
@@ -36,10 +37,7 @@
         <label for="dept">Department</label>
         <select formControlName="dept" id="dept">
             <option value="0" selected hidden disabled>Select Department</option>
-            <option value="1">Frontend</option>
-            <option value="2">Backend</option>
-            <option value="3">DataBase</option>
-            <option value="4">QA</option>
+            <option *ngFor="let dept of this.departmentOptions" [value]="dept.id">{{ dept.name }}</option>
         </select>
     </div>
     <button type="submit">Submit</button>
