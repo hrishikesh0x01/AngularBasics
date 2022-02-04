@@ -23,13 +23,114 @@
   ],
   "employees": [
     {
+      "id": 1,
       "fname": "string",
       "lname": "string",
       "emailId": "string",
       "mobile": "string",
       "gender": "string",
       "empdate": "string",
-      "dept": "number"
+      "dept": 1
+    },
+    {
+      "fname": "tfghfgh",
+      "lname": "fhdfhdf",
+      "emailId": "fhgdfh@hasfas.com",
+      "mobile": "768674456",
+      "gender": "male",
+      "empdate": "2022-02-15",
+      "dept": "3",
+      "id": 2
+    },
+    {
+      "fname": "rhyrth",
+      "lname": "hrthrt",
+      "emailId": "thrgtr@hrfg.com",
+      "mobile": "64563",
+      "gender": "male",
+      "empdate": "2022-02-08",
+      "dept": "4",
+      "id": 3
+    },
+    {
+      "fname": "hgdf",
+      "lname": "gsdffd",
+      "emailId": "dsfgdf@gadsfg.com",
+      "mobile": "dfgvdf",
+      "gender": "male",
+      "empdate": "2022-02-28",
+      "dept": "4",
+      "id": 4
+    },
+    {
+      "fname": "rthertfg",
+      "lname": "546345",
+      "emailId": "gsdfgfd@gdsf.com",
+      "mobile": "45674264363",
+      "gender": "male",
+      "empdate": "2022-02-17",
+      "dept": "2",
+      "id": 5
+    },
+    {
+      "fname": "hgfhgfh",
+      "lname": "tghgh",
+      "emailId": "gergrseg@gmail.com",
+      "mobile": "575645765",
+      "gender": "male",
+      "empdate": "2022-02-17",
+      "dept": "2",
+      "id": 6
+    },
+    {
+      "fname": "hhhhhhhdxfgdzfgdf",
+      "lname": "gert456",
+      "emailId": "ergdfgt45w@gdjn.com",
+      "mobile": "6456456567",
+      "gender": "male",
+      "empdate": "2022-02-17",
+      "dept": "1",
+      "id": 7
+    },
+    {
+      "fname": "h",
+      "lname": "p",
+      "emailId": "hp@hpmail.com",
+      "mobile": "98989898989",
+      "gender": "male",
+      "empdate": "2021-12-02",
+      "dept": "3",
+      "id": 8
+    },
+    {
+      "fname": "tyut",
+      "lname": "djhd",
+      "emailId": "fdhg@tdsh.com",
+      "mobile": "54645645",
+      "gender": "male",
+      "empdate": "2000-02-12",
+      "dept": "1",
+      "id": 9
+    },
+    {
+      "fname": "gggg",
+      "lname": "ddd",
+      "emailId": "p.hrishikesh2000@gmail.com",
+      "mobile": "6456456567",
+      "gender": "male",
+      "empdate": "2022-02-24",
+      "dept": "3",
+      "id": 10
+    },
+    {
+      "fname": "gsgr",
+      "lname": "dfgsf",
+      "emailId": "wff@ggiod.com",
+      "mobile": "54634565",
+      "gender": "male",
+      "empdate": "2022-02-16",
+      "dept": 0,
+      "id": 11
     }
   ]
 }

@@ -4,3 +4,61 @@
 </div>
 
 {{ this.employeeData | json }}
+
+<table>
+    <thead>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Email Id
+        </th>
+        <th>
+            Mobile
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            Employment Date
+        </th>
+        <th>
+            Department
+        </th>
+        <th>
+            Action
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of this.employeeData">
+            <td>
+                {{ employee.id }}
+            </td>
+            <td>
+                {{ employee.fname + ' ' + employee.lname }}
+            </td>
+            <td>
+                {{ employee.emailId }}
+            </td>
+            <td>
+                {{ employee.mobile }}
+            </td>
+            <td>
+                {{ employee.gender }}
+            </td>
+            <td>
+                {{ employee.empdate }}
+            </td>
+            <td>
+                {{ employee.dept }}
+            </td>
+            <td>
+                <button (click)="editEmp(employee)">Edit</button>
+                <button>Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

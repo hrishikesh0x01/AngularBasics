@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CrudOperationRoutingModule } from './crud-operation-routing.module';
 import { CrudOperationComponent } from './crud-operation.component';
 import { EmployeeListViewComponent } from './employee-list-view/employee-list-view.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CrudService } from './services/crud.service';
-
 
 @NgModule({
   declarations: [
