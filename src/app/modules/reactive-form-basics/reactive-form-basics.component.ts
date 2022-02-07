@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-reactive-form-basics',
   templateUrl: './reactive-form-basics.component.html',
-  styleUrls: ['./reactive-form-basics.component.css']
+  styleUrls: ['./reactive-form-basics.component.scss']
 })
 export class ReactiveFormBasicsComponent implements OnInit {
   demoForm: FormGroup ;

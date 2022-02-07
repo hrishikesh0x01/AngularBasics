@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { CrudOperationComponent } from './crud-operation.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { EmployeeListViewComponent } from './employee-list-view/employee-list-view.component';

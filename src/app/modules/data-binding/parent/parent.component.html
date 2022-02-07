@@ -3,7 +3,7 @@
         <label for="text">From parent to child:- </label>
         <input type="text" name="toParent" (input)="passValueToChild(this.textP.value)" #textP placeholder="Illustrate parent to child data binding">
         <p>Value from child:- "{{ this.valueFromChild }}"</p>
-        <div class="border">
+        <div class="border1px">
             <!-- [] indicates that data is passed on to the child -->
             <!-- () indicates that thsi parent component listens to fromChild event (EventEmitter) -->
             <app-child [fromParent]="toChild" (fromChild)="getValueFromChild($event)"></app-child>

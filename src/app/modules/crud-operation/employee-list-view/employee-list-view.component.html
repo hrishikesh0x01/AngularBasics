@@ -2,9 +2,7 @@
     <input type="search">
     <button class="add-btn btn btn-primary" routerLink="/crud-operation/add">Add</button>
 </div>
-
 {{ this.employeeData | json }}
-
 <table>
     <thead>
         <th>
@@ -33,7 +31,7 @@
         </th>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of this.employeeData">
+        <tr *ngFor="let employee of this.employeeData; let i = index; trackBy:empTrack">
             <td>
                 {{ employee.id }}
             </td>
@@ -57,7 +55,7 @@
             </td>
             <td>
                 <button (click)="editEmp(employee)">Edit</button>
-                <button>Delete</button>
+                <button (click)="deleteEmp(employee.id)">Delete</button>
             </td>
         </tr>
     </tbody>
