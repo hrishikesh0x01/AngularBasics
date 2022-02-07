@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CrudOperationComponent } from './crud-operation.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { EmployeeListViewComponent } from './employee-list-view/employee-list-view.component';
 
 const routes: Routes = [
   {
-    path: '', component: CrudOperationComponent,
+    path: '',
     children: [
       {
-        path: '', component: EmployeeListViewComponent
+        path: '', redirectTo: 'emplist', pathMatch: 'full'
       },
       {
         path: 'add', component: EmployeeFormComponent

@@ -1,45 +1,41 @@
-{{ empForm.value | json }}
-
-<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
-    <div>
+<form class="form" [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    <legend class="form-title"><strong>Employee Details</strong></legend>
+    <div class="input-div">
         <label for="fname">First Name: </label>
-        <input type="text" formControlName="fname" id="fname">
+        <input class="inp-field" type="text" formControlName="fname" id="fname">
     </div>
-    <div *ngIf="this.empForm.get('fname')?.touched && this.empForm.get('fname')?.errors?.['required']">This Field is Required</div>
-    <div>
+    <div class="err-div" *ngIf="this.empForm.get('fname')?.touched && this.empForm.get('fname')?.errors?.['required']">This Field is Required</div>
+    <div class="input-div">
         <label for="lname">Last Name: </label>
-        <input type="text" formControlName="lname" id="lname">
+        <input class="inp-field" type="text" formControlName="lname" id="lname">
     </div>
-    <div>
+    <div class="err-div" *ngIf="this.empForm.get('lname')?.touched && this.empForm.get('lname')?.errors?.['required']">This Field is Required</div>
+    <div class="input-div">
         <label for="email">Email Id: </label>
-        <input type="email" formControlName="emailId" id="emailId">
+        <input class="inp-field" type="email" formControlName="emailId" id="emailId">
     </div>
-    <div>
+    <div class="input-div">
         <label for="mobile">Mobile Number: </label>
-        <input type="text" formControlName="mobile" id="mobile">
+        <input class="inp-field" type="text" formControlName="mobile" id="mobile">
     </div>
-    <div>
-        <label for="gender">Gender</label>
-        <div>
-            <div>
-                <input type="radio" formControlName="gender" id="male" value="male">
-                <label for="male">Male</label>
-                <input type="radio" formControlName="gender" id="female" value="female">
-                <label for="female">Female</label>
-            </div>
-        </div>
+    <div class="input-div">
+        <label for="gender">Gender: </label>
+        <input class="inp-field" type="radio" formControlName="gender" id="male" value="male">
+        <label for="male">Male</label>
+        <input class="inp-field" type="radio" formControlName="gender" id="female" value="female">
+        <label for="female">Female</label>
     </div>
-    <div>
-        <label for="emp-date">Date of Employment</label>
-        <input type="date" formControlName="empdate" id="empdate">
+    <div class="input-div">
+        <label for="emp-date">Date of Employment: </label>
+        <input class="inp-field" type="date" formControlName="empdate" id="empdate">
     </div>
-    <div>
-        <label for="dept">Department</label>
-        <select formControlName="dept" id="dept">
+    <div class="input-div">
+        <label for="dept">Department: </label>
+        <select class="inp-field" formControlName="dept" id="dept">
             <option value="0" selected hidden disabled>Select Department</option>
             <option *ngFor="let dept of this.departmentOptions" [value]="dept.id">{{ dept.name }}</option>
         </select>
     </div>
-    <button type="submit">Submit</button>
-    <button type="button" (click)="onReset()">Reset</button>
+    <button class="btn submit-btn" type="submit">Submit</button>
+    <button class="btn reset-btn" type="button" (click)="onReset()">Reset</button>
 </form>

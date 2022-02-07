@@ -1,0 +1,36 @@
+{
+  "department": [
+    {
+      "id": 1,
+      "name": "Frontend Development"
+    },
+    {
+      "id": 2,
+      "name": "Backend Development"
+    },
+    {
+      "id": 3,
+      "name": "DataBase"
+    },
+    {
+      "id": 4,
+      "name": "Mobile App Development"
+    },
+    {
+      "id": 5,
+      "name": "QA"
+    }
+  ],
+  "employees": [
+    {
+      "fname": "dddddddddd",
+      "lname": "sssssssssss",
+      "emailId": "dsdsdsdsdsd@sdsd.dsd",
+      "mobile": "362456565",
+      "gender": "male",
+      "empdate": "2022-02-10",
+      "dept": "3",
+      "id": 1
+    }
+  ]
+}

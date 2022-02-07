@@ -1,4 +1,30 @@
-.sidebar {
-    border: 1px solid black;
+:host {
     height: 100%;
+}
+
+.sidebar {
+    height: 100%;
+    width: 350px;
+    background-color: #A9D6E5;
+    box-shadow: 10px 0px 10px rgba(128, 128, 128, 0.514);
+    .nav-list {
+        list-style: none;
+        .nav-item {
+            box-shadow: 10px 10px 10px rgba(128, 128, 128, 0.514);
+            background-color: #ffffff;
+            padding: 10px 10px;
+            margin: 0.5rem auto;
+            width: 70%;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.25rem;
+            a {
+                text-decoration: none;
+                color: #277DA1;
+            }
+        }
+        .nav-item-1 {
+            margin-top: 20px;
+        }
+    }
 }
