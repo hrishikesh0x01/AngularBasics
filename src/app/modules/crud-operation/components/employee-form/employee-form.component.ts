@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
-import { Observable } from 'rxjs';
 
 import { Department } from '../../models/department.model';
 import { Employee } from '../../models/employee.model';
@@ -20,28 +18,23 @@ export class EmployeeFormComponent implements OnInit {
   submitted: boolean = false;
   currentEmpDataId: number;
   departmentOptions: Department[];
-  subscriptions: Observable<Employee>[];
 
   constructor(private fb: FormBuilder, private router: Router, private activeRoute: ActivatedRoute, private crudService: CrudService) {}
 
   ngOnInit(): void {
     this.empForm = this.generateForm();
     this.getDepartmentData();
-    if (this.activeRoute.snapshot.params['id']) {
+    this.currentEmpDataId = this.activeRoute.snapshot.params['id'];
+    if (this.currentEmpDataId) {
       this.isEditMode = true;
       console.log("EDIT MODE");
-      this.getCustomerToEdit();
+      this.getEmpToEdit();
+      console.log("Are bhai bhai bhai....", );
     }
   }
 
-  getCustomerToEdit(): void {
-    this.crudService.getEmployeeToEdit().subscribe(data => {
-      this.empForm.patchValue(data);
-      this.currentEmpDataId = data.id;
-      console.log(data);
-    }, errors => {
-      alert("Something went wrong!! -- edit" + errors);
-    });
+  getEmpToEdit(): void {
+    this.empForm.patchValue(this.crudService.getEmployeeToEdit().getValue());
   }
 
   getDepartmentData(): void {

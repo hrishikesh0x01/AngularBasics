@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Feature } from '../models/feature.model';
+import { navItems } from '../nav-items';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  features: Feature[] = navItems;
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }

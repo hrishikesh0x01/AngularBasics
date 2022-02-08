@@ -17,6 +17,10 @@ const routes: Routes = [
     path: 'crud-operation',
     loadChildren: () => import('./modules/crud-operation/crud-operation.module').then(m => m.CrudOperationModule)
   },
+  {
+    path: 'resume-builder',
+    loadChildren: () => import('./modules/resume-builder/resume-builder.module').then(m => m.ResumeBuilderModule)
+  },
   { path: '**', component: PageNotFoundComponent }
 ];
 

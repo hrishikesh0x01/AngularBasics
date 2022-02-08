@@ -21,6 +21,7 @@ export class EmployeeListViewComponent implements OnInit {
   ngOnInit(): void {
     this.getEmployeeData();
     this.getDepartmentData();
+    console.log("emp-list-view onInit()");
   }
 
   getDepartmentData(): void {
