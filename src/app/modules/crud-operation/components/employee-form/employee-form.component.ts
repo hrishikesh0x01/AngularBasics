@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
-import { Department } from '../models/department.model';
-import { Employee } from '../models/employee.model';
-import { CrudService } from '../services/crud.service';
+import { Department } from '../../models/department.model';
+import { Employee } from '../../models/employee.model';
+import { CrudService } from '../../services/crud.service';
 
 @Component({
   selector: 'app-employee-form',
@@ -89,5 +89,9 @@ export class EmployeeFormComponent implements OnInit {
 
   onReset() {
     this.empForm.reset();
+  }
+
+  getControl(cname: string): AbstractControl | null {
+    return this.empForm.get(cname)
   }
 }

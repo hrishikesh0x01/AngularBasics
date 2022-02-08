@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Employee } from '../models/employee.model';
-import { CrudService } from '../services/crud.service';
+import { Employee } from '../../models/employee.model';
+import { CrudService } from '../../services/crud.service';
 
 @Component({
   selector: 'app-employee-list-view',
@@ -18,10 +18,6 @@ export class EmployeeListViewComponent implements OnInit {
   ngOnInit(): void {
     this.getEmployeeData();
   }
-
-  // getEmployeeDataAsync() {
-  //   return this.crudService.getEmpList();
-  // }
 
   getEmployeeData() {
     this.crudService.getEmpList().subscribe(data => {
