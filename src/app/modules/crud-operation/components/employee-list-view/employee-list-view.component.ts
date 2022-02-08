@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Department } from '../../models/department.model';
 
 import { Employee } from '../../models/employee.model';
 import { CrudService } from '../../services/crud.service';
@@ -12,11 +13,22 @@ import { CrudService } from '../../services/crud.service';
 export class EmployeeListViewComponent implements OnInit {
 
   employeeData: Employee[];
+  departmentOptions: Department[];
+  searchString: string;
 
   constructor(private router: Router, private crudService: CrudService) { }
 
   ngOnInit(): void {
     this.getEmployeeData();
+    this.getDepartmentData();
+  }
+
+  getDepartmentData(): void {
+    this.crudService.getDeptData().subscribe(data => {
+      this.departmentOptions = data;
+    }, errors => {
+      alert("Something went wrong!!" + errors);
+    });
   }
 
   getEmployeeData() {

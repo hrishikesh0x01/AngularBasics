@@ -17,6 +17,7 @@ export class EmployeeFormComponent implements OnInit {
 
   empForm: FormGroup;
   isEditMode: boolean = false;
+  submitted: boolean = false;
   currentEmpDataId: number;
   departmentOptions: Department[];
   subscriptions: Observable<Employee>[];
@@ -55,21 +56,20 @@ export class EmployeeFormComponent implements OnInit {
     return this.fb.group({
       fname: ['', Validators.required],
       lname: ['', Validators.required],
-      emailId: ['', Validators.email],
-      mobile: ['', Validators.required],
-      gender: [''],
-      empdate: [''],
+      emailId: ['', Validators.pattern(/^[a-zA-Z0-9!#$%&'*+-/=?^_`{|}~][a-zA-Z0-9!#$%&'*+-/=?^_`{|}~.]*@[a-zA-Z]*.com$/)],
+      mobile: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
+      gender: ['male'],
+      empdate: ['', Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)],
       dept: [0]
     });
   }
 
   onSubmit() {
+    this.submitted = true;
     console.log(this.empForm);
     if (this.empForm.status === 'VALID') {
       this.saveEmployeeData();
       this.router.navigate(['/crud-operation/emplist']);
-    } else {
-      alert("Enter VALID data..!!!");
     }
   }
 
@@ -77,7 +77,6 @@ export class EmployeeFormComponent implements OnInit {
     let emp: Employee;
     if (this.isEditMode) {
       emp = {...this.empForm.value, id:this.currentEmpDataId};
-      console.log("helo");
     } else {
       emp = this.empForm.value;
     }
@@ -89,6 +88,7 @@ export class EmployeeFormComponent implements OnInit {
 
   onReset() {
     this.empForm.reset();
+    this.submitted = false;
   }
 
   getControl(cname: string): AbstractControl | null {

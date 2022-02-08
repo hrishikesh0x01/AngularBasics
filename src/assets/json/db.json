@@ -23,14 +23,34 @@
   ],
   "employees": [
     {
-      "fname": "dddddddddd",
-      "lname": "sssssssssss",
-      "emailId": "dsdsdsdsdsd@sdsd.dsd",
-      "mobile": "362456565",
+      "fname": "Hrishikesh",
+      "lname": "Patel",
+      "emailId": "p.hrishikesh2000@gmail.com",
+      "mobile": "9879191394",
       "gender": "male",
       "empdate": "2022-02-10",
-      "dept": "3",
+      "dept": "1",
       "id": 1
+    },
+    {
+      "fname": "Om",
+      "lname": "Khambhata",
+      "emailId": "omkhambhata@gmail.com",
+      "mobile": "6395823621",
+      "gender": "male",
+      "empdate": "2022-02-19",
+      "dept": "1",
+      "id": 2
+    },
+    {
+      "fname": "Jigar",
+      "lname": "Bhanushali",
+      "emailId": "jigarb@gmail.com",
+      "mobile": "5639583345",
+      "gender": "male",
+      "empdate": "2022-02-11",
+      "dept": "1",
+      "id": 3
     }
   ]
 }

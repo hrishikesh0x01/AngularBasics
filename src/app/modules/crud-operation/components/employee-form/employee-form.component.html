@@ -4,19 +4,43 @@
         <label for="fname">First Name: </label>
         <input class="inp-field" type="text" formControlName="fname" id="fname">
     </div>
-    <div class="err-div" *ngIf="getControl('fname')?.touched && getControl('fname')?.errors?.['required']">This Field is Required</div>
+    <div *ngIf="getControl('fname')?.touched || this.submitted">
+        <div class="err-div" *ngIf="getControl('fname')?.errors?.['required']">
+            This Field is Required
+        </div>
+    </div>
     <div class="input-div">
         <label for="lname">Last Name: </label>
         <input class="inp-field" type="text" formControlName="lname" id="lname">
     </div>
-    <div class="err-div" *ngIf="getControl('lname')?.touched && getControl('lname')?.errors?.['required']">This Field is Required</div>
+    <div *ngIf="getControl('lname')?.touched || this.submitted">
+        <div class="err-div" *ngIf="getControl('lname')?.errors?.['required']">
+            This Field is Required
+        </div>
+    </div>
     <div class="input-div">
         <label for="email">Email Id: </label>
         <input class="inp-field" type="email" formControlName="emailId" id="emailId">
     </div>
+    <div *ngIf="getControl('emailId')?.value.toString().length">
+        <div class="err-div" *ngIf="getControl('emailId')?.errors?.['pattern']">
+            Please enter valid email id
+        </div>
+    </div>
     <div class="input-div">
         <label for="mobile">Mobile Number: </label>
         <input class="inp-field" type="text" formControlName="mobile" id="mobile">
+    </div>
+    <div *ngIf="getControl('mobile')?.touched || this.submitted || getControl('mobile')?.value.length">
+        <div class="err-div" *ngIf="getControl('mobile')?.errors?.['required']">
+            This Field is Required
+        </div>
+        <div class="err-div" *ngIf="getControl('mobile')?.errors?.['maxlength']">
+            Mobile Number should be atmost 10 digits long
+        </div>
+        <div class="err-div" *ngIf="getControl('mobile')?.errors?.['minlength']">
+            Mobile Number should be atleast 10 digits long
+        </div>
     </div>
     <div class="input-div">
         <label for="gender">Gender: </label>
@@ -36,7 +60,9 @@
             <option *ngFor="let dept of this.departmentOptions" [value]="dept.id">{{ dept.name }}</option>
         </select>
     </div>
-    <button class="btn submit-btn" type="submit">Submit</button>
-    <button class="btn reset-btn" type="button" (click)="onReset()">Reset</button>
-    <button class="btn reset-btn" type="button" routerLink="/crud-operation/emplist">Return To List</button>
+    <div class="emp-det-btn d-flex">
+        <button class="btn submit-btn" type="submit">Submit</button>
+        <button class="btn reset-btn" type="button" (click)="onReset()">Reset</button>
+        <button class="btn back-btn" type="button" routerLink="/crud-operation/emplist">Return To List</button>
+    </div>
 </form>

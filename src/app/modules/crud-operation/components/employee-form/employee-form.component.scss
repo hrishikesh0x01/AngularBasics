@@ -35,6 +35,10 @@
     color: #D61801;
 }
 
+.emp-det-btn {
+    justify-content: space-evenly;
+}
+
 .btn {
     margin-top: 10px;
     padding: 0.75rem 1rem;
@@ -45,10 +49,13 @@
 }
 
 .reset-btn {
-    margin-left: 1rem;
     background-color: #90BE6D;
 }
 
 .submit-btn {
     background-color: #277DA1;
+}
+
+.back-btn {
+    background-color: #343A40;
 }
