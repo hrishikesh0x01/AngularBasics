@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { ResumeInfo } from '../models/resume-info.model';
 import { ResumeService } from '../services/resume.service';
 
 @Component({
@@ -24,12 +23,16 @@ export class ResumeFormComponent implements OnInit {
     // console.log(this.resumeForm);
   }
 
+  debug() {
+    console.log(this.resumeForm);
+  }
+
   createResumeForm(): FormGroup {
     return this.fb.group({
-      name: ["string", []],
-      designation: ["string", []],
-      email: ["string", []],
-      mobileNo: ["string", []],
+      name: ["", [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      designation: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email]],
+      mobileNo: ["", [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
       technical: this.fb.array([]),
       experience: this.fb.array([]),
       education: this.fb.array([])
@@ -46,7 +49,7 @@ export class ResumeFormComponent implements OnInit {
 
   addTechnicalField() {
     this.getFormGroupArray('technical').push(
-      this.fb.control('', [])
+      this.fb.control('', [Validators.required])
     );
   }
 
@@ -57,23 +60,31 @@ export class ResumeFormComponent implements OnInit {
   addExperienceGroup() {
     this.getFormGroupArray('experience').push(
       this.fb.group({
-        companyName: ["string", []],
-        jobRole: ["string", []],
-        jobDescription: ["string", []],
-        startYear: [2022, []],
-        endYear: [2023, []]
+        companyName: ["", [Validators.required]],
+        jobRole: ["", [Validators.required]],
+        jobDescription: ["", [Validators.required]],
+        startYear: [2022, [Validators.required, Validators.maxLength(4)]],
+        endYear: [2023, [Validators.required, Validators.maxLength(4)]]
       })
     )
+  }
+
+  removeExperienceGroup(index: number) {
+    this.getFormGroupArray('experience').removeAt(index);
   }
 
   addEducationGroup() {
     this.getFormGroupArray('education').push(
       this.fb.group({
-        uniName: ["string", []],
-        degree: ["string", []],
-        grade: [1.0, []]
+        uniName: ["", [Validators.required]],
+        degree: ["", [Validators.required]],
+        grade: [1.0, [Validators.required]]
       })
     );
+  }
+
+  removeEducationGroup(index: number) {
+    this.getFormGroupArray('education').removeAt(index);
   }
 
   onReset(): void {

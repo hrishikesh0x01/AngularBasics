@@ -19,7 +19,7 @@
     </div>
     <div class="input-div">
         <label for="mobileNo">Mobile Number: </label>
-        <input class="inp-field" type="number" formControlName="mobileNo" id="mobileNo">
+        <input class="inp-field" (input)="debug()" type="number" formControlName="mobileNo" id="mobileNo">
     </div>
     <div class="d-flex">
         <div class="d-flex f-col">
@@ -56,12 +56,15 @@
                     </div>
                     <div class="input-div">
                         <label for="startYear">Start Year: </label>
-                        <input class="inp-field" type="text" formControlName="startYear" id="startYear">
+                        <input class="inp-field" type="number" formControlName="startYear" id="startYear">
                     </div>
                     <div class="input-div">
                         <label for="endYear">End Year: </label>
-                        <input class="inp-field" type="text" formControlName="endYear" id="endYear">
+                        <input class="inp-field" type="number" formControlName="endYear" id="endYear">
                     </div>
+                </div>
+                <div>
+                    <button class="btn add-btn" type="button" (click)="removeExperienceGroup(i)">Delete</button>
                 </div>
             </fieldset>            
         </div>
@@ -82,8 +85,11 @@
                     </div>
                     <div class="input-div">
                         <label for="grade">Grade: </label>
-                        <input class="inp-field" type="text" formControlName="grade" id="grade">
+                        <input class="inp-field" type="number" formControlName="grade" id="grade">
                     </div>
+                </div>
+                <div>
+                    <button class="btn add-btn" type="button" (click)="removeEducationGroup(i)">Delete</button>
                 </div>
             </fieldset>
         </div>
