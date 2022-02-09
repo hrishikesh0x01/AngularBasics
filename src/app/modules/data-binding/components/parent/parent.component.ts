@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-parent',
@@ -9,7 +9,7 @@ export class ParentComponent implements OnInit {
   valueFromChild?: string;
   toChild?: string;
   isVisible: boolean = false;
-  val_ngModel?:string;
+  val_ngModel?: string;
 
   constructor() { }
 

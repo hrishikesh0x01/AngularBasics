@@ -1,34 +1,36 @@
-<div style="width: 800px; margin: auto; padding: 50px; border: 5px solid #505050; border-left: none; border-right: none; background-color: #f5f5f5;">
+<div class="resume-container" *ngIf="this.resumeInfo">
     <header>
-        <table style="border-bottom: 1px solid #d8d8d8;">
+        <table class="header-table">
             <tr>
-                <th style="width: 80%;">
-                    <h1 style="margin: 0; line-height: 55px;">
-                        JONATHAN DOE
+                <th class="header-cell-1">
+                    <h1 class="name">
+                        {{ this.resumeInfo.name }}
                     </h1>
-                    <span style="display: block; margin-bottom: 20px;">
-                        <em>WEB DESIGNER, DIRECTOR</em>
+                    <span class="designation">
+                        <em>{{ this.resumeInfo.designation }}</em>
                     </span>
                 </th>
-                <th style="vertical-align: middle;">
-                    <button style="display: block;">Download PDF</button>
-                    <a href="mailto:name@yourdomain.com" style="color: #ff3835;">name@yourdomain.com</a>
-                    <span style="display: block;">(313)-467-5309</span>
+                <th class="header-cell-2">
+                    <div>
+                        <button>Download PDF</button>
+                    </div>
+                    <a href="mailto:{{ this.resumeInfo.email }}" class="email-link">{{ this.resumeInfo.email }}</a>
+                    <span style="display: block;">{{ this.resumeInfo.mobileNo }}</span>
                 </th>
             </tr>
         </table>
     </header>
     <main style="padding-top: 15px;">
         <table>
-            <tr style="border-bottom: 1px solid #d8d8d8;">
-                <td class="padding" style="padding: 20px 0px; width: 20%;">
+            <tr class="border-bottom">
+                <td class="padding" style="width: 20%;">
                     <em>Profile</em>
                 </td>
                 <td class="padding">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, exercitationem quia soluta dolore incidunt consectetur velit, rem pariatur alias sit doloribus rerum corporis vero consequuntur.
                 </td>
             </tr>
-            <tr style="border-bottom: 1px solid #d8d8d8;">
+            <tr class="border-bottom">
                 <td class="padding" style="width: 20%;">
                     <em>Skills</em>
                 </td>
@@ -69,101 +71,61 @@
                     </table>
                 </td>
             </tr>
-            <tr style="border-bottom: 1px solid #d8d8d8;">
+            <tr class="border-bottom">
                 <td class="padding" style="width: 20%;">
                     <em>Technical</em>
                 </td>
                 <td class="padding">
-                    <table>
-                        <tr style="border-bottom: 1px solid #d8d8d8;">
-                            <td style="width: 33.33%;">
-                                XHTML
-                            </td>
-                            <td style="width: 33.33%;">
-                                Jquery
-                            </td>
-                            <td style="width: 33.33%;">
-                                OS X
-                            </td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #d8d8d8;">
-                            <td>
-                                CSS
-                            </td>
-                            <td>
-                                PHP
-                            </td>
-                            <td>
-                                Windows XP/Vista
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                JavaScript
-                            </td>
-                            <td>
-                                PHP
-                            </td>
-                            <td>
-                                Windows XP/Vista
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="d-flex flex-wrap w100">
+                        <div class="technical-item border-bottom" *ngFor="let technical of this.resumeInfo.technical">
+                            {{ technical }}
+                        </div>
+                    </div>
                 </td>
             </tr>
-            <tr style="border-bottom: 1px solid #d8d8d8;">
+            <tr class="border-bottom">
                 <td class="padding" style="width: 20%;">
                     <em>Experience</em>
                 </td>
                 <td class="padding">
-                    <table>
-                        <tr style="border-bottom: 1px solid #d8d8d8;">
-                            <td style="width: 88%;">
-                                <div style="font-size: large;">
-                                    <strong>
-                                        Facebook
-                                    </strong>
-                                </div>
-                                <div>Senior Interface Designer</div>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum officiis hic eius exercitationem distinctio esse.</p>
-                            </td>
+                    <table class="experience-table">
+                        <tr class="border-bottom" *ngFor="let experience of this.resumeInfo.experience">
                             <td>
-                                2005-2007
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div style="font-size: large; margin-top: 16px;">
-                                    <strong>
-                                        Apple Inc.
-                                    </strong>
+                                <div class="d-flex experience-table-item w100">
+                                    <div class="flex-grow-1">
+                                        <div>
+                                            <strong>
+                                                {{ experience.companyName }}
+                                            </strong>
+                                        </div>
+                                        <div>{{ experience.jobRole }}</div>
+                                        <div class="experience-desc">{{ experience.jobDescription }}</div>
+                                    </div>
+                                    <div style="width: 13%;">
+                                        {{ experience.startYear }}-{{ experience.endYear }}
+                                    </div>
                                 </div>
-                                <div>Senior Interface Designer</div>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum officiis hic eius exercitationem distinctio esse.</p>
-                            </td>
-                            <td style="padding-top: 16px;">
-                                2005-2007
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
-            <tr style="border-bottom: 1px solid #d8d8d8;">
+            <tr class="border-bottom">
                 <td class="padding" style="width: 20%;">
                     <em>Education</em>
                 </td>
-                <td class="padding">
+                <td class="padding" *ngFor="let edu of this.resumeInfo.education">
                     <div style="font-size: large;">
                         <strong>
-                            Indiana University
+                            {{ edu.uniName }}
                         </strong>
                     </div>
-                    <div>Dual Major - 4.0 GPA</div>
+                    <div>{{ edu.degree }} - {{ edu.grade }} GPA</div>
                 </td>
             </tr>
         </table>
     </main>
-    <footer style="text-align: center; line-height: 35px;">
-        Jonathan Doe - <a href="mailto:name@yourdomain.com" style="color: #ff3835;">name@yourdomain.com</a> - (313)-871-5309 
+    <footer class="footer text-center">
+        {{ this.resumeInfo.name }} - <a href="mailto:{{ this.resumeInfo.email }}" class="email-link">{{ this.resumeInfo.email }}</a> - {{ this.resumeInfo.mobileNo }}
     </footer>
 </div>

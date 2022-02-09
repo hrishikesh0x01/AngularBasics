@@ -1,1 +1,97 @@
-<p>resume-form works!</p>
+<form class="form" [formGroup]="resumeForm">
+    <legend class="form-title"><strong>Employee Details</strong></legend>
+    <div class="input-div">
+        <label for="name">Full Name: </label>
+        <input class="inp-field" type="text" formControlName="name" id="name">
+    </div>
+    <!-- <div *ngIf="getControl('fname')?.touched || this.submitted">
+        <div class="err-div" *ngIf="getControl('fname')?.errors?.['required']">
+            This Field is Required
+        </div>
+    </div> -->
+    <div class="input-div">
+        <label for="designation">Designation: </label>
+        <input class="inp-field" type="text" formControlName="designation" id="designation">
+    </div>
+    <div class="input-div">
+        <label for="email">Email Id: </label>
+        <input class="inp-field" type="email" formControlName="email" id="email">
+    </div>
+    <div class="input-div">
+        <label for="mobileNo">Mobile Number: </label>
+        <input class="inp-field" type="number" formControlName="mobileNo" id="mobileNo">
+    </div>
+    <div class="d-flex">
+        <div class="d-flex f-col">
+            <div class="d-flex" formArrayName="technical" *ngFor="let technical of this.getFormGroupArray('technical').controls; let i = index;">
+                <div class="input-div">
+                    <label for="designation">Skill {{i+1}}: </label>
+                    <input class="inp-field" type="text" [formControlName]="i" id="skill-input">
+                </div>
+                <div>
+                    <button class="btn add-btn" type="button" (click)="removeTechnicalField(i)">Delete</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="button" (click)="addTechnicalField()">Add</button>
+        </div>
+    </div>
+    <div>
+        <div formArrayName="experience" *ngFor="let experienceGroup of this.getFormGroupArray('experience').controls; let i = index;">
+            <fieldset>
+                <legend>Experience {{ i+1 }}</legend>
+                <div [formGroup]="this.getAsFormGroup(experienceGroup)">
+                    <div class="input-div">
+                        <label for="companyName">Company Name: </label>
+                        <input class="inp-field" type="text" formControlName="companyName" id="companyName">
+                    </div>
+                    <div class="input-div">
+                        <label for="jobRole">Job Role: </label>
+                        <input class="inp-field" type="text" formControlName="jobRole" id="jobRole">
+                    </div>
+                    <div class="input-div">
+                        <label for="jobDescription">Job Description: </label>
+                        <input class="inp-field" type="text" formControlName="jobDescription" id="jobDescription">
+                    </div>
+                    <div class="input-div">
+                        <label for="startYear">Start Year: </label>
+                        <input class="inp-field" type="text" formControlName="startYear" id="startYear">
+                    </div>
+                    <div class="input-div">
+                        <label for="endYear">End Year: </label>
+                        <input class="inp-field" type="text" formControlName="endYear" id="endYear">
+                    </div>
+                </div>
+            </fieldset>            
+        </div>
+        <button type="button" (click)="addExperienceGroup()">Add</button>
+    </div>
+    <div>
+        <div formArrayName="education" *ngFor="let educationGroup of this.getFormGroupArray('education').controls; let i = index;">
+            <fieldset>
+                <legend>Education {{ i+1 }}</legend>
+                <div [formGroup]="this.getAsFormGroup(educationGroup)">
+                    <div class="input-div">
+                        <label for="uniName">University Name: </label>
+                        <input class="inp-field" type="text" formControlName="uniName" id="uniName">
+                    </div>
+                    <div class="input-div">
+                        <label for="degree">Degree: </label>
+                        <input class="inp-field" type="text" formControlName="degree" id="degree">
+                    </div>
+                    <div class="input-div">
+                        <label for="grade">Grade: </label>
+                        <input class="inp-field" type="text" formControlName="grade" id="grade">
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <button type="button" (click)="addEducationGroup()">Add</button>
+    </div>
+    <div class="emp-det-btn d-flex">
+        <button class="btn submit-btn" type="submit" (click)="onSubmit()">Submit</button>
+        <button class="btn reset-btn" type="button" (click)="onReset()">Reset</button>
+        <!-- <button class="btn back-btn" type="button" routerLink="/resume-builder/view">Return To List</button> -->
+    </div>
+</form>

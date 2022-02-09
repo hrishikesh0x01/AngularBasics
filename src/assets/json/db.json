@@ -102,5 +102,39 @@
       "dept": "1",
       "id": 8
     }
+  ],
+  "resumes": [
+    {
+      "name": "Abhishake shake shake",
+      "designation": "unempoyeed",
+      "email": "abhikpatel@gamil",
+      "mobileNo": 9925621522,
+      "technical": [
+        "chess player",
+        "rubik's cube"
+      ],
+      "experience": [
+        {
+          "companyName": "1rivet",
+          "jobRole": "ui",
+          "jobDescription": "intern",
+          "startYear": "2022",
+          "endYear": "2025"
+        }
+      ],
+      "education": [
+        {
+          "uniName": "utu",
+          "degree": "b.tech",
+          "grade": "9"
+        },
+        {
+          "uniName": "convent",
+          "degree": "12th",
+          "grade": "9"
+        }
+      ],
+      "id": 1
+    }
   ]
 }

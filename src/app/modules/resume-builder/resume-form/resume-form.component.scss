@@ -1,0 +1,65 @@
+:host {
+    margin: 0 auto;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    width: 100%;
+}
+
+.form-title {
+    font-size: 2rem;
+}
+
+.form {
+    margin: 100px auto 0;
+    background-color: #F2F2F2;
+    width: 60%;
+    min-width: 600px;
+    max-width: 700px;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.input-div {
+    padding: 5px 0px;
+    margin: 5px;
+
+    label {
+        padding: 0px 5px;
+    }
+
+    .inp-field {
+        font-size: 1.25rem;
+        padding: 5px 10px;
+        outline: none;
+    }
+}
+
+.err-div {
+    font-size: 1rem;
+    color: #D61801;
+}
+
+.emp-det-btn {
+    justify-content: space-evenly;
+}
+
+.btn {
+    margin-top: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 1.25rem;
+    border: none;
+    color: white;
+    border-radius: 0.25rem;
+}
+
+.reset-btn {
+    background-color: #90BE6D;
+}
+
+.submit-btn {
+    background-color: #277DA1;
+}
+
+.back-btn {
+    background-color: #343A40;
+}

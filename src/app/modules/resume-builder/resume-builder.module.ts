@@ -5,6 +5,8 @@ import { ResumeBuilderRoutingModule } from './resume-builder-routing.module';
 import { ResumeBuilderComponent } from './resume-builder.component';
 import { ResumeViewComponent } from './resume-view/resume-view.component';
 import { ResumeFormComponent } from './resume-form/resume-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { ResumeFormComponent } from './resume-form/resume-form.component';
   ],
   imports: [
     CommonModule,
-    ResumeBuilderRoutingModule
+    ResumeBuilderRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ResumeBuilderModule { }
