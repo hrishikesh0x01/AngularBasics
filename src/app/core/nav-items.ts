@@ -13,7 +13,7 @@ export let navItems = [
     },
     {
         "dispName": "Reactive Form Basics",
-        "routePath": "/reactive-form-asics"
+        "routePath": "/reactive-form-basics"
     },
     {
         "dispName": "CRUD Operation",

@@ -85,6 +85,6 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   getControl(cname: string): AbstractControl | null {
-    return this.empForm.get(cname)
+    return this.empForm.get(cname);
   }
 }

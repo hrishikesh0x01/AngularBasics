@@ -4,29 +4,55 @@
         <label for="name">Full Name: </label>
         <input class="inp-field" type="text" formControlName="name" id="name">
     </div>
-    <!-- <div *ngIf="getControl('fname')?.touched || this.submitted">
-        <div class="err-div" *ngIf="getControl('fname')?.errors?.['required']">
-            This Field is Required
+    <div *ngIf="getControl('name')?.touched || this.submitted || getControl('name')?.dirty">
+        <div class="err-div" *ngIf="getControl('name')?.errors?.['required']">
+            Full Name is Required
         </div>
-    </div> -->
+        <div class="err-div" *ngIf="getControl('name')?.errors?.['minlength']">
+            Full Name cannot be less than 4 letters.
+        </div>
+        <div class="err-div" *ngIf="getControl('name')?.errors?.['maxlength']">
+            Full Name cannot be more than 8 letters.
+        </div>
+    </div>
     <div class="input-div">
         <label for="designation">Designation: </label>
         <input class="inp-field" type="text" formControlName="designation" id="designation">
+    </div>
+    <div *ngIf="getControl('designation').touched || this.submitted || getControl('designation').dirty">
+        <div class="err-div" *ngIf="getControl('designation')?.errors?.['required']">
+            Designation is Required
+        </div>
     </div>
     <div class="input-div">
         <label for="email">Email Id: </label>
         <input class="inp-field" type="email" formControlName="email" id="email">
     </div>
+    <div *ngIf="getControl('email').touched || this.submitted || getControl('email').dirty">
+        <div class="err-div" *ngIf="getControl('email')?.errors?.['required']">
+            Email Id is Required
+        </div>
+    </div>
     <div class="input-div">
         <label for="mobileNo">Mobile Number: </label>
         <input class="inp-field" type="number" formControlName="mobileNo" id="mobileNo">
+    </div>
+    <div *ngIf="getControl('mobileNo').touched || this.submitted || getControl('mobileNo').dirty">
+        <div class="err-div" *ngIf="getControl('mobileNo')?.errors?.['required']">
+            Mobile Number is Required
+        </div>
     </div>
     <div class="d-flex">
         <div class="d-flex f-col">
             <div class="d-flex" formArrayName="technical" *ngFor="let technical of this.technicalArray.controls; let i = index;">
                 <div class="input-div">
-                    <label for="designation">Skill {{i+1}}: </label>
+                    <label for="skill-input">Skill {{i+1}}: </label>
                     <input class="inp-field" type="text" [formControlName]="i" id="skill-input">
+                </div>
+                <div *ngIf="technical.touched || this.submitted || technical.dirty">
+                    <div class="err-div" *ngIf="technical.errors?.['required']">
+                        Skill cannot be blank.
+                    </div>
                 </div>
                 <div>
                     <button class="btn btn-danger" type="button" (click)="removeTechnicalField(i)">Delete</button>
@@ -46,21 +72,49 @@
                         <label for="companyName">Company Name: </label>
                         <input class="inp-field" type="text" formControlName="companyName" id="companyName">
                     </div>
+                    <div *ngIf="this.getControl('companyName', experienceGroup).touched || this.submitted || this.getControl('companyName', experienceGroup).dirty">
+                        <div class="err-div" *ngIf="this.getControl('companyName', experienceGroup).errors?.['required']">
+                            Company Name is required.
+                        </div>
+                    </div>
                     <div class="input-div">
                         <label for="jobRole">Job Role: </label>
                         <input class="inp-field" type="text" formControlName="jobRole" id="jobRole">
+                    </div>
+                    <div *ngIf="this.getControl('jobRole', experienceGroup).touched || this.submitted || this.getControl('jobRole', experienceGroup).dirty">
+                        <div class="err-div" *ngIf="this.getControl('jobRole', experienceGroup).errors?.['required']">
+                            Job Role is required.
+                        </div>
                     </div>
                     <div class="input-div">
                         <label for="jobDescription">Job Description: </label>
                         <input class="inp-field" type="text" formControlName="jobDescription" id="jobDescription">
                     </div>
+                    <div *ngIf="this.getControl('jobDescription', experienceGroup).touched || this.submitted || this.getControl('jobDescription', experienceGroup).dirty">
+                        <div class="err-div" *ngIf="this.getControl('jobDescription', experienceGroup).errors?.['required']">
+                            Job Description is required.
+                        </div>
+                    </div>
                     <div class="input-div">
                         <label for="startYear">Start Year: </label>
                         <input class="inp-field" type="number" formControlName="startYear" id="startYear">
                     </div>
+                    <div *ngIf="this.getControl('startYear', experienceGroup).touched || this.submitted || this.getControl('startYear', experienceGroup).dirty">
+                        <div class="err-div" *ngIf="this.getControl('startYear', experienceGroup).errors?.['required']">
+                            Start Year is required.
+                        </div>
+                        <div class="err-div" *ngIf="this.getControl('startYear', experienceGroup).errors?.['max']">
+                            Start Year cannot be greater than {{ this.maxYear }}
+                        </div>
+                    </div>
                     <div class="input-div">
                         <label for="endYear">End Year: </label>
                         <input class="inp-field" type="number" formControlName="endYear" id="endYear">
+                    </div>
+                    <div *ngIf="this.getControl('endYear', experienceGroup).touched || this.submitted || this.getControl('endYear', experienceGroup).dirty">
+                        <div class="err-div" *ngIf="this.getControl('endYear', experienceGroup).errors?.['required']">
+                            End Year is required.
+                        </div>
                     </div>
                 </div>
                 <div>

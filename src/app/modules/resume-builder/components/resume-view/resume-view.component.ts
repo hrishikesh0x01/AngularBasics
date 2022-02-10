@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ResumeInfo } from '../models/resume-info.model';
-import { ResumeService } from '../services/resume.service';
+import { ResumeInfo } from '../../models/resume-info.model';
+import { ResumeService } from '../../services/resume.service';
 
 @Component({
   selector: 'app-resume-view',

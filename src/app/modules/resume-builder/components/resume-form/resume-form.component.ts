@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { ResumeService } from '../services/resume.service';
+import { ResumeService } from '../../services/resume.service';
 
 @Component({
   selector: 'app-resume-form',
@@ -12,6 +12,8 @@ import { ResumeService } from '../services/resume.service';
 export class ResumeFormComponent implements OnInit {
 
   resumeForm: FormGroup;
+  submitted: boolean = false;
+  maxYear: number = new Date().getFullYear();
   technicalArray: FormArray = this.fb.array([]);
   experienceArray: FormArray = this.fb.array([]);
   educationArray: FormArray = this.fb.array([]);
@@ -49,7 +51,7 @@ export class ResumeFormComponent implements OnInit {
   }
 
   removeTechnicalField(index: number) {
-    this.technicalArray.removeAt(index);
+    if (this.technicalArray.length - 1) this.technicalArray.removeAt(index);
   }
 
   addExperienceGroup() {
@@ -58,14 +60,14 @@ export class ResumeFormComponent implements OnInit {
         companyName: ["", [Validators.required]],
         jobRole: ["", [Validators.required]],
         jobDescription: ["", [Validators.required]],
-        startYear: [2022, [Validators.required, Validators.maxLength(4)]],
+        startYear: [2022, [Validators.required, Validators.min(1000), Validators.max(this.maxYear)]],
         endYear: [2023, [Validators.required, Validators.maxLength(4)]]
       })
     )
   }
 
   removeExperienceGroup(index: number) {
-    this.experienceArray.removeAt(index);
+    if (this.experienceArray.length - 1) this.experienceArray.removeAt(index);
   }
 
   addEducationGroup() {
@@ -79,21 +81,31 @@ export class ResumeFormComponent implements OnInit {
   }
 
   removeEducationGroup(index: number) {
-    this.educationArray.removeAt(index);
+    if (this.educationArray.length - 1) this.educationArray.removeAt(index);
+  }
+
+  getControl(cname: string, arrName?: AbstractControl): FormGroup {
+    if (!arrName) return this.resumeForm.get(cname) as FormGroup;
+    else return this.getAsFormGroup(arrName).controls[cname] as FormGroup;
   }
 
   onReset(): void {
     this.resumeForm.reset();
+    this.submitted = false;
   }
 
   onSubmit(): void {
-    // let resume: ResumeInfo;
-    // resume = ;
-    this.resumeService.deleteResumeDetails(1).subscribe(id => {
-      this.resumeService.saveResumeDetails(this.resumeForm.value).subscribe(data => {
-        // console.log(data);
-        this.router.navigate(['/resume-builder/view']);
-      })
-    })
+    if (this.resumeForm.status === "VALID") {
+      this.resumeService.deleteResumeDetails(1).subscribe(id => {
+        this.resumeService.saveResumeDetails(this.resumeForm.value).subscribe(data => {
+          // console.log(data);
+          this.router.navigate(['/resume-builder/view']);
+        })
+      });
+    } else {
+      this.submitted = true;
+      console.log(this.resumeForm);
+      console.log("INVALID")
+    }
   }
 }
