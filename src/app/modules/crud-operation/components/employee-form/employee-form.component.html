@@ -60,9 +60,9 @@
             <option *ngFor="let dept of this.departmentOptions" [value]="dept.id">{{ dept.name }}</option>
         </select>
     </div>
-    <div class="emp-det-btn d-flex">
-        <button class="btn submit-btn" type="submit">Submit</button>
-        <button class="btn reset-btn" type="button" (click)="onReset()">Reset</button>
+    <div class="emp-det-btn-container d-flex">
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-danger" type="button" (click)="onReset()">Reset</button>
         <button class="btn back-btn" type="button" routerLink="/crud-operation/emplist">Return To List</button>
     </div>
 </form>

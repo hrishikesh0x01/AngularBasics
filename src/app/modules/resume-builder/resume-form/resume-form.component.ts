@@ -12,6 +12,9 @@ import { ResumeService } from '../services/resume.service';
 export class ResumeFormComponent implements OnInit {
 
   resumeForm: FormGroup;
+  technicalArray: FormArray = this.fb.array([]);
+  experienceArray: FormArray = this.fb.array([]);
+  educationArray: FormArray = this.fb.array([]);
 
   constructor(private fb: FormBuilder, private resumeService: ResumeService, private router: Router) { }
 
@@ -23,24 +26,16 @@ export class ResumeFormComponent implements OnInit {
     // console.log(this.resumeForm);
   }
 
-  debug() {
-    console.log(this.resumeForm);
-  }
-
   createResumeForm(): FormGroup {
     return this.fb.group({
       name: ["", [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
       designation: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
       mobileNo: ["", [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
-      technical: this.fb.array([]),
-      experience: this.fb.array([]),
-      education: this.fb.array([])
+      technical: this.technicalArray,
+      experience: this.experienceArray,
+      education: this.educationArray
     });
-  }
-
-  getFormGroupArray(formArrayName: string): FormArray {
-    return this.resumeForm.controls[formArrayName] as FormArray;
   }
 
   getAsFormGroup(ab: AbstractControl): FormGroup {
@@ -48,17 +43,17 @@ export class ResumeFormComponent implements OnInit {
   }
 
   addTechnicalField() {
-    this.getFormGroupArray('technical').push(
+    this.technicalArray.push(
       this.fb.control('', [Validators.required])
     );
   }
 
   removeTechnicalField(index: number) {
-    this.getFormGroupArray('technical').removeAt(index);
+    this.technicalArray.removeAt(index);
   }
 
   addExperienceGroup() {
-    this.getFormGroupArray('experience').push(
+    this.experienceArray.push(
       this.fb.group({
         companyName: ["", [Validators.required]],
         jobRole: ["", [Validators.required]],
@@ -70,11 +65,11 @@ export class ResumeFormComponent implements OnInit {
   }
 
   removeExperienceGroup(index: number) {
-    this.getFormGroupArray('experience').removeAt(index);
+    this.experienceArray.removeAt(index);
   }
 
   addEducationGroup() {
-    this.getFormGroupArray('education').push(
+    this.educationArray.push(
       this.fb.group({
         uniName: ["", [Validators.required]],
         degree: ["", [Validators.required]],
@@ -84,7 +79,7 @@ export class ResumeFormComponent implements OnInit {
   }
 
   removeEducationGroup(index: number) {
-    this.getFormGroupArray('education').removeAt(index);
+    this.educationArray.removeAt(index);
   }
 
   onReset(): void {

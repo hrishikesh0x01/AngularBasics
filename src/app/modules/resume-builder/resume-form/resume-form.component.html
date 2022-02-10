@@ -19,26 +19,26 @@
     </div>
     <div class="input-div">
         <label for="mobileNo">Mobile Number: </label>
-        <input class="inp-field" (input)="debug()" type="number" formControlName="mobileNo" id="mobileNo">
+        <input class="inp-field" type="number" formControlName="mobileNo" id="mobileNo">
     </div>
     <div class="d-flex">
         <div class="d-flex f-col">
-            <div class="d-flex" formArrayName="technical" *ngFor="let technical of this.getFormGroupArray('technical').controls; let i = index;">
+            <div class="d-flex" formArrayName="technical" *ngFor="let technical of this.technicalArray.controls; let i = index;">
                 <div class="input-div">
                     <label for="designation">Skill {{i+1}}: </label>
                     <input class="inp-field" type="text" [formControlName]="i" id="skill-input">
                 </div>
                 <div>
-                    <button class="btn add-btn" type="button" (click)="removeTechnicalField(i)">Delete</button>
+                    <button class="btn btn-danger" type="button" (click)="removeTechnicalField(i)">Delete</button>
                 </div>
             </div>
         </div>
         <div>
-            <button type="button" (click)="addTechnicalField()">Add</button>
+            <button class="btn btn-primary" type="button" (click)="addTechnicalField()">Add</button>
         </div>
     </div>
     <div>
-        <div formArrayName="experience" *ngFor="let experienceGroup of this.getFormGroupArray('experience').controls; let i = index;">
+        <div formArrayName="experience" *ngFor="let experienceGroup of this.experienceArray.controls; let i = index;">
             <fieldset>
                 <legend>Experience {{ i+1 }}</legend>
                 <div [formGroup]="this.getAsFormGroup(experienceGroup)">
@@ -64,14 +64,14 @@
                     </div>
                 </div>
                 <div>
-                    <button class="btn add-btn" type="button" (click)="removeExperienceGroup(i)">Delete</button>
+                    <button class="btn btn-danger" type="button" (click)="removeExperienceGroup(i)">Delete</button>
                 </div>
             </fieldset>            
         </div>
-        <button type="button" (click)="addExperienceGroup()">Add</button>
+        <button class="btn btn-primary" type="button" (click)="addExperienceGroup()">Add</button>
     </div>
     <div>
-        <div formArrayName="education" *ngFor="let educationGroup of this.getFormGroupArray('education').controls; let i = index;">
+        <div formArrayName="education" *ngFor="let educationGroup of this.educationArray.controls; let i = index;">
             <fieldset>
                 <legend>Education {{ i+1 }}</legend>
                 <div [formGroup]="this.getAsFormGroup(educationGroup)">
@@ -89,15 +89,15 @@
                     </div>
                 </div>
                 <div>
-                    <button class="btn add-btn" type="button" (click)="removeEducationGroup(i)">Delete</button>
+                    <button class="btn btn-danger" type="button" (click)="removeEducationGroup(i)">Delete</button>
                 </div>
             </fieldset>
         </div>
-        <button type="button" (click)="addEducationGroup()">Add</button>
+        <button class="btn btn-primary" type="button" (click)="addEducationGroup()">Add</button>
     </div>
-    <div class="emp-det-btn d-flex">
-        <button class="btn submit-btn" type="submit" (click)="onSubmit()">Submit</button>
-        <button class="btn reset-btn" type="button" (click)="onReset()">Reset</button>
+    <div class="emp-det-btn-container d-flex">
+        <button class="btn btn-primary" type="submit" (click)="onSubmit()">Submit</button>
+        <button class="btn btn-danger" type="button" (click)="onReset()">Reset</button>
         <!-- <button class="btn back-btn" type="button" routerLink="/resume-builder/view">Return To List</button> -->
     </div>
 </form>

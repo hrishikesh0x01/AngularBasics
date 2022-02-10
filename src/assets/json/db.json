@@ -106,26 +106,26 @@
   "resumes": [
     {
       "name": "gggg ddd",
-      "designation": "sdg",
+      "designation": "",
       "email": "p.hrishikesh2000@gmail.com",
-      "mobileNo": 3466345245,
+      "mobileNo": "",
       "technical": [
-        "dfsgsd"
+        ""
       ],
       "experience": [
         {
-          "companyName": "24523",
-          "jobRole": "2452",
-          "jobDescription": "5235",
+          "companyName": "",
+          "jobRole": "",
+          "jobDescription": "",
           "startYear": 2022,
           "endYear": 2023
         }
       ],
       "education": [
         {
-          "uniName": "235",
-          "degree": "5253",
-          "grade": 1.34534
+          "uniName": "",
+          "degree": "",
+          "grade": 1
         }
       ],
       "id": 1
