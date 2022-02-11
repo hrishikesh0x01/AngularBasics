@@ -5,12 +5,9 @@ import { Directive, HostBinding, HostListener } from '@angular/core';
 })
 export class PhoneMaskDirective {
 
-  @HostBinding('value') phoneNumber = '';
+  // @HostBinding('value') phoneNumber = '';
 
   @HostListener('input') onPhoneInput() {
-    if (this.phoneNumber.length) {
-      ///////TODO
-    }
   }
 
   constructor() { }
