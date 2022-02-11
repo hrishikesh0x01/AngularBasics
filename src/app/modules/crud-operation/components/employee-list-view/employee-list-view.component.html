@@ -1,63 +1,65 @@
-<div class="head d-flex">
-    <input type="search" [(ngModel)] = 'searchString'>
-    <button class="btn btn-add" routerLink="/crud-operation/add">Add</button>
+<div class="employee-list-view">
+    <div class="head d-flex">
+        <input type="search" [(ngModel)] = 'searchString'>
+        <button class="btn btn-add" routerLink="/crud-operation/add">Add</button>
+    </div>
+    <table class="employees-table">
+        <thead>
+            <tr>
+                <th class="table-cell">
+                    Id
+                </th>
+                <th class="table-cell">
+                    Name
+                </th>
+                <th class="table-cell">
+                    Email Id
+                </th>
+                <th class="table-cell">
+                    Mobile
+                </th>
+                <th class="table-cell">
+                    Gender
+                </th>
+                <th class="table-cell">
+                    Employment Date
+                </th>
+                <th class="table-cell">
+                    Department
+                </th>
+                <th class="table-cell">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of this.employeeData | searchFromArrayOn: 'fname' : this.searchString; let i = index; trackBy:empTrack">
+                <td class="table-cell">
+                    {{ employee.id }}
+                </td>
+                <td class="table-cell">
+                    {{ employee.fname + ' ' + employee.lname }}
+                </td>
+                <td class="table-cell">
+                    {{ employee.emailId }}
+                </td>
+                <td class="table-cell">
+                    {{ employee.mobile }}
+                </td>
+                <td class="table-cell">
+                    {{ employee.gender }}
+                </td>
+                <td class="table-cell">
+                    {{ employee.empdate }}
+                </td>
+                <td class="table-cell">
+                    {{ employee.dept | mapDept: departmentOptions }}
+                </td>
+                <td class="table-cell">
+                    <button class="btn btn-edit" (click)="editEmp(employee)">Edit</button>
+                    <button class="btn btn-delete" (click)="deleteEmp(employee.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-<table class="employees-table">
-    <thead>
-        <tr>
-            <th class="table-cell">
-                Id
-            </th>
-            <th class="table-cell">
-                Name
-            </th>
-            <th class="table-cell">
-                Email Id
-            </th>
-            <th class="table-cell">
-                Mobile
-            </th>
-            <th class="table-cell">
-                Gender
-            </th>
-            <th class="table-cell">
-                Employment Date
-            </th>
-            <th class="table-cell">
-                Department
-            </th>
-            <th class="table-cell">
-                Action
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let employee of this.employeeData | searchFromArrayOn: 'fname' : this.searchString; let i = index; trackBy:empTrack">
-            <td class="table-cell">
-                {{ employee.id }}
-            </td>
-            <td class="table-cell">
-                {{ employee.fname + ' ' + employee.lname }}
-            </td>
-            <td class="table-cell">
-                {{ employee.emailId }}
-            </td>
-            <td class="table-cell">
-                {{ employee.mobile }}
-            </td>
-            <td class="table-cell">
-                {{ employee.gender }}
-            </td>
-            <td class="table-cell">
-                {{ employee.empdate }}
-            </td>
-            <td class="table-cell">
-                {{ employee.dept | mapDept: departmentOptions }}
-            </td>
-            <td class="table-cell">
-                <button class="btn btn-edit" (click)="editEmp(employee)">Edit</button>
-                <button class="btn btn-delete" (click)="deleteEmp(employee.id)">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table>

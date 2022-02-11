@@ -1,30 +1,9 @@
-:host {
-    flex-basis: 30%;
-    min-width: 250px;
-    max-width: 325px;
-    flex-shrink: 0;
-}
+$highlight-color: #eaedfc;
+$title-text-color: #2d4385;
 
-.sidebar {
-    overflow: auto;
-    background-color: #A9D6E5;
-    box-shadow: 10px 0px 10px rgba(128, 128, 128, 0.514);
-    .nav-list {
-        list-style: none;
-        margin: 20px 0;
-        .nav-item {
-            box-shadow: 10px 10px 10px rgba(128, 128, 128, 0.514);
-            background-color: #ffffff;
-            padding: 10px 20px;
-            margin: 0.75rem auto;
-            width: 80%;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 1.25rem;
-            a {
-                text-decoration: none;
-                color: #277DA1;
-            }
-        }
-    }
+.title-container {
+    color: $title-text-color;
+    font-size: 2rem;
+    flex: 0 0 90px;
+    border-bottom: 1px solid #e7e7e7;
 }

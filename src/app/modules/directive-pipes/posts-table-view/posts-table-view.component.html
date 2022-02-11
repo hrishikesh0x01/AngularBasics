@@ -1,18 +1,18 @@
 <fieldset class="d-flex new-post-input">
     <legend>Add New Post</legend>
-    <div class="d-flex w100 inp-div">
+    <div class="d-flex w-100 inp-div">
         <label for="userid">User Id: </label>
         <input type="number" name="userid" #userid placeholder="Enter UserId">
     </div>
-    <div class="d-flex w100 inp-div">
+    <div class="d-flex w-100 inp-div">
         <label for="pid">Id: </label>
         <input type="number" name="pid" #pid placeholder="Enter PostId">
     </div>
-    <div class="d-flex w100 inp-div">
+    <div class="d-flex w-100 inp-div">
         <label for="ptitle">Title: </label>
         <input type="text" name="ptitle" #ptitle placeholder="Enter post title">
     </div>
-    <div class="d-flex w100 inp-div">
+    <div class="d-flex w-100 inp-div">
         <label for="pbody">Body: </label>
         <input type="text" name="pbody" #pbody placeholder="Enter post body">
     </div>
@@ -20,7 +20,7 @@
         <button (click)="addPost(userid.value, pid.value, ptitle.value, pbody.value)">Add</button>
     </div>
 </fieldset>
-<div class="pad2r">
+<div class="post-table-div">
     <span class="selectedPost">{{this.selectedPostTitle}}</span>
     <table class="posts-table">
         <thead appCustomDirective>

@@ -1,16 +1,11 @@
-:host {
-    width: 100%;
-}
-
-.border1px {
-    border: 1px solid #000000;
+.parent {
     width: max-content;
-}
-
-.pad2r {
     padding: 2rem;
+    margin: 2rem;
+    border: 1px solid #000000;
 }
 
-.not-vis {
-    display: none;
+.input-div {
+    border: 1px solid #000000;
+    padding: 2rem;
 }

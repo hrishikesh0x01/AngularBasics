@@ -56,7 +56,7 @@
     <div class="input-div">
         <label for="dept">Department: </label>
         <select class="inp-field" formControlName="dept" id="dept">
-            <option value="0" selected hidden disabled>Select Department</option>
+            <option value="0" selected d-none disabled>Select Department</option>
             <option *ngFor="let dept of this.departmentOptions" [value]="dept.id">{{ dept.name }}</option>
         </select>
     </div>

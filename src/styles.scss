@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-$primary-color: #2e55e5;
+$primary-color: #2f55e4;
 $danger-color: #D8112C;
 
 * {
@@ -9,60 +10,85 @@ $danger-color: #D8112C;
     padding: 0;
 }
 
-html {
-    font-size: 16px;
-}
-
+html,
 body {
-    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
-.h100 {
+.d- {
+    &none {
+        display: none;
+    }
+
+    &flex {
+        display: flex;
+    }
+}
+
+.h-100 {
     height: 100%;
 }
 
-.w100 {
+.w-100 {
     width: 100%;
 }
 
-.d-flex {
-    display: flex;
-}
-
-.f-col {
+.flex-column {
     flex-direction: column;
 }
 
-.flex-grow-1 {
-    flex-grow: 1;
+.flex-grow- {
+    &1 {
+        flex-grow: 1;
+    }
+
+    &0 {
+        flex-grow: 0;
+    }
 }
 
 .flex-wrap {
     flex-wrap: wrap;
 }
 
-.text-center {
-    text-align: center;
+.justify-content- {
+    &between {
+        justify-content: space-between;
+    }
 }
 
-.pad2r {
-    padding: 2rem;
+.align- {
+    &content- {
+        &center {
+            align-content: center;
+        }
+    }
+
+    &items- {
+        &center {
+            align-items: center;
+        }
+    }
+
+    &middle {
+        vertical-align: middle;
+    }
 }
 
-.pad2pr {
-    padding: 2%;
-}
+.text- {
+    &center {
+        text-align: center;
+    }
+    
+    &left {
+        text-align: left;
+    }
 
-.bg-pink-op50 {
-    background-color: rgba(255, 192, 203, 0.5);
-}
-
-.txt-1-5r {
-    font-size: 1.5rem;
-}
-
-.hidden {
-    display: none;
+    &right {
+        text-align: right;
+    }
 }
 
 .btn {
@@ -75,10 +101,22 @@ body {
     cursor: pointer;
 }
 
-.btn-primary {
-    background-color: $primary-color;
+.btn- {
+    &primary {
+        background-color: $primary-color;
+    }
+
+    &danger {
+        background-color: $danger-color;
+    }
 }
 
-.btn-danger {
-    background-color: $danger-color;
+.overflow- {
+    &auto {
+        overflow: auto;
+    }
+
+    &hidden {
+        overflow: hidden;
+    }
 }

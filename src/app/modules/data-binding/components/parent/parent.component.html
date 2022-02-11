@@ -1,21 +1,23 @@
-<div class="border pad2r">
-    <div class="border pad2r">
+<div class="parent border">
+    <div>
         <label for="text">From parent to child:- </label>
         <input type="text" name="toParent" (input)="passValueToChild(this.textP.value)" #textP placeholder="Illustrate parent to child data binding">
         <p>Value from child:- "{{ this.valueFromChild }}"</p>
-        <div class="border1px">
+        <div>
             <!-- [] indicates that data is passed on to the child -->
             <!-- () indicates that thsi parent component listens to fromChild event (EventEmitter) -->
             <app-child [fromParent]="toChild" (fromChild)="getValueFromChild($event)"></app-child>
         </div>
     </div>
-    <div class="pad2r">
+    <div class="input-div">
         ngModel:- <input type="text" [(ngModel)] = "val_ngModel" placeholder="Illustrate the use of ngModel">
-        {{ val_ngModel }}
+        <div>
+            {{ val_ngModel }}
+        </div>
     </div>
 
     <!-- property binding -->
-    <div [class]="{'not-vis': !isVisible}">
+    <div [class]="{'d-none': !isVisible}">
         {{isVisible}}
     </div>
     <button (click)="toggleVisibility()">Show</button>

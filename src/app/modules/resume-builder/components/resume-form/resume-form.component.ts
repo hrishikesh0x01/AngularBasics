@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ResumeService } from '../../services/resume.service';
 
@@ -30,20 +30,17 @@ export class ResumeFormComponent implements OnInit {
 
   createResumeForm(): FormGroup {
     return this.fb.group({
-      name: ["", [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
-      designation: ["", [Validators.required]],
-      email: ["", [Validators.required, Validators.email]],
-      mobileNo: ["", [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
+      name: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      designation: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      mobileNo: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
       technical: this.technicalArray,
       experience: this.experienceArray,
       education: this.educationArray
     });
   }
 
-  getAsFormGroup(ab: AbstractControl): FormGroup {
-    return ab as FormGroup;
-  }
-
+  
   addTechnicalField() {
     this.technicalArray.push(
       this.fb.control('', [Validators.required])
@@ -57,11 +54,11 @@ export class ResumeFormComponent implements OnInit {
   addExperienceGroup() {
     this.experienceArray.push(
       this.fb.group({
-        companyName: ["", [Validators.required]],
-        jobRole: ["", [Validators.required]],
-        jobDescription: ["", [Validators.required]],
-        startYear: [2022, [Validators.required, Validators.min(1000), Validators.max(this.maxYear)]],
-        endYear: [2023, [Validators.required, Validators.maxLength(4)]]
+        companyName: [null, [Validators.required]],
+        jobRole: [null, [Validators.required]],
+        jobDescription: [null, [Validators.required]],
+        startYear: [null, [Validators.required, Validators.min(1000), Validators.max(this.maxYear)]],
+        endYear: [null, [Validators.required, Validators.maxLength(4)]]
       })
     )
   }
@@ -73,20 +70,24 @@ export class ResumeFormComponent implements OnInit {
   addEducationGroup() {
     this.educationArray.push(
       this.fb.group({
-        uniName: ["", [Validators.required]],
-        degree: ["", [Validators.required]],
-        grade: [1.0, [Validators.required]]
+        uniName: [null, [Validators.required]],
+        degree: [null, [Validators.required]],
+        grade: [null, [Validators.required]]
       })
-    );
+      );
   }
-
+  
   removeEducationGroup(index: number) {
     if (this.educationArray.length - 1) this.educationArray.removeAt(index);
   }
 
-  getControl(cname: string, arrName?: AbstractControl): FormGroup {
-    if (!arrName) return this.resumeForm.get(cname) as FormGroup;
-    else return this.getAsFormGroup(arrName).controls[cname] as FormGroup;
+  getAsFormGroup(ab: AbstractControl): FormGroup {
+    return ab as FormGroup;
+  }
+
+  getControl(cname: string, arrGroup?: AbstractControl): FormGroup {
+    if (!arrGroup) return this.resumeForm.get(cname) as FormGroup;
+    else return this.getAsFormGroup(arrGroup).controls[cname] as FormGroup;
   }
 
   onReset(): void {

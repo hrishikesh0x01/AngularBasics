@@ -1,9 +1,15 @@
-<aside class="sidebar h100 w100">
-    <ul class="d-flex f-col nav-list">
-        <li *ngFor="let feature of this.features" class="nav-item">
-            <a [routerLink]="feature.routePath">
-                {{ feature.dispName }}
-            </a>
-        </li>
-    </ul>
+<aside class="d-flex flex-column h-100">
+    <header class="title-container"><strong>Frontend Tasks</strong></header>
+    <section class="d-flex flex-column justify-content-between sidebar overflow-auto flex-grow-1 w-100">
+        <ul class="flex-grow-1 nav-list">
+            <li *ngFor="let feature of this.features" class="nav-item">
+                <a [routerLink]="feature.routePath" class="nav-link">
+                    {{ feature.dispName }}
+                </a>
+            </li>
+        </ul>
+        <footer>
+            logout
+        </footer>
+    </section>
 </aside>

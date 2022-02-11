@@ -1,9 +1,6 @@
-<div class="d-flex f-col h100">
-    <app-header></app-header>
-    <div class="wrapper d-flex flex-grow-1">
-        <app-navbar></app-navbar>
-        <div class="main-content flex-grow-1">
-            <router-outlet></router-outlet>
-        </div>
-    </div>
+<div class="d-flex wrapper overflow-hidden h-100">
+    <app-navbar class="sidenav overflow-hidden"></app-navbar>
+    <section class="main-content flex-grow-1 overflow-auto">
+        <router-outlet></router-outlet>
+    </section>
 </div>
