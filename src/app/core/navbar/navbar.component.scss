@@ -1,9 +1,55 @@
 $highlight-color: #eaedfc;
 $title-text-color: #2d4385;
 
+.icon {
+    padding: 0 1rem;
+}
+
 .title-container {
     color: $title-text-color;
-    font-size: 2rem;
-    flex: 0 0 90px;
+    font-size: 1.5rem;
+    flex: 0 0 60px;
     border-bottom: 1px solid #e7e7e7;
+}
+
+.nav-list {
+    list-style-type: none;
+}
+
+.line {
+    margin: 4px;
+    width: 25px;
+    height: 4px;
+    background-color: $title-text-color;
+    border-radius: 10px;
+}
+
+#sidenav-checkbox~.sidebar label {
+    .line {
+        transition: all 0.5s;
+
+        &-2 {
+            transition: all 0.5s;
+        }
+    }
+}
+
+#sidenav-checkbox:checked~.sidebar {
+    width: 65px;
+    label {
+        .line {
+            &-2 {
+                transition: all 0.5s;
+                transform: scaleX(0);
+            }
+
+            &-1 {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            &-3 {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    }
 }

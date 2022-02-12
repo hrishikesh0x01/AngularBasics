@@ -1,6 +1,14 @@
-<aside class="d-flex flex-column h-100">
-    <header class="title-container"><strong>Frontend Tasks</strong></header>
-    <section class="d-flex flex-column justify-content-between sidebar overflow-auto flex-grow-1 w-100">
+<input type="checkbox" class="d-none" id="sidenav-checkbox">
+<aside class="d-flex flex-column sidebar h-100">
+    <header class="d-flex align-items-center title-container">
+        <label for="sidenav-checkbox" class="icon">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </label>
+        <span>Frontend Tasks</span>
+    </header>
+    <section class="d-flex flex-column justify-content-between overflow-auto flex-grow-1 w-100">
         <ul class="flex-grow-1 nav-list">
             <li *ngFor="let feature of this.features" class="nav-item">
                 <a [routerLink]="feature.routePath" class="nav-link">
