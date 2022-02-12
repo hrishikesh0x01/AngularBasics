@@ -94,19 +94,19 @@ body {
 .btn {
     margin-top: 10px;
     padding: 0.75rem 1rem;
+    margin: 0.25rem;
     font-size: 1.25rem;
     border: none;
     color: white;
     border-radius: 0.25rem;
     cursor: pointer;
-}
+    height: fit-content;
 
-.btn- {
-    &primary {
+    &-primary {
         background-color: $primary-color;
     }
 
-    &danger {
+    &-danger {
         background-color: $danger-color;
     }
 }

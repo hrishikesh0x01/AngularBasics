@@ -1,3 +1,4 @@
+// Defines the properties to be stored for a resume.
 export class ResumeInfo {
     id: number;
     name: string;
@@ -9,6 +10,7 @@ export class ResumeInfo {
     education: EducationInfo[];
 }
 
+// Defines properties for the experience details to be stored in the resume.
 class ExperienceInfo {
     companyName: string;
     jobRole: string;
@@ -17,6 +19,7 @@ class ExperienceInfo {
     endYear: number;
 }
 
+// Defines properties for the education details to be stored in the resume.
 class EducationInfo {
     uniName: string;
     degree: string;

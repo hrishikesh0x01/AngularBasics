@@ -105,27 +105,29 @@
   ],
   "resumes": [
     {
-      "name": "gggg ddd",
-      "designation": "fghdf",
-      "email": "p.hrishikesh2000@gmail.com",
-      "mobileNo": 4565463456,
+      "name": "Hrish",
+      "designation": "Coder",
+      "email": "hhp@gmail.com",
+      "mobileNo": 9879293425,
       "technical": [
-        "546345"
+        "C/C++",
+        "Python",
+        "JavaScript"
       ],
       "experience": [
         {
-          "companyName": "56346",
-          "jobRole": "6436",
-          "jobDescription": "65436",
+          "companyName": "1rivet",
+          "jobRole": "Frontend Trainee",
+          "jobDescription": "Learning frontend development",
           "startYear": 2022,
-          "endYear": 2023
+          "endYear": 2022
         }
       ],
       "education": [
         {
-          "uniName": "6456",
-          "degree": "56",
-          "grade": 1
+          "uniName": "Gujarat Technological University",
+          "degree": "Computer Engineering",
+          "grade": 8
         }
       ],
       "id": 1

@@ -1,5 +1,11 @@
+<!-- Button to navigate back to list of resumes -->
+<button class="btn btn-primary back-to-list" routerLink="/resume-builder/list">
+    Back To List
+</button>
+
 <div class="resume-container" *ngIf="this.resumeInfo">
     <header>
+        <!-- Table for Name and other header elements -->
         <table class="header-table">
             <tr>
                 <th class="header-cell-1">
@@ -21,7 +27,9 @@
         </table>
     </header>
     <main style="padding-top: 15px;">
+        <!-- Table for body of resume -->
         <table>
+            <!-- Start: Profile row -->
             <tr class="border-bottom">
                 <td class="padding" style="width: 20%;">
                     <em>Profile</em>
@@ -30,6 +38,8 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, exercitationem quia soluta dolore incidunt consectetur velit, rem pariatur alias sit doloribus rerum corporis vero consequuntur.
                 </td>
             </tr>
+            <!-- End: Profile row -->
+            <!-- Start: Skills row -->
             <tr class="border-bottom">
                 <td class="padding" style="width: 20%;">
                     <em>Skills</em>
@@ -71,24 +81,31 @@
                     </table>
                 </td>
             </tr>
+            <!-- End: Skills row -->
+            <!-- Start: Technical row -->
             <tr class="border-bottom">
                 <td class="padding" style="width: 20%;">
                     <em>Technical</em>
                 </td>
                 <td class="padding">
                     <div class="d-flex flex-wrap w-100">
+                        <!-- Interpolated all the technical skills form the resume fetched from database -->
                         <div class="technical-item border-bottom" *ngFor="let technical of this.resumeInfo.technical">
                             {{ technical }}
                         </div>
                     </div>
                 </td>
             </tr>
+            <!-- End: Technical row -->
+            <!-- Start: Experience row -->
             <tr class="border-bottom">
                 <td class="padding" style="width: 20%;">
                     <em>Experience</em>
                 </td>
                 <td class="padding">
+                    <!-- Table for all experience entries -->
                     <table class="experience-table">
+                        <!-- Experience entries are added from the resume fetched from database -->
                         <tr class="border-bottom" *ngFor="let experience of this.resumeInfo.experience">
                             <td>
                                 <div class="d-flex experience-table-item w-100">
@@ -110,10 +127,13 @@
                     </table>
                 </td>
             </tr>
+            <!-- End: Experience row -->
+            <!-- Start: Education row -->
             <tr class="border-bottom">
                 <td class="padding" style="width: 20%;">
                     <em>Education</em>
                 </td>
+                <!-- Education entries are added from the resume fetched from database -->
                 <td class="padding" *ngFor="let edu of this.resumeInfo.education">
                     <div style="font-size: large;">
                         <strong>
@@ -123,8 +143,11 @@
                     <div>{{ edu.degree }} - {{ edu.grade }} GPA</div>
                 </td>
             </tr>
+            <!-- End: Education row -->
         </table>
     </main>
+
+    <!-- Resume Footer -->
     <footer class="footer text-center">
         {{ this.resumeInfo.name }} - <a href="mailto:{{ this.resumeInfo.email }}" class="email-link">{{ this.resumeInfo.email }}</a> - {{ this.resumeInfo.mobileNo }}
     </footer>

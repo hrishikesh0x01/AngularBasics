@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ResumeBuilderRoutingModule } from './resume-builder-routing.module';
-import { ResumeBuilderComponent } from './resume-builder.component';
 import { ResumeViewComponent } from './components/resume-view/resume-view.component';
 import { ResumeFormComponent } from './components/resume-form/resume-form.component';
+import { ResumeListComponent } from './components/resume-list/resume-list.component';
 
 
 @NgModule({
   declarations: [
-    ResumeBuilderComponent,
     ResumeViewComponent,
-    ResumeFormComponent
+    ResumeFormComponent,
+    ResumeListComponent
   ],
   imports: [
     CommonModule,

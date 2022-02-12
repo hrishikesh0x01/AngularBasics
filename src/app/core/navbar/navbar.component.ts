@@ -8,7 +8,7 @@ import { navItems } from '../nav-items';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+  // Imported navbar entries from nav-items.ts file.
   features: Feature[] = navItems;
 
   constructor() { }

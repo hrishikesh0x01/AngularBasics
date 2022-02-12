@@ -1,0 +1,29 @@
+<div class="resume-list">
+    <div class="resume-add-button">
+        <!-- Add new resume button -->
+        <button class="btn btn-primary" (click)="addResume()">
+            Add New Resume
+        </button>
+    </div>
+    <div class="w-100 no-data text-center" *ngIf="!this.resumeList.length">
+        No resumes added.
+    </div>
+    <!-- start: resume-card -->
+    <div class="d-flex justify-content-between resume-card w-100" *ngFor="let resume of this.resumeList; let i = index">
+        <span class="resume-id">
+            ID: {{ resume.id }}
+        </span>
+        <span class="resume-name">
+            Name: {{ resume.name }}
+        </span>
+        <span class="resume-action">
+            <button class="btn btn-primary" [routerLink]="'/resume-builder/view/' + resume.id">
+                View
+            </button>
+            <button class="btn btn-danger" (click)="deleteResume(resume.id)">
+                Delete
+            </button>
+        </span>
+    </div>
+    <!-- end: resume-card -->
+</div>

@@ -1,3 +1,5 @@
+// To add an entry into navbar simply add it here.
+
 export let navItems = [
     {
         "dispName": "Data Binding Task",

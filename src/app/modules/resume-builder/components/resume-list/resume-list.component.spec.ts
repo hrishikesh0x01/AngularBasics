@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResumeBuilderComponent } from './resume-builder.component';
+import { ResumeListComponent } from './resume-list.component';
 
-describe('ResumeBuilderComponent', () => {
-  let component: ResumeBuilderComponent;
-  let fixture: ComponentFixture<ResumeBuilderComponent>;
+describe('ResumeListComponent', () => {
+  let component: ResumeListComponent;
+  let fixture: ComponentFixture<ResumeListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResumeBuilderComponent ]
+      declarations: [ ResumeListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResumeBuilderComponent);
+    fixture = TestBed.createComponent(ResumeListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

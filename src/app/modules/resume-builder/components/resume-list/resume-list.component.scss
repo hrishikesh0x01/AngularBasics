@@ -1,0 +1,21 @@
+.resume-add-button {
+    margin-left: 1.25rem;
+}
+
+.resume-list {
+    width: 70%;
+    margin: 0 auto;
+    .resume-card {
+        margin: 1.5rem;
+        padding: 0.75rem;
+        font-size: 2rem;
+        background-color: #F2F2F2;
+        border: 1px solid #c5c5c5;
+        border-radius: 8px;
+    }
+}
+
+.no-data {
+    padding: 2rem 0;
+    font-size: 2rem;
+}
