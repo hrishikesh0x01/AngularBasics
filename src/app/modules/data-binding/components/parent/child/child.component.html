@@ -1,7 +1,9 @@
 <div class="child">
     <p>Child:-</p>
     <p>Value from parent:- "{{ fromParent }}"</p>
-    <label for="text">From child to parent:- </label>
-    <!-- event binding onInput -->
-    <input type="text" name="toParent" #text (input)="passValueToParent(text.value)" placeholder="Illustrate child to parent data binding">
+    <div class="input-div">
+        <label for="text">From child to parent:- </label>
+        <!-- event binding onInput -->
+        <input class="input-field" type="text" name="toParent" #text (input)="passValueToParent(text.value)" placeholder="Illustrate child to parent data binding">
+    </div>
 </div>

@@ -62,7 +62,6 @@ export class EmployeeFormComponent implements OnInit {
     console.log(this.empForm);
     if (this.empForm.status === 'VALID') {
       this.saveEmployeeData();
-      this.router.navigate(['/crud-operation/emplist']);
     }
   }
 
@@ -76,6 +75,7 @@ export class EmployeeFormComponent implements OnInit {
     console.log(emp);
     this.crudService.saveEmp(emp).subscribe(data => {
       console.log("Like Share Subscribe...\nKeep supporting...");
+      this.router.navigate(['/crud-operation/emplist']);
     });
   }
 

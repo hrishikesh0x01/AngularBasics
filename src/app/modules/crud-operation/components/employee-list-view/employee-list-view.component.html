@@ -1,13 +1,21 @@
-<div class="employee-list-view">
-    <div class="head d-flex">
-        <input type="search" [(ngModel)] = 'searchString'>
-        <button class="btn btn-add" routerLink="/crud-operation/add">Add</button>
+<div class="employee-list-view w-100">
+    <div class="title-emp-list">
+        Employees
     </div>
-    <table class="employees-table">
+    <div class="d-flex justify-content-between head">
+        <div class="d-flex">
+            <span class="icon icon-search d-flex align-items-center search-icon-field"></span>
+            <input class="input-field" type="search" [(ngModel)]='searchString' placeholder="Search for an employee">
+        </div>
+        <button class="btn btn-primary" routerLink="/crud-operation/add">+ Add new employee</button>
+    </div>
+    <table class="table">
         <thead>
             <tr>
                 <th class="table-cell">
-                    Id
+                </th>
+                <th class="table-cell">
+                    #
                 </th>
                 <th class="table-cell">
                     Name
@@ -28,12 +36,15 @@
                     Department
                 </th>
                 <th class="table-cell">
-                    Action
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let employee of this.employeeData | searchFromArrayOn: 'fname' : this.searchString; let i = index; trackBy:empTrack">
+            <tr
+                *ngFor="let employee of this.employeeData | searchFromArrayOn: 'fname' : this.searchString; let i = index; trackBy:empTrack">
+                <td class="table-cell">
+                    <a class="edit-employee-link" (click)="editEmp(employee)"><span class="icon icon-write"></span></a>
+                </td>
                 <td class="table-cell">
                     {{ employee.id }}
                 </td>
@@ -56,8 +67,7 @@
                     {{ employee.dept | mapDept: departmentOptions }}
                 </td>
                 <td class="table-cell">
-                    <button class="btn btn-edit" (click)="editEmp(employee)">Edit</button>
-                    <button class="btn btn-delete" (click)="deleteEmp(employee.id)">Delete</button>
+                    <a class="delete-employee-link" (click)="deleteEmp(employee.id)"><span class="icon icon-delete"></span></a>
                 </td>
             </tr>
         </tbody>

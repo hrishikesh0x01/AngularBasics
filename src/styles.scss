@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
-$primary-color: #2f55e4;
-$danger-color: #D8112C;
+$primary-color: #2f55e5;
+$danger-color: #d8112c;
+$border-color: #d3d3d3;
 
-// Start: Common Styles
+////////////////////////////////////////////////////////////////////////
+// START: Common Styles
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,12 +17,17 @@ html,
 body {
     height: 100%;
     width: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    cursor: pointer;
 }
 
 .d- {
@@ -41,33 +48,53 @@ a {
     width: 100%;
 }
 
-.flex-{
+.flex- {
     &column {
         flex-direction: column;
     }
 
     &grow- {
+        &0 {
+            flex-grow: 0;
+        }
+
         &1 {
             flex-grow: 1;
         }
-    
+    }
+
+    &shrink- {
         &0 {
-            flex-grow: 0;
+            flex-shrink: 0;
+        }
+
+        &1 {
+            flex-shrink: 1;
         }
     }
 
     &wrap {
         flex-wrap: wrap;
     }
+
+    &nowrap {
+        flex-wrap: nowrap;
+    }
 }
 
-.justify-content- {
-    &between {
-        justify-content: space-between;
-    }
-
-    &center {
-        justify-content: center;
+.justify- {
+    &content- {
+        &between {
+            justify-content: space-between;
+        }
+    
+        &center {
+            justify-content: center;
+        }
+    
+        &evenly {
+            justify-content: space-evenly;
+        }
     }
 }
 
@@ -77,7 +104,7 @@ a {
             align-content: center;
         }
     }
-    
+
     &items- {
         &center {
             align-items: center;
@@ -93,7 +120,7 @@ a {
     &center {
         text-align: center;
     }
-    
+
     &left {
         text-align: left;
     }
@@ -106,26 +133,38 @@ a {
 .overflow- {
     &auto {
         overflow: auto;
+        &-x {
+            overflow-x: auto;
+        }
+        &-y {
+            overflow-y: auto;
+        }
     }
 
     &hidden {
         overflow: hidden;
+        &-x {
+            overflow-x: hidden;
+        }
+        &-y {
+            overflow-y: hidden;
+        }
     }
 }
-// End: Common Styles
+// END: Common Styles
+////////////////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////////////////
+// START: Common according to app theme
 .btn {
-    margin-top: 10px;
-    padding: 0.75rem 1rem;
-    margin: 0.25rem;
-    font-size: 1.25rem;
+    height: 40px;
+    padding: 0 2rem;
+    font-size: 0.825rem;
     border: none;
     color: white;
-    border-radius: 0.25rem;
+    border-radius: 10px;
     cursor: pointer;
-    height: fit-content;
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-    box-shadow: 2px 2px 5px black;
 
     &:hover {
         transform: perspective(20px) translateZ(1px);
@@ -139,3 +178,228 @@ a {
         background-color: $danger-color;
     }
 }
+
+.input-field {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.825rem;
+    border: 1px solid #494949;
+    border-radius: 10px;
+    // border-left: none;
+    // border-top-left-radius: 0;
+    // border-bottom-left-radius: 0;
+    // color: #b5b5b5;
+    padding: 0 0.5rem;
+    height: 40px;
+    outline: none;
+}
+
+.input-div {
+    padding: 5px 0px;
+    margin: 5px;
+
+    label {
+        padding: 0px 0.5rem;
+    }
+}
+
+.err-div {
+    font-size: 0.75rem;
+    color: #D61801;
+}
+
+.table {
+    background-color: #fff;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    border-spacing: 0;
+    font-size: 1rem;
+    word-wrap: break-word;
+
+    .table-cell {
+        text-align: left;
+        padding: 0.75rem 1.75rem;
+        border-bottom: 1px solid $border-color;
+        height: 35px;
+        max-height: 35px;
+        width: fit-content;
+    }
+    
+    th.table-cell {
+        font-weight: normal;
+        color: #999999;
+        padding: 0.625rem 1.75rem;
+    }
+    
+    tr {
+        th:first-child,
+        td:first-child {
+            padding: 0 1.25rem;
+        }
+    }
+    
+    tr:last-child td {
+        border: none;
+    }
+}
+
+.form {
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 10px;
+
+    .form-title {
+        font-size: 1.5rem;
+        padding-bottom: 1rem;
+    }
+}
+
+// END: Common according to app theme
+////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////
+// START: app.component + navbar.component (They are connected)
+.sidenav {
+    flex: 0 0 300px;
+    border: 1px solid #aaaaaa;
+}
+
+#sidenav-checkbox ~ .sidenav {
+    width: 100%;
+    transition: all ease-in-out 0.25s;
+
+    .checkbox-label {
+        padding: 0 1rem;
+        .line {
+            transition: all 0.25s;
+            margin: 4px;
+            width: 25px;
+            height: 4px;
+            background-color: $primary-color;
+            border-radius: 10px;
+        }
+    }
+
+    .title-container {
+        padding: 0.625rem;
+        color: $primary-color;
+        font-size: 1.5rem;
+        font-weight: 500;
+        flex: 0 0 60px;
+        border-bottom: 1px solid #e7e7e7;
+    }
+
+    .nav-list {
+        list-style-type: none;
+    }
+
+    .nav-link {
+        margin: 10px 6px;
+        padding: 0.75rem 0.25rem;
+        color: #000000;
+        border-radius: 10px;
+        font-size: 1.125rem;
+
+        .icon {
+            padding: 0 1rem;
+            font-size: 33px;
+            color: #838383;
+        }
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: $primary-color;
+        background-color: #eaedfc;
+
+        .icon {
+            color: $primary-color;
+        }
+    }
+
+    .nav-link-text,
+    .title-text {
+        transition: all ease-in-out 0.25s;
+        opacity: 1;
+    }
+}
+
+#sidenav-checkbox:checked ~ .sidenav {
+    flex: 0 0 90px;
+    .checkbox-label {
+        .line {
+            &-2 {
+                transition: all 0.25s;
+                transform: scaleX(0);
+            }
+
+            &-1 {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            &-3 {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    }
+
+    .nav-link-text,
+    .title-text {
+        opacity: 0;
+    }
+}
+
+.main-content {
+    background-color: #f7f8fa;
+    padding: 2rem;
+}
+// END: app.component
+////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////
+// START: employee-list-view.component
+.title-emp-list {
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.head {
+    padding-bottom: 1rem;
+    .search-icon-field {
+        width: 50px;
+        height: 40px;
+        font-size: 1.25rem;
+        color: #b5b5b5;
+        background-color: #fff;
+        border: 1px solid $border-color;
+        border-right: none;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding: {
+            left: 1rem;
+            right: 0.75rem;
+        }
+    }
+
+    input {
+        border: 1px solid $border-color;
+        border-left: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        color: #b5b5b5;
+        padding-left: 0;
+        width: 225px;
+    }
+}
+// END: employee-list-view.component
+////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////
+// START: employee-form.component
+.employee-form {
+    width: 70%;
+    min-width: 475px;
+    max-width: 600px;
+}
+// END: employee-form.component
+////////////////////////////////////////////////////////////////////////

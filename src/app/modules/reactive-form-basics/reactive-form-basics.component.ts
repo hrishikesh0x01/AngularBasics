@@ -9,12 +9,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ReactiveFormBasicsComponent implements OnInit {
   demoForm: FormGroup ;
  
-  constructor(private fb: FormBuilder) { 
-    this.demoForm = this.createContactForm();
-  }
-
+  constructor(private fb: FormBuilder) { }
+  
   ngOnInit(): void {
-   
+    this.demoForm = this.createContactForm();
   }
 
   createContactForm():FormGroup {

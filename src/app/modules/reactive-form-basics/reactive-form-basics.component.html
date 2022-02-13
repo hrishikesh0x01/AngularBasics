@@ -1,19 +1,22 @@
-<form [formGroup]="demoForm" (ngSubmit)="showData()">
-  <div>
-    <label for="">Name:</label>
-    <input type="text" formControlName="fullName">
+<form class="form" [formGroup]="demoForm" (ngSubmit)="showData()">
+  <div class="form-title">
+    Reactive form
   </div>
-  <div>
-    <label for="">Email:</label>
-    <input type="text" formControlName="email">
+  <div class="input-div">
+    <label for="fullName">Name:</label>
+    <input class="input-field" type="text" formControlName="fullName" id="fullName">
   </div>
-  <div>
-    <label for="">Message:</label>
-    <input type="text" formControlName="message">
+  <div class="input-div">
+    <label for="email">Email:</label>
+    <input class="input-field" type="text" formControlName="email" id="email">
   </div>
-  <div>
-    <label for="">Mobile Number:</label>
-    <input type="text" appPhoneMask formControlName="mobile">
+  <div class="input-div">
+    <label for="message">Message:</label>
+    <input class="input-field" type="text" formControlName="message" id="message">
   </div>
-  <button type="submit">Submit</button>
+  <div class="input-div">
+    <label for="mobile">Mobile Number:</label>
+    <input class="input-field" type="text" appPhoneMask formControlName="mobile" id="mobile">
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
 </form>

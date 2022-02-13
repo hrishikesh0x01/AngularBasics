@@ -1,35 +1,37 @@
-<form class="form" [formGroup]="empForm" (ngSubmit)="onSubmit()">
-    <legend class="form-title"><strong>Employee Details</strong></legend>
-    <div class="input-div">
+<form class="form employee-form" [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    <div class="form-title">
+        Employee Details
+    </div>
+    <div class="d-flex align-items-center input-div">
         <label for="fname">First Name: </label>
-        <input class="inp-field" type="text" formControlName="fname" id="fname">
+        <input class="flex-grow-1 input-field" type="text" formControlName="fname" id="fname">
     </div>
     <div *ngIf="getControl('fname')?.touched || this.submitted">
         <div class="err-div" *ngIf="getControl('fname')?.errors?.['required']">
             This Field is Required
         </div>
     </div>
-    <div class="input-div">
+    <div class="d-flex align-items-center input-div">
         <label for="lname">Last Name: </label>
-        <input class="inp-field" type="text" formControlName="lname" id="lname">
+        <input class="flex-grow-1 input-field" type="text" formControlName="lname" id="lname">
     </div>
     <div *ngIf="getControl('lname')?.touched || this.submitted">
         <div class="err-div" *ngIf="getControl('lname')?.errors?.['required']">
             This Field is Required
         </div>
     </div>
-    <div class="input-div">
+    <div class="d-flex align-items-center input-div">
         <label for="email">Email Id: </label>
-        <input class="inp-field" type="email" formControlName="emailId" id="emailId">
+        <input class="flex-grow-1 input-field" type="email" formControlName="emailId" id="emailId">
     </div>
     <div *ngIf="getControl('emailId')?.value.toString().length">
         <div class="err-div" *ngIf="getControl('emailId')?.errors?.['pattern']">
             Please enter valid email id
         </div>
     </div>
-    <div class="input-div">
+    <div class="d-flex align-items-center input-div">
         <label for="mobile">Mobile Number: </label>
-        <input class="inp-field" type="text" formControlName="mobile" id="mobile">
+        <input class="flex-grow-1 input-field" type="text" formControlName="mobile" id="mobile">
     </div>
     <div *ngIf="getControl('mobile')?.touched || this.submitted || getControl('mobile')?.value.length">
         <div class="err-div" *ngIf="getControl('mobile')?.errors?.['required']">
@@ -42,27 +44,27 @@
             Mobile Number should be atleast 10 digits long
         </div>
     </div>
-    <div class="input-div">
+    <div class="d-flex align-items-center input-div">
         <label for="gender">Gender: </label>
-        <input class="inp-field" type="radio" formControlName="gender" id="male" value="male">
+        <input class="input-field" type="radio" formControlName="gender" id="male" value="male">
         <label for="male">Male</label>
-        <input class="inp-field" type="radio" formControlName="gender" id="female" value="female">
+        <input class="input-field" type="radio" formControlName="gender" id="female" value="female">
         <label for="female">Female</label>
     </div>
-    <div class="input-div">
+    <div class="d-flex align-items-center input-div">
         <label for="emp-date">Date of Employment: </label>
-        <input class="inp-field" type="date" formControlName="empdate" id="empdate">
+        <input class="flex-grow-1 input-field" type="date" formControlName="empdate" id="empdate">
     </div>
-    <div class="input-div">
+    <div class="d-flex align-items-center input-div">
         <label for="dept">Department: </label>
-        <select class="inp-field" formControlName="dept" id="dept">
+        <select class="flex-grow-1 input-field" formControlName="dept" id="dept">
             <option value="0" selected d-none disabled>Select Department</option>
             <option *ngFor="let dept of this.departmentOptions" [value]="dept.id">{{ dept.name }}</option>
         </select>
     </div>
-    <div class="emp-det-btn-container d-flex">
+    <div class="d-flex justify-content-evenly">
         <button class="btn btn-primary" type="submit">Submit</button>
         <button class="btn btn-danger" type="button" (click)="onReset()">Reset</button>
-        <button class="btn back-btn" type="button" routerLink="/crud-operation/emplist">Return To List</button>
+        <button class="btn btn-primary" type="button" routerLink="/crud-operation/emplist">Return To List</button>
     </div>
 </form>
