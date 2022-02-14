@@ -18,7 +18,8 @@ import { FirstCapitalPipe } from './pipes/first-capital-pipe/first-capital.pipe'
     CommonModule
   ],
   exports: [
-    DirectivePipesComponent
+    DirectivePipesComponent,
+    CustomDirectiveDirective
   ]
 })
 export class DirectivePipesModule { }

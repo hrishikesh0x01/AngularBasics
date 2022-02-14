@@ -8,6 +8,9 @@ import { PhoneMaskDirective } from './directives/phone-mask.directive';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    PhoneMaskDirective
   ]
 })
 export class SharedModule { }

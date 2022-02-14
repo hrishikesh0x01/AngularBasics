@@ -46,19 +46,22 @@
             <div class="err-div" *ngIf="getControl('email')?.errors?.['required']">
                 Email Id is Required
             </div>
+            <div class="err-div" *ngIf="getControl('email')?.errors?.['email']">
+                Enter valid Email Id.
+            </div>
         </div>
 
         <!-- Mobile Number Input -->
         <div class="input-div">
             <label for="mobileNo">Mobile Number: </label>
-            <input class="input-field" type="text" formControlName="mobileNo" id="mobileNo">
+            <input class="input-field" type="text" appPhoneMask formControlName="mobileNo" id="mobileNo">
         </div>
         <!-- Mobile Number validation errors -->
         <div *ngIf="getControl('mobileNo').touched || this.submitted || getControl('mobileNo').dirty">
             <div class="err-div" *ngIf="getControl('mobileNo')?.errors?.['required']">
                 Mobile Number is Required
             </div>
-            <div class="err-div" *ngIf="getControl('mobileNo')?.errors?.['minlength'] || getControl('mobileNo')?.errors?.['maxlength']">
+            <div class="err-div" *ngIf="getControl('mobileNo')?.errors?.['pattern']">
                 Mobile Number should be exactly 10 digits.
             </div>
         </div>
@@ -127,6 +130,9 @@
                         <div class="err-div" *ngIf="this.getControl('startYear', experienceGroup).errors?.['required']">
                             Start Year is required.
                         </div>
+                        <div class="err-div" *ngIf="this.getControl('startYear', experienceGroup).errors?.['min']">
+                            Start Year cannot be less than 1000.
+                        </div>
                         <div class="err-div" *ngIf="this.getControl('startYear', experienceGroup).errors?.['max']">
                             Start Year cannot be greater than {{ this.maxYear }}
                         </div>
@@ -138,6 +144,12 @@
                     <div *ngIf="this.getControl('endYear', experienceGroup).touched || this.submitted || this.getControl('endYear', experienceGroup).dirty">
                         <div class="err-div" *ngIf="this.getControl('endYear', experienceGroup).errors?.['required']">
                             End Year is required.
+                        </div>
+                        <div class="err-div" *ngIf="this.getControl('endYear', experienceGroup).errors?.['min']">
+                            End Year cannot be less than 1000.
+                        </div>
+                        <div class="err-div" *ngIf="this.getControl('endYear', experienceGroup).errors?.['max']">
+                            End Year cannot be greater than {{ this.maxYear }}
                         </div>
                     </div>
                     <div>

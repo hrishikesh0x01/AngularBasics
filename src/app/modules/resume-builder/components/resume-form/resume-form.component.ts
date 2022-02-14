@@ -40,7 +40,7 @@ export class ResumeFormComponent implements OnInit {
       name: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
       designation: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
-      mobileNo: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
+      mobileNo: [null, [Validators.required, Validators.pattern(/\([0-9]{3}\)\-[0-9]{3}\-[0-9]{4}$/)]],
       technical: this.technicalArray,
       experience: this.experienceArray,
       education: this.educationArray
@@ -67,7 +67,7 @@ export class ResumeFormComponent implements OnInit {
         jobRole: [null, [Validators.required]],
         jobDescription: [null, [Validators.required]],
         startYear: [null, [Validators.required, Validators.min(1000), Validators.max(this.maxYear)]],
-        endYear: [null, [Validators.required, Validators.maxLength(4)]]
+        endYear: [null, [Validators.required, Validators.min(1000), Validators.max(this.maxYear)]]
       })
     )
   }
@@ -124,7 +124,7 @@ export class ResumeFormComponent implements OnInit {
     else {
       this.submitted = true;
       // console.log("INVALID")
-      // console.log(this.resumeForm);
+      console.log(this.resumeForm);
     }
   }
 }

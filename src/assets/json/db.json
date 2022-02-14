@@ -101,6 +101,32 @@
         }
       ],
       "id": 1
+    },
+    {
+      "name": "Jo Doe",
+      "designation": "dfgsfg",
+      "email": "gdfgd@gfgd.com",
+      "mobileNo": "4353454534",
+      "technical": [
+        "dfds"
+      ],
+      "experience": [
+        {
+          "companyName": "dgdf",
+          "jobRole": "dfgs",
+          "jobDescription": "gdg",
+          "startYear": 2022,
+          "endYear": 2022
+        }
+      ],
+      "education": [
+        {
+          "uniName": "dfsgd",
+          "degree": "gdsgs",
+          "grade": 3
+        }
+      ],
+      "id": 2
     }
   ]
 }
