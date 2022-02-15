@@ -1,7 +1,9 @@
 <div class="parent border">
     <div>
-        <label for="text">From parent to child:- </label>
-        <input type="text" name="toParent" (input)="passValueToChild(this.textP.value)" #textP placeholder="Illustrate parent to child data binding">
+        <div class="input-div">
+            <label for="text">From parent to child:- </label>
+            <input class="input-field" type="text" name="toParent" (input)="passValueToChild(this.textP.value)" #textP placeholder="Illustrate parent to child data binding">
+        </div>
         <p>Value from child:- "{{ this.valueFromChild }}"</p>
         <div>
             <!-- [] indicates that data is passed on to the child -->
@@ -10,7 +12,7 @@
         </div>
     </div>
     <div class="input-div">
-        ngModel:- <input type="text" [(ngModel)] = "val_ngModel" placeholder="Illustrate the use of ngModel">
+        ngModel:- <input class="input-field" type="text" [(ngModel)] = "val_ngModel" placeholder="Illustrate the use of ngModel">
         <div>
             {{ val_ngModel }}
         </div>
@@ -20,5 +22,5 @@
     <div [class]="{'d-none': !isVisible}">
         {{isVisible}}
     </div>
-    <button (click)="toggleVisibility()">Show</button>
+    <button class="btn btn-primary" (click)="toggleVisibility()">Show</button>
 </div>

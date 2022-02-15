@@ -2,12 +2,14 @@
     <!-- Start: Resume Form -->
     <form class="form" [formGroup]="resumeForm">
         <!-- Form Title -->
-        <legend class="form-title"><strong>Employee Details</strong></legend>
+        <div class="form-title">
+            Employee Details
+        </div>
 
         <!-- Name Input -->
         <div class="input-div">
             <label for="name">Full Name: </label>
-            <input class="inp-field" type="text" formControlName="name" id="name">
+            <input class="input-field" type="text" formControlName="name" id="name">
         </div>
         <!-- Name validation errors -->
         <div *ngIf="getControl('name')?.touched || this.submitted || getControl('name')?.dirty">
@@ -25,7 +27,7 @@
         <!-- Designation Input -->
         <div class="input-div">
             <label for="designation">Designation: </label>
-            <input class="inp-field" type="text" formControlName="designation" id="designation">
+            <input class="input-field" type="text" formControlName="designation" id="designation">
         </div>
         <!-- Designation validation errors -->
         <div *ngIf="getControl('designation').touched || this.submitted || getControl('designation').dirty">
@@ -37,26 +39,29 @@
         <!-- Email Id Input -->
         <div class="input-div">
             <label for="email">Email Id: </label>
-            <input class="inp-field" type="email" formControlName="email" id="email">
+            <input class="input-field" type="email" formControlName="email" id="email">
         </div>
         <!-- Email Id validation errors -->
         <div *ngIf="getControl('email').touched || this.submitted || getControl('email').dirty">
             <div class="err-div" *ngIf="getControl('email')?.errors?.['required']">
                 Email Id is Required
             </div>
+            <div class="err-div" *ngIf="getControl('email')?.errors?.['email']">
+                Enter valid Email Id.
+            </div>
         </div>
 
         <!-- Mobile Number Input -->
         <div class="input-div">
             <label for="mobileNo">Mobile Number: </label>
-            <input class="inp-field" type="text" formControlName="mobileNo" id="mobileNo">
+            <input class="input-field" type="text" appPhoneMask formControlName="mobileNo" id="mobileNo">
         </div>
         <!-- Mobile Number validation errors -->
         <div *ngIf="getControl('mobileNo').touched || this.submitted || getControl('mobileNo').dirty">
             <div class="err-div" *ngIf="getControl('mobileNo')?.errors?.['required']">
                 Mobile Number is Required
             </div>
-            <div class="err-div" *ngIf="getControl('mobileNo')?.errors?.['minlength'] || getControl('mobileNo')?.errors?.['maxlength']">
+            <div class="err-div" *ngIf="getControl('mobileNo')?.errors?.['pattern']">
                 Mobile Number should be exactly 10 digits.
             </div>
         </div>
@@ -67,7 +72,7 @@
                 <div class="d-flex" formArrayName="technical" *ngFor="let technical of this.technicalArray.controls; let i = index;">
                     <div class="input-div">
                         <label for="skill-input">Skill {{i+1}}: </label>
-                        <input class="inp-field" type="text" [formControlName]="i" id="skill-input">
+                        <input class="input-field" type="text" [formControlName]="i" id="skill-input">
                     </div>
                     <div *ngIf="technical.touched || this.submitted || technical.dirty">
                         <div class="err-div" *ngIf="technical.errors?.['required']">
@@ -92,7 +97,7 @@
                     <legend>Experience {{ i+1 }}</legend>
                     <div class="input-div">
                         <label for="companyName">Company Name: </label>
-                        <input class="inp-field" type="text" formControlName="companyName" id="companyName">
+                        <input class="input-field" type="text" formControlName="companyName" id="companyName">
                     </div>
                     <div *ngIf="this.getControl('companyName', experienceGroup).touched || this.submitted || this.getControl('companyName', experienceGroup).dirty">
                         <div class="err-div" *ngIf="this.getControl('companyName', experienceGroup).errors?.['required']">
@@ -101,7 +106,7 @@
                     </div>
                     <div class="input-div">
                         <label for="jobRole">Job Role: </label>
-                        <input class="inp-field" type="text" formControlName="jobRole" id="jobRole">
+                        <input class="input-field" type="text" formControlName="jobRole" id="jobRole">
                     </div>
                     <div *ngIf="this.getControl('jobRole', experienceGroup).touched || this.submitted || this.getControl('jobRole', experienceGroup).dirty">
                         <div class="err-div" *ngIf="this.getControl('jobRole', experienceGroup).errors?.['required']">
@@ -110,7 +115,7 @@
                     </div>
                     <div class="input-div">
                         <label for="jobDescription">Job Description: </label>
-                        <input class="inp-field" type="text" formControlName="jobDescription" id="jobDescription">
+                        <input class="input-field" type="text" formControlName="jobDescription" id="jobDescription">
                     </div>
                     <div *ngIf="this.getControl('jobDescription', experienceGroup).touched || this.submitted || this.getControl('jobDescription', experienceGroup).dirty">
                         <div class="err-div" *ngIf="this.getControl('jobDescription', experienceGroup).errors?.['required']">
@@ -119,11 +124,14 @@
                     </div>
                     <div class="input-div">
                         <label for="startYear">Start Year: </label>
-                        <input class="inp-field" type="number" formControlName="startYear" id="startYear">
+                        <input class="input-field" type="number" formControlName="startYear" id="startYear">
                     </div>
                     <div *ngIf="this.getControl('startYear', experienceGroup).touched || this.submitted || this.getControl('startYear', experienceGroup).dirty">
                         <div class="err-div" *ngIf="this.getControl('startYear', experienceGroup).errors?.['required']">
                             Start Year is required.
+                        </div>
+                        <div class="err-div" *ngIf="this.getControl('startYear', experienceGroup).errors?.['min']">
+                            Start Year cannot be less than 1000.
                         </div>
                         <div class="err-div" *ngIf="this.getControl('startYear', experienceGroup).errors?.['max']">
                             Start Year cannot be greater than {{ this.maxYear }}
@@ -131,11 +139,17 @@
                     </div>
                     <div class="input-div">
                         <label for="endYear">End Year: </label>
-                        <input class="inp-field" type="number" formControlName="endYear" id="endYear">
+                        <input class="input-field" type="number" formControlName="endYear" id="endYear">
                     </div>
                     <div *ngIf="this.getControl('endYear', experienceGroup).touched || this.submitted || this.getControl('endYear', experienceGroup).dirty">
                         <div class="err-div" *ngIf="this.getControl('endYear', experienceGroup).errors?.['required']">
                             End Year is required.
+                        </div>
+                        <div class="err-div" *ngIf="this.getControl('endYear', experienceGroup).errors?.['min']">
+                            End Year cannot be less than 1000.
+                        </div>
+                        <div class="err-div" *ngIf="this.getControl('endYear', experienceGroup).errors?.['max']">
+                            End Year cannot be greater than {{ this.maxYear }}
                         </div>
                     </div>
                     <div>
@@ -154,7 +168,7 @@
                     <legend>Education {{ i+1 }}</legend>
                     <div class="input-div">
                         <label for="uniName">University Name: </label>
-                        <input class="inp-field" type="text" formControlName="uniName" id="uniName">
+                        <input class="input-field" type="text" formControlName="uniName" id="uniName">
                     </div>
                     <div *ngIf="this.getControl('uniName', educationGroup).touched || this.submitted || this.getControl('uniName', educationGroup).dirty">
                         <div class="err-div" *ngIf="this.getControl('uniName', educationGroup).errors?.['required']">
@@ -163,7 +177,7 @@
                     </div>
                     <div class="input-div">
                         <label for="degree">Degree: </label>
-                        <input class="inp-field" type="text" formControlName="degree" id="degree">
+                        <input class="input-field" type="text" formControlName="degree" id="degree">
                     </div>
                     <div *ngIf="this.getControl('degree', educationGroup).touched || this.submitted || this.getControl('degree', educationGroup).dirty">
                         <div class="err-div" *ngIf="this.getControl('degree', educationGroup).errors?.['required']">
@@ -172,7 +186,7 @@
                     </div>
                     <div class="input-div">
                         <label for="grade">Grade: </label>
-                        <input class="inp-field" type="number" formControlName="grade" id="grade">
+                        <input class="input-field" type="number" formControlName="grade" id="grade">
                     </div>
                     <div *ngIf="this.getControl('grade', educationGroup).touched || this.submitted || this.getControl('grade', educationGroup).dirty">
                         <div class="err-div" *ngIf="this.getControl('grade', educationGroup).errors?.['required']">

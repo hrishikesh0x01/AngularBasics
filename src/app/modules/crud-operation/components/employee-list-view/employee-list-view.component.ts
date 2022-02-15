@@ -20,8 +20,6 @@ export class EmployeeListViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEmployeeData();
-    this.getDepartmentData();
-    console.log("emp-list-view onInit()");
   }
 
   getDepartmentData(): void {
@@ -35,6 +33,9 @@ export class EmployeeListViewComponent implements OnInit {
   getEmployeeData() {
     this.crudService.getEmpList().subscribe(data => {
       this.employeeData = data;
+      this.getDepartmentData();
+      console.log("emp-list-view onInit()");
+      console.log(data);
     }, errors => {
       alert("Something went wrong!! - emp" + errors);
     });

@@ -5,7 +5,7 @@
             Add New Resume
         </button>
     </div>
-    <div class="w-100 no-data text-center" *ngIf="!this.resumeList.length">
+    <div class="w-100 no-data text-center" *ngIf="!this.resumeList || !this.resumeList.length">
         No resumes added.
     </div>
     <!-- start: resume-card -->
