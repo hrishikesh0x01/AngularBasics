@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostBinding, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appPhoneMask]'
@@ -15,7 +15,6 @@ export class PhoneMaskDirective {
 
   @HostListener('input')
   onPhoneInput() {
-    console.log(0, this.phoneNumber);
     this.phoneNumber = Array.from(this.elm.nativeElement.value).filter(
       (digit, i) => {
         if (i == 0) return "0123456789(".includes(digit as string)
@@ -29,9 +28,6 @@ export class PhoneMaskDirective {
     this.ensure('-', 5);
     this.ensure('-', 9);
     this.elm.nativeElement.value = this.phoneNumber.slice(0, 14);
-    console.log(1, this.phoneNumber);
-    console.log(2, this.phoneNumber.slice(0, 14));
-    console.log('f', this.elm.nativeElement.value);
   }
 
   constructor(public elm: ElementRef) { }

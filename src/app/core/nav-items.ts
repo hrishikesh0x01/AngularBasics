@@ -23,6 +23,11 @@ export let navItems = [
     },
     {
         "icon": "icon-tools",
+        "dispName": "CRUD Without Server",
+        "routePath": "/crud-without-server"
+    },
+    {
+        "icon": "icon-tools",
         "dispName": "CRUD Operation",
         "routePath": "/crud-operation"
     },

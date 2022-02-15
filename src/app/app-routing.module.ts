@@ -14,6 +14,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/reactive-form-basics/reactive-form-basics.module').then(m => m.ReactiveFormBasicsModule)
   },
   {
+    path: 'crud-without-server',
+    loadChildren: () => import('./modules/crud-without-server/crud-without-server.module').then(m => m.CrudWithoutServerModule)
+  },
+  {
     path: 'crud-operation',
     loadChildren: () => import('./modules/crud-operation/crud-operation.module').then(m => m.CrudOperationModule)
   },

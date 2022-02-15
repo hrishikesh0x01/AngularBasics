@@ -229,7 +229,7 @@ a {
         color: #999999;
         padding: 0.625rem 1.75rem;
     }
-    
+
     tr {
         th:first-child,
         td:first-child {
@@ -270,6 +270,7 @@ a {
 
     .checkbox-label {
         padding: 0 1rem;
+
         .line {
             transition: all 0.25s;
             margin: 4px;
@@ -277,6 +278,19 @@ a {
             height: 4px;
             background-color: $primary-color;
             border-radius: 10px;
+
+            &-2 {
+                transition: all 0.25s;
+                transform: scaleX(0);
+            }
+
+            &-1 {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            &-3 {
+                transform: translateY(-8px) rotate(-45deg);
+            }
         }
     }
 
@@ -330,15 +344,15 @@ a {
         .line {
             &-2 {
                 transition: all 0.25s;
-                transform: scaleX(0);
+                transform: scaleX(1);
             }
 
             &-1 {
-                transform: translateY(8px) rotate(45deg);
+                transform: translateY(0px) rotate(0deg);
             }
 
             &-3 {
-                transform: translateY(-8px) rotate(-45deg);
+                transform: translateY(0px) rotate(0deg);
             }
         }
     }

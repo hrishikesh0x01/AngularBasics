@@ -10,7 +10,7 @@
     <section class="d-flex flex-column justify-content-between overflow-auto-y overflow-hidden-x flex-grow-1 w-100">
         <ul class="flex-grow-1 nav-list">
             <li *ngFor="let feature of this.features" class="nav-item">
-                <a [routerLink]="feature.routePath" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                <a [routerLink]="feature.routePath" routerLinkActive="active"
                     class="d-flex flex-nowrap align-items-center nav-link">
                     <div [ngClass]="['icon', feature.icon]"></div>
                     <div class="nav-link-text flex-shrink-0">{{ feature.dispName }}</div>
