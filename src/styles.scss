@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
 $primary-color: #2f55e5;
 $danger-color: #d8112c;
-$border-color: #d3d3d3;
+$border-color: #eff0f2;
+$heading-color: #c9cacc;
 
 ////////////////////////////////////////////////////////////////////////
 // START: Common Styles
@@ -17,7 +18,7 @@ html,
 body {
     height: 100%;
     width: 100%;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 img {
@@ -154,6 +155,10 @@ a {
 // END: Common Styles
 ////////////////////////////////////////////////////////////////////////
 
+%border-radius {
+    border-radius: 8px;
+}
+
 ////////////////////////////////////////////////////////////////////////
 // START: Common according to app theme
 .btn {
@@ -162,7 +167,7 @@ a {
     font-size: 0.825rem;
     border: none;
     color: white;
-    border-radius: 10px;
+    @extend %border-radius;
     cursor: pointer;
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
 
@@ -180,14 +185,10 @@ a {
 }
 
 .input-field {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.825rem;
-    border: 1px solid #494949;
-    border-radius: 10px;
-    // border-left: none;
-    // border-top-left-radius: 0;
-    // border-bottom-left-radius: 0;
-    // color: #b5b5b5;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    border: 1px solid $border-color;
+    @extend %border-radius;
     padding: 0 0.5rem;
     height: 40px;
     outline: none;
@@ -210,14 +211,14 @@ a {
 .table {
     background-color: #fff;
     border: 1px solid $border-color;
-    border-radius: 10px;
+    @extend %border-radius;
     border-spacing: 0;
-    font-size: 1rem;
-    word-wrap: break-word;
+    font-size: 0.825rem;
+    width: 100%;
 
     .table-cell {
         text-align: left;
-        padding: 0.75rem 1.75rem;
+        padding: 1.25rem 1.75rem;
         border-bottom: 1px solid $border-color;
         height: 35px;
         max-height: 35px;
@@ -226,8 +227,8 @@ a {
     
     th.table-cell {
         font-weight: normal;
-        color: #999999;
-        padding: 0.625rem 1.75rem;
+        color: $heading-color;
+        padding: 0.825rem 1.75rem;
     }
 
     tr {
@@ -246,7 +247,7 @@ a {
     margin: 50px auto;
     background-color: #ffffff;
     padding: 50px;
-    border-radius: 10px;
+    @extend %border-radius;
 
     .form-title {
         font-size: 1.5rem;
@@ -261,7 +262,7 @@ a {
 // START: app.component + navbar.component (They are connected)
 .sidenav {
     flex: 0 0 300px;
-    border: 1px solid #aaaaaa;
+    border: 1px solid $border-color;
 }
 
 #sidenav-checkbox ~ .sidenav {
@@ -273,11 +274,11 @@ a {
 
         .line {
             transition: all 0.25s;
-            margin: 4px;
-            width: 25px;
-            height: 4px;
+            margin: 3px;
+            width: 18px;
+            height: 3px;
             background-color: $primary-color;
-            border-radius: 10px;
+            @extend %border-radius;
 
             &-2 {
                 transition: all 0.25s;
@@ -285,11 +286,11 @@ a {
             }
 
             &-1 {
-                transform: translateY(8px) rotate(45deg);
+                transform: translateY(6px) rotate(45deg);
             }
 
             &-3 {
-                transform: translateY(-8px) rotate(-45deg);
+                transform: translateY(-6px) rotate(-45deg);
             }
         }
     }
@@ -297,7 +298,7 @@ a {
     .title-container {
         padding: 0.625rem;
         color: $primary-color;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 500;
         flex: 0 0 60px;
         border-bottom: 1px solid #e7e7e7;
@@ -308,16 +309,17 @@ a {
     }
 
     .nav-link {
-        margin: 10px 6px;
+        margin: 4px 12px;
         padding: 0.75rem 0.25rem;
-        color: #000000;
-        border-radius: 10px;
-        font-size: 1.125rem;
+        color: #585858;
+        @extend %border-radius;
+        font-size: 1rem;
+        font-weight: 500;
 
         .icon {
-            padding: 0 1rem;
-            font-size: 33px;
-            color: #838383;
+            padding: 0 0.75rem;
+            font-size: 1.25rem;
+            color: #acadb1;
         }
     }
 
@@ -334,12 +336,13 @@ a {
     .nav-link-text,
     .title-text {
         transition: all ease-in-out 0.25s;
-        opacity: 1;
+        // opacity: 1;
+        transform: translateX(0);
     }
 }
 
 #sidenav-checkbox:checked ~ .sidenav {
-    flex: 0 0 90px;
+    flex: 0 0 80px;
     .checkbox-label {
         .line {
             &-2 {
@@ -359,13 +362,14 @@ a {
 
     .nav-link-text,
     .title-text {
-        opacity: 0;
+        // opacity: 0;
+        transform: translateX(100%);
     }
 }
 
 .main-content {
     background-color: #f7f8fa;
-    padding: 2rem;
+    padding: 0.625rem 2rem;
 }
 // END: app.component
 ////////////////////////////////////////////////////////////////////////
