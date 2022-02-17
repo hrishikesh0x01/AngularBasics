@@ -1,17 +1,19 @@
-<aside class="d-flex flex-column h-100">
-    <header class="d-flex align-items-center title-container">
-        <label for="sidenav-checkbox" class="checkbox-label">
-            <div class="line line-1"></div>
-            <div class="line line-2"></div>
-            <div class="line line-3"></div>
-        </label>
-        <span class="title-text flex-grow-1 flex-shrink-0">Frontend Tasks</span>
+<aside class="d-flex flex-column h-100 w-100">
+    <header class="d-flex align-items-center nav-title-container">
+        <div class="d-flex flex-grow-1 align-items-center nav-header-item">
+            <label for="" class="nav-header-icon invisible">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </label>
+            <span class="nav-header-text flex-grow-1 flex-shrink-0">Frontend Tasks</span>
+        </div>
     </header>
-    <section class="d-flex flex-column justify-content-between overflow-hidden flex-grow-1 w-100">
+    <section class="d-flex flex-column justify-content-between overflow-hidden flex-grow-1">
         <ul class="flex-grow-1 nav-list overflow-auto-y overflow-hidden-x">
             <li *ngFor="let feature of this.features" class="nav-item">
                 <a [routerLink]="feature.routePath" routerLinkActive="active"
-                    class="d-flex flex-nowrap align-items-center nav-link">
+                    class="d-flex align-items-center nav-link overflow-hidden">
                     <div [ngClass]="['icon', feature.icon]"></div>
                     <div class="nav-link-text flex-grow-1 flex-shrink-0">{{ feature.dispName }}</div>
                 </a>
@@ -19,7 +21,7 @@
         </ul>
         <footer>
             <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                class="d-flex flex-nowrap align-items-center nav-link">
+                class="d-flex align-items-center nav-link overflow-hidden">
                 <div [ngClass]="['icon', 'icon-log-out']"></div>
                 <div class="nav-link-text flex-grow-1 flex-shrink-0">Log Out</div>
             </a>

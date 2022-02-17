@@ -1,7 +1,12 @@
 <div class="d-flex wrapper overflow-hidden h-100">
     <input checked type="checkbox" class="d-none" id="sidenav-checkbox">
-    <app-navbar class="sidenav overflow-hidden"></app-navbar>
-    <section class="main-content flex-grow-1 overflow-auto">
+    <label for="sidenav-checkbox" class="checkbox-label position-absolute">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+    </label>
+    <app-navbar class="d-flex sidenav overflow-hidden"></app-navbar>
+    <section class="main-content flex-grow-1 overflow-hidden">
         <router-outlet></router-outlet>
     </section>
 </div>

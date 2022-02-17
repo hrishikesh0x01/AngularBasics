@@ -1,0 +1,35 @@
+.table {
+    background-color: #fff;
+    border: $border-main;
+    border-radius: $border-radius;
+    border-spacing: 0;
+    font-size: 0.825rem;
+    width: 100%;
+
+    .table-cell {
+        text-align: left;
+        padding: 1.25rem 1.5rem;
+        border-bottom: $border-main;
+        height: 35px;
+        max-height: 35px;
+        width: fit-content;
+        color: #6f6f6f;
+    }
+
+    th.table-cell {
+        font-weight: normal;
+        color: $light-text;
+        padding: 0.825rem 1.75rem;
+    }
+
+    tr {
+        th:first-child,
+        td:first-child {
+            padding: 0 1.25rem;
+        }
+    }
+
+    tr:last-child td {
+        border: none;
+    }
+}

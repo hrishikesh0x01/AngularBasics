@@ -21,58 +21,7 @@
       "name": "QA"
     }
   ],
-  "employees": [
-    {
-      "fname": "Nirali",
-      "lname": "Tandel",
-      "emailId": "nirali.tandel@gmail.com",
-      "mobile": "9345745784",
-      "gender": "female",
-      "empdate": "2022-02-25",
-      "dept": "1",
-      "id": 1
-    },
-    {
-      "fname": "Rajat",
-      "lname": "Dalvi",
-      "emailId": "rajat.dalvi@gmail.com",
-      "mobile": "8945758435",
-      "gender": "male",
-      "empdate": "2022-02-17",
-      "dept": "2",
-      "id": 2
-    },
-    {
-      "fname": "Viral",
-      "lname": "Patel",
-      "emailId": "viral.patel@gmail.com",
-      "mobile": "9584746385",
-      "gender": "male",
-      "empdate": "2022-02-08",
-      "dept": "1",
-      "id": 3
-    },
-    {
-      "fname": "Shivam",
-      "lname": "Patel",
-      "emailId": "shivam.patel@gmail.com",
-      "mobile": "8589457347",
-      "gender": "male",
-      "empdate": "2022-02-11",
-      "dept": "2",
-      "id": 4
-    },
-    {
-      "fname": "Himani",
-      "lname": "Barot",
-      "emailId": "himani.barot@gmail.com",
-      "mobile": "8934573472",
-      "gender": "female",
-      "empdate": "2022-02-10",
-      "dept": "1",
-      "id": 5
-    }
-  ],
+  "employees": [],
   "resumes": [
     {
       "name": "Hrish",

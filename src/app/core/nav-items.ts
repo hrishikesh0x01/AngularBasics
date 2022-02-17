@@ -3,12 +3,12 @@
 export let navItems = [
     {
         "icon": "icon-database",
-        "dispName": "Data Binding Task",
+        "dispName": "Data Binding",
         "routePath": "/data-binding"
     },
     {
         "icon": "icon-git-pull-request",
-        "dispName": "Directives & Pipes Task",
+        "dispName": "Directives & Pipes",
         "routePath": "/directive-and-pipes"
     },
     {

@@ -7,7 +7,7 @@ $btns: "primary", "secondary", "danger";
     font-size: 0.825rem;
     border: none;
     color: map-get($map: $theme-colors, $key: "btn-primary");
-    @extend %border-radius;
+    border-radius: $border-radius;
     cursor: pointer;
     transition: all .3s;
 

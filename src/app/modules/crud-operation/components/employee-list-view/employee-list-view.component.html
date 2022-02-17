@@ -1,110 +1,117 @@
-<div class="employee-list-view w-100">
-    <div class="main-content-title">
+<div class="d-flex flex-column employee-list-view overflow-hidden w-100 h-100">
+    <div class="d-flex align-items-center main-content-title">
         Employees
     </div>
     <div class="d-flex justify-content-between head">
         <div class="d-flex">
-            <span class="icon icon-search d-flex align-items-center search-icon-field"></span>
-            <input class="input-field" type="search" [(ngModel)]='searchString' placeholder="Search for an employee">
+            <label class="icon icon-search d-flex align-items-center search-icon-field" for="search-input"></label>
+            <input class="input-field" type="search" id="search-input" [(ngModel)]='searchString' placeholder="Search for an employee">
         </div>
-        <button class="btn btn-primary" routerLink="/crud-operation/add">+ Add new employee</button>
+        <button class="btn btn-primary" routerLink="/crud-operation/add">+ New employee</button>
     </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th class="table-cell">
-                </th>
-                <th class="table-cell">
-                    <div class="d-flex align-items-center">
-                        #
-                    </div>
-                </th>
-                <th class="table-cell">
-                    <div class="d-flex align-items-center">
-                        Name
-                    </div>
-                </th>
-                <th class="table-cell">
-                    <div class="d-flex align-items-center">
-                        Email Id
-                    </div>
-                </th>
-                <th class="table-cell">
-                    <div class="d-flex align-items-center">
-                        Mobile
-                    </div>
-                </th>
-                <th class="table-cell">
-                    <div class="d-flex align-items-center">
-                        Gender
-                    </div>
-                </th>
-                <th class="table-cell">
-                    <div class="d-flex align-items-center">
-                        Employment Date
-                    </div>
-                </th>
-                <th class="table-cell">
-                    <div class="d-flex align-items-center">
-                        Department
-                    </div>
-                </th>
-                <th class="table-cell">
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr
-                *ngFor="let employee of this.employeeData | searchFromArrayOn: 'fname' : this.searchString; let i = index; trackBy:empTrack">
-                <td class="table-cell">
-                    <div class="d-flex align-items-center">
-                        <input class="form-check-input" type="checkbox" name="" id="">
-                    </div>
-                </td>
-                <td class="table-cell">
-                    <div class="d-flex align-items-center">
-                        {{ employee.id }}
-                    </div>
-                </td>
-                <td class="table-cell">
-                    <div class="d-flex align-items-center">
-                        {{ employee.fname + ' ' + employee.lname }}
-                    </div>
-                </td>
-                <td class="table-cell">
-                    <div class="d-flex align-items-center">
-                        {{ employee.emailId }}
-                    </div>
-                </td>
-                <td class="table-cell">
-                    <div class="d-flex align-items-center">
-                        {{ employee.mobile }}
-                    </div>
-                </td>
-                <td class="table-cell">
-                    <div class="d-flex align-items-center">
-                        {{ employee.gender }}
-                    </div>
-                </td>
-                <td class="table-cell">
-                    <div class="d-flex align-items-center">
-                        {{ employee.empdate }}
-                    </div>
-                </td>
-                <td class="table-cell">
-                    <div class="d-flex align-items-center">
-                        {{ employee.dept | mapDept: departmentOptions }}
-                    </div>
-                </td>
-                <td class="table-cell">
-                    <div class="d-flex align-items-center">
-                        <a class="edit-employee-link btn btn-secondary" (click)="editEmp(employee)"><span
-                                class="icon icon-write"></span></a>
-                        <a class="delete-employee-link btn btn-secondary" (click)="deleteEmp(employee.id)"><span
-                                class="icon icon-delete"></span></a>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="d-flex flex-grow-1 overflow-auto w-100 h-100">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="table-cell">
+                    </th>
+                    <th class="table-cell">
+                        <div class="d-flex align-items-center">
+                            #
+                        </div>
+                    </th>
+                    <th class="table-cell">
+                        <div class="d-flex align-items-center">
+                            Name
+                        </div>
+                    </th>
+                    <th class="table-cell">
+                        <div class="d-flex align-items-center">
+                            Email Id
+                        </div>
+                    </th>
+                    <th class="table-cell">
+                        <div class="d-flex align-items-center">
+                            Mobile
+                        </div>
+                    </th>
+                    <th class="table-cell">
+                        <div class="d-flex align-items-center">
+                            Gender
+                        </div>
+                    </th>
+                    <th class="table-cell">
+                        <div class="d-flex align-items-center">
+                            Employment Date
+                        </div>
+                    </th>
+                    <th class="table-cell">
+                        <div class="d-flex align-items-center">
+                            Department
+                        </div>
+                    </th>
+                    <th class="table-cell">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="!this.employeeData.length">
+                    <td colspan="9" class="table-cell">
+                        <div class=" text-center">
+                            No data Found
+                        </div>
+                    </td>
+                </tr>
+                <tr
+                    *ngFor="let employee of this.employeeData | searchFromArrayOn: 'fname' : this.searchString; let i = index; trackBy:empTrack">
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            <input class="form-check-input" type="checkbox" name="" id="">
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            {{ employee.id }}
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            {{ employee.fname + ' ' + employee.lname }}
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            {{ employee.emailId }}
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            {{ employee.mobile }}
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            {{ employee.gender }}
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            {{ employee.empdate }}
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            {{ employee.dept | mapDept: departmentOptions }}
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            <a class="edit-employee-link btn btn-secondary icon icon-write" (click)="editEmp(employee)"></a>
+                            <a class="delete-employee-link btn btn-secondary icon icon-delete" (click)="deleteEmp(employee.id)"></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

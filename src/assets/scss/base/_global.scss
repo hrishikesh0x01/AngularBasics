@@ -90,6 +90,10 @@ a {
         &evenly {
             justify-content: space-evenly;
         }
+
+        &around {
+            justify-content: space-around;
+        }
     }
 }
 
@@ -128,11 +132,14 @@ a {
 .overflow- {
     &auto {
         overflow: auto;
+        scrollbar-gutter: stable;
         &-x {
             overflow-x: auto;
+            scrollbar-gutter: stable;
         }
         &-y {
             overflow-y: auto;
+            scrollbar-gutter: stable;
         }
     }
 
@@ -144,6 +151,24 @@ a {
         &-y {
             overflow-y: hidden;
         }
+    }
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.position- {
+    &relative {
+        position: relative;
+    }
+
+    &absolute {
+        position: absolute;
+    }
+
+    &fixed {
+        position: fixed;
     }
 }
 // END: Common Styles

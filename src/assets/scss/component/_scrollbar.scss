@@ -1,0 +1,59 @@
+// Scrollbar Selectors
+// For webkit browsers, you can use the following pseudo elements to customize the browser's scrollbar:
+
+// ::-webkit-scrollbar the scrollbar.
+// ::-webkit-scrollbar-button the buttons on the scrollbar (arrows pointing upwards and downwards).
+// ::-webkit-scrollbar-thumb the draggable scrolling handle.
+// ::-webkit-scrollbar-track the track (progress bar) of the scrollbar.
+// ::-webkit-scrollbar-track-piece the track (progress bar) NOT covered by the handle.
+// ::-webkit-scrollbar-corner the bottom corner of the scrollbar, where both horizontal and vertical scrollbars meet.
+// ::-webkit-resizer the draggable resizing handle that appears at the bottom corner of some elements.
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $gray;
+    border-radius: $border-radius;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: $border-radius;
+    background-color: transparent;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+    overflow: hidden;
+    border-radius: $border-radius;
+}
+::-webkit-scrollbar-button {
+    border: 5px solid transparent;
+    border-radius: 8px;
+    margin: 2px;
+}
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+    border-bottom: 10px solid $secondary;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+    border-top: 10px solid $secondary;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement {
+    border-right: 10px solid $secondary;
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment {
+    border-left: 10px solid $secondary;
+}
+
+::-webkit-scrollbar-button:vertical:start:increment,
+::-webkit-scrollbar-button:vertical:end:decrement,
+::-webkit-scrollbar-button:horizontal:start:increment,
+::-webkit-scrollbar-button:horizontal:end:decrement {
+    display: none;
+}

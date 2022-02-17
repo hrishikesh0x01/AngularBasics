@@ -1,0 +1,117 @@
+.checkbox-label,
+.nav-header-icon {
+    margin: 0 0.75rem;
+    cursor: pointer;
+
+    left: 16px;
+    top: 21px;
+
+    .line {
+        margin: 3px 1px;
+        width: 18px;
+        height: 3px;
+        background-color: $primary-color;
+        border-radius: $border-radius;
+        transition: all 0.25s;
+
+        &-2 {
+            transition: all 0.25s;
+            transform: scaleX(0);
+        }
+
+        &-1 {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        &-3 {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+    }
+}
+
+.sidenav {
+    border-right: $border-main;
+    transition: all ease-in-out 0.25s;
+    font-weight: 500;
+
+    .nav-title-container {
+        color: $primary-color;
+        font-size: 1.25rem;
+        flex: 0 0 60px;
+        border-bottom: $border-main;
+    }
+
+    .nav-header-item,
+    .nav-link {
+        margin: 4px 12px;
+        padding: 0.75rem 0.25rem;
+    }
+
+    .nav-list {
+        list-style-type: none;
+    }
+
+    .nav-link {
+        color: #585858;
+        border-radius: $border-radius;
+        font-size: 1rem;
+        transition: all 0.4s;
+
+        .icon {
+            margin: 0 0.75rem;
+            font-size: 1.25rem;
+            color: #acadb1;
+            transition: all 0.4s;
+        }
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: $primary-color;
+        background-color: #eaedfc;
+
+        .icon {
+            color: $primary-color;
+        }
+    }
+}
+
+#sidenav-checkbox {
+    & ~ .sidenav {
+        flex: 0 0 300px;
+
+        .nav-link-text,
+        .nav-header-text {
+            transform: translateX(0);
+            transition: all ease-in-out 0.25s;
+        }
+    }
+
+    &:checked ~ {
+        .checkbox-label {
+            .line {
+                &-2 {
+                    transition: all 0.25s;
+                    transform: scaleX(1);
+                }
+
+                &-1 {
+                    transform: translateY(0px) rotate(0deg);
+                }
+
+                &-3 {
+                    transform: translateY(0px) rotate(0deg);
+                }
+            }
+        }
+
+        .sidenav {
+            flex: 0 0 90px;
+
+            .nav-link-text,
+            .nav-header-text {
+                transform: translateX(300px);
+            }
+        }
+    }
+}
