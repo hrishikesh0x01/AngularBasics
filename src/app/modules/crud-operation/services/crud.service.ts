@@ -14,16 +14,7 @@ import { Employee } from '../models/employee.model';
 export class CrudService {
 
   apiLink: string;
-  employeeToEdit: BehaviorSubject<Employee> = new BehaviorSubject<Employee>({
-    "fname": "",
-    "lname": "",
-    "emailId": "",
-    "mobile": "",
-    "gender": "",
-    "empdate": "",
-    "dept": 0,
-    "id": 0
-  });
+  employeeToEdit: BehaviorSubject<Employee> = new BehaviorSubject<Employee>(new Employee(0, '', '', '', '', '', '', 0));
 
   constructor(private http: HttpClient) {
     this.apiLink = environment.baseURL;

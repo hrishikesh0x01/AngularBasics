@@ -1,5 +1,5 @@
 <div class="employee-list-view w-100">
-    <div class="title-emp-list">
+    <div class="main-content-title">
         Employees
     </div>
     <div class="d-flex justify-content-between head">
@@ -15,25 +15,39 @@
                 <th class="table-cell">
                 </th>
                 <th class="table-cell">
-                    #
+                    <div class="d-flex align-items-center">
+                        #
+                    </div>
                 </th>
                 <th class="table-cell">
-                    Name
+                    <div class="d-flex align-items-center">
+                        Name
+                    </div>
                 </th>
                 <th class="table-cell">
-                    Email Id
+                    <div class="d-flex align-items-center">
+                        Email Id
+                    </div>
                 </th>
                 <th class="table-cell">
-                    Mobile
+                    <div class="d-flex align-items-center">
+                        Mobile
+                    </div>
                 </th>
                 <th class="table-cell">
-                    Gender
+                    <div class="d-flex align-items-center">
+                        Gender
+                    </div>
                 </th>
                 <th class="table-cell">
-                    Employment Date
+                    <div class="d-flex align-items-center">
+                        Employment Date
+                    </div>
                 </th>
                 <th class="table-cell">
-                    Department
+                    <div class="d-flex align-items-center">
+                        Department
+                    </div>
                 </th>
                 <th class="table-cell">
                 </th>
@@ -43,31 +57,52 @@
             <tr
                 *ngFor="let employee of this.employeeData | searchFromArrayOn: 'fname' : this.searchString; let i = index; trackBy:empTrack">
                 <td class="table-cell">
-                    <a class="edit-employee-link" (click)="editEmp(employee)"><span class="icon icon-write"></span></a>
+                    <div class="d-flex align-items-center">
+                        <input class="form-check-input" type="checkbox" name="" id="">
+                    </div>
                 </td>
                 <td class="table-cell">
-                    {{ employee.id }}
+                    <div class="d-flex align-items-center">
+                        {{ employee.id }}
+                    </div>
                 </td>
                 <td class="table-cell">
-                    {{ employee.fname + ' ' + employee.lname }}
+                    <div class="d-flex align-items-center">
+                        {{ employee.fname + ' ' + employee.lname }}
+                    </div>
                 </td>
                 <td class="table-cell">
-                    {{ employee.emailId }}
+                    <div class="d-flex align-items-center">
+                        {{ employee.emailId }}
+                    </div>
                 </td>
                 <td class="table-cell">
-                    {{ employee.mobile }}
+                    <div class="d-flex align-items-center">
+                        {{ employee.mobile }}
+                    </div>
                 </td>
                 <td class="table-cell">
-                    {{ employee.gender }}
+                    <div class="d-flex align-items-center">
+                        {{ employee.gender }}
+                    </div>
                 </td>
                 <td class="table-cell">
-                    {{ employee.empdate }}
+                    <div class="d-flex align-items-center">
+                        {{ employee.empdate }}
+                    </div>
                 </td>
                 <td class="table-cell">
-                    {{ employee.dept | mapDept: departmentOptions }}
+                    <div class="d-flex align-items-center">
+                        {{ employee.dept | mapDept: departmentOptions }}
+                    </div>
                 </td>
                 <td class="table-cell">
-                    <a class="delete-employee-link" (click)="deleteEmp(employee.id)"><span class="icon icon-delete"></span></a>
+                    <div class="d-flex align-items-center">
+                        <a class="edit-employee-link btn btn-secondary" (click)="editEmp(employee)"><span
+                                class="icon icon-write"></span></a>
+                        <a class="delete-employee-link btn btn-secondary" (click)="deleteEmp(employee.id)"><span
+                                class="icon icon-delete"></span></a>
+                    </div>
                 </td>
             </tr>
         </tbody>

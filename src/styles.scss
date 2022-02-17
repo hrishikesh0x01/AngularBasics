@@ -1,213 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+// imports Poppins font from google fonts.
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
-$primary-color: #2f55e5;
-$danger-color: #d8112c;
-$border-color: #eff0f2;
-$heading-color: #c9cacc;
+@import './assets/scss/base/index';
+// Project Specific Components
+@import './assets/scss/component/index';
 
-////////////////////////////////////////////////////////////////////////
-// START: Common Styles
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html,
 body {
-    height: 100%;
-    width: 100%;
-    font-family: "Poppins", sans-serif;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-a {
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.d- {
-    &none {
-        display: none;
-    }
-
-    &flex {
-        display: flex;
-    }
-}
-
-.h-100 {
-    height: 100%;
-}
-
-.w-100 {
-    width: 100%;
-}
-
-.flex- {
-    &column {
-        flex-direction: column;
-    }
-
-    &grow- {
-        &0 {
-            flex-grow: 0;
-        }
-
-        &1 {
-            flex-grow: 1;
-        }
-    }
-
-    &shrink- {
-        &0 {
-            flex-shrink: 0;
-        }
-
-        &1 {
-            flex-shrink: 1;
-        }
-    }
-
-    &wrap {
-        flex-wrap: wrap;
-    }
-
-    &nowrap {
-        flex-wrap: nowrap;
-    }
-}
-
-.justify- {
-    &content- {
-        &between {
-            justify-content: space-between;
-        }
-    
-        &center {
-            justify-content: center;
-        }
-    
-        &evenly {
-            justify-content: space-evenly;
-        }
-    }
-}
-
-.align- {
-    &content- {
-        &center {
-            align-content: center;
-        }
-    }
-
-    &items- {
-        &center {
-            align-items: center;
-        }
-    }
-
-    &middle {
-        vertical-align: middle;
-    }
-}
-
-.text- {
-    &center {
-        text-align: center;
-    }
-
-    &left {
-        text-align: left;
-    }
-
-    &right {
-        text-align: right;
-    }
-}
-
-.overflow- {
-    &auto {
-        overflow: auto;
-        &-x {
-            overflow-x: auto;
-        }
-        &-y {
-            overflow-y: auto;
-        }
-    }
-
-    &hidden {
-        overflow: hidden;
-        &-x {
-            overflow-x: hidden;
-        }
-        &-y {
-            overflow-y: hidden;
-        }
-    }
-}
-// END: Common Styles
-////////////////////////////////////////////////////////////////////////
-
-%border-radius {
-    border-radius: 8px;
+    color: #1a1a1c;
 }
 
 ////////////////////////////////////////////////////////////////////////
 // START: Common according to app theme
-.btn {
-    height: 40px;
-    padding: 0 2rem;
-    font-size: 0.825rem;
-    border: none;
-    color: white;
-    @extend %border-radius;
-    cursor: pointer;
-    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-
-    &:hover {
-        transform: perspective(20px) translateZ(1px);
-    }
-
-    &-primary {
-        background-color: $primary-color;
-    }
-
-    &-danger {
-        background-color: $danger-color;
-    }
-}
-
-.input-field {
-    font-family: "Poppins", sans-serif;
-    font-size: 0.75rem;
-    border: 1px solid $border-color;
-    @extend %border-radius;
-    padding: 0 0.5rem;
-    height: 40px;
-    outline: none;
-}
-
-.input-div {
-    padding: 5px 0px;
-    margin: 5px;
-
-    label {
-        padding: 0px 0.5rem;
-    }
-}
-
-.err-div {
-    font-size: 0.75rem;
-    color: #D61801;
-}
-
 .table {
     background-color: #fff;
     border: 1px solid $border-color;
@@ -218,16 +21,17 @@ a {
 
     .table-cell {
         text-align: left;
-        padding: 1.25rem 1.75rem;
+        padding: 1.25rem 1.5rem;
         border-bottom: 1px solid $border-color;
         height: 35px;
         max-height: 35px;
         width: fit-content;
+        color: #6f6f6f;
     }
     
     th.table-cell {
         font-weight: normal;
-        color: $heading-color;
+        color: $light-text;
         padding: 0.825rem 1.75rem;
     }
 
@@ -270,7 +74,9 @@ a {
     transition: all ease-in-out 0.25s;
 
     .checkbox-label {
+        background-color: #fff;
         padding: 0 1rem;
+        cursor: pointer;
 
         .line {
             transition: all 0.25s;
@@ -301,7 +107,7 @@ a {
         font-size: 1.25rem;
         font-weight: 500;
         flex: 0 0 60px;
-        border-bottom: 1px solid #e7e7e7;
+        border-bottom: 1px solid $border-color;
     }
 
     .nav-list {
@@ -315,11 +121,13 @@ a {
         @extend %border-radius;
         font-size: 1rem;
         font-weight: 500;
-
+        transition: all .4s;
+        
         .icon {
             padding: 0 0.75rem;
             font-size: 1.25rem;
             color: #acadb1;
+            transition: all .4s;
         }
     }
 
@@ -369,16 +177,17 @@ a {
 
 .main-content {
     background-color: #f7f8fa;
-    padding: 0.625rem 2rem;
+    padding: 0 2rem;
 }
 // END: app.component
 ////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////
 // START: employee-list-view.component
-.title-emp-list {
+.main-content-title {
     font-size: 1.5rem;
-    padding-bottom: 1rem;
+    padding: 10px;
+    height: 60px;
 }
 
 .head {
@@ -407,6 +216,15 @@ a {
         color: #b5b5b5;
         padding-left: 0;
         width: 225px;
+    }
+}
+
+.edit, .delete {
+    &-employee-link {
+        margin: 0 2px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        height: fit-content;
     }
 }
 // END: employee-list-view.component

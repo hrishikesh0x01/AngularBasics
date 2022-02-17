@@ -1,0 +1,26 @@
+// Theme Primary Color
+$primary: #2f55e5;
+
+// Mainly use for UI controls like Buttons
+$secondary: #757575;
+
+// Mainly used for showing errors.
+$danger: #d8112c;
+
+// Used for all borders.
+$border: #eff0f2;
+
+// Used for light text color.
+$gray: #c9cacc;
+
+// Dedicated for button text only
+$btn-text-primary: #ffffff;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "danger": $danger,
+  "border": $border,
+  "gray": $gray,
+  "btn-primary": $btn-text-primary
+);

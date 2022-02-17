@@ -1,0 +1,38 @@
+// Form controls styles goes here
+.input-field { // form control
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    border: 1px solid $border-color;
+    @extend %border-radius;
+    padding: 0 0.5rem;
+    height: 40px;
+    outline: none;
+    transition: all 0.4s;
+
+    &::placeholder {
+        color: $light-text;
+    }
+
+    &:focus {
+        width: 500px;
+    }
+}
+
+.input-div { // form group
+    padding: 5px 0px;
+    margin: 5px;
+
+    label {
+        padding: 0px 0.5rem;
+    }
+}
+
+.err-div {
+    font-size: 0.75rem;
+    color: #D61801;
+}
+
+.form-check-input {
+    color: aqua;
+}
+

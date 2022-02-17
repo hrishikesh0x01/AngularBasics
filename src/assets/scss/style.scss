@@ -1,0 +1,15 @@
+// Project base and component style import
+@import 'base/index';
+
+// Vendor base and component style import
+@import 'vendor/bootstrap-base';
+
+@import 'vendor/bootstrap-components';
+
+// Project Specific Components
+@import 'component/index';
+
+// Now other style import
+@import 'layout/index';
+
+@import 'utilities/index';
