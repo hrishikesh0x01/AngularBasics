@@ -5,18 +5,63 @@
   <div class="input-div">
     <label for="fullName">Name:</label>
     <input class="input-field" type="text" formControlName="fullName" id="fullName">
+    <div *ngIf="getControls['fullName']?.touched || this.submitted || getControls['fullName']?.dirty">
+      <div class="err-div" *ngIf="getControls['fullName']?.errors?.['required']">
+        Name is required
+      </div>
+      <div class="err-div" *ngIf="getControls['fullName']?.errors?.['minlength']">
+        Name is must be longer than 3 characters
+      </div>
+    </div>
   </div>
   <div class="input-div">
     <label for="email">Email:</label>
     <input class="input-field" type="text" formControlName="email" id="email">
+    <div *ngIf="getControls['email']?.value?.toString().length">
+      <div class="err-div" *ngIf="getControls['email']?.errors?.['required']">
+        Email is required
+      </div>
+      <div class="err-div" *ngIf="getControls['email']?.errors?.['email']">
+        Email is not in a valid format
+      </div>
+    </div>
   </div>
   <div class="input-div">
     <label for="message">Message:</label>
     <input class="input-field" type="text" formControlName="message" id="message">
+    <div *ngIf="getControls['message']?.value?.toString().length">
+      <div class="err-div" *ngIf="getControls['message']?.errors?.['minlength']">
+        Message cannot be less than 20 characters
+      </div>
+      <div class="err-div" *ngIf="getControls['message']?.errors?.['maxlength']">
+        Message cannot be more than 150 characters
+      </div>
+    </div>
   </div>
   <div class="input-div">
     <label for="mobile">Mobile Number:</label>
-    <input class="input-field" type="tel" appPhoneMask formControlName="mobile" id="mobile">
+    <!-- <input class="input-field" type="text" appPhoneMask formControlName="mobile" id="mobile"> -->
+    <input class="input-field" type="text" formControlName="mobile" id="mobile">
+    <div *ngIf="getControls['mobile']?.value?.toString().length">
+      <div class="err-div" *ngIf="getControls['mobile']?.errors?.['required']">
+        Mobile Number is required
+      </div>
+      <div class="err-div" *ngIf="getControls['mobile']?.errors?.['pattern']">
+        Mobile Number  is invalid
+      </div>
+    </div>
   </div>
+  <div class="input-div">
+    <label for="age">Select Age Group:</label>
+    <select class="input-field" (change)="onSelectionChange($event)" #age formControlName="age" id="age">
+      <option selected value="0">18- (younger than 18)</option>
+      <option value="1">18 (18 years)</option>
+      <option value="2">18+ (older than 18)</option>
+    </select>
+  </div>
+
+
+
+  <!-- <button class="btn btn-primary" type="button" (click)="noValidations()">Remove Validations</button> -->
   <button class="btn btn-primary" type="submit">Submit</button>
 </form>

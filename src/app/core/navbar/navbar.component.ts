@@ -9,7 +9,7 @@ import { navItems } from '../nav-items';
 })
 export class NavbarComponent implements OnInit {
   // Imported navbar entries from nav-items.ts file.
-  features: Feature[] = navItems;
+  features: Feature[][] = navItems;
 
   constructor() { }
 

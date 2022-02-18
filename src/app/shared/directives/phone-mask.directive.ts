@@ -17,9 +17,6 @@ export class PhoneMaskDirective {
   onPhoneInput() {
     this.phoneNumber = Array.from(this.elm.nativeElement.value).filter(
       (digit, i) => {
-        if (i == 0) return "0123456789(".includes(digit as string)
-        if (i == 4) return "0123456789)".includes(digit as string)
-        if (i == 5 || i == 9) return "0123456789-".includes(digit as string)
         return "0123456789".includes(digit as string)
       }
     ).join("");

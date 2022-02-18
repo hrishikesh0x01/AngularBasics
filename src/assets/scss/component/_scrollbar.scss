@@ -10,8 +10,9 @@
 // ::-webkit-resizer the draggable resizing handle that appears at the bottom corner of some elements.
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    position: absolute;
+    width: 4px;
+    height: 4px;
     opacity: 0.5;
 }
 
@@ -30,25 +31,9 @@
     border-radius: $border-radius;
 }
 ::-webkit-scrollbar-button {
-    border: 5px solid transparent;
-    border-radius: 8px;
-    margin: 2px;
-}
-
-::-webkit-scrollbar-button:vertical:start:decrement {
-    border-bottom: 10px solid $secondary;
-}
-
-::-webkit-scrollbar-button:vertical:end:increment {
-    border-top: 10px solid $secondary;
-}
-
-::-webkit-scrollbar-button:horizontal:start:decrement {
-    border-right: 10px solid $secondary;
-}
-
-::-webkit-scrollbar-button:horizontal:end:increment {
-    border-left: 10px solid $secondary;
+    visibility: hidden;
+    height: 4px;
+    width: 4px;
 }
 
 ::-webkit-scrollbar-button:vertical:start:increment,

@@ -1,49 +1,49 @@
 <div class="d-flex flex-column employee-form overflow-auto w-100 h-100">
     <div class="d-flex align-items-center main-content-title">
-        Employee Details
+        <h4 class="title-text">Employee Details</h4>
     </div>
     <form class="form" [formGroup]="empForm" (ngSubmit)="onSubmit()">
         <div class="d-flex flex-wrap justify-content-evenly">
             <div class="d-flex flex-column input-div">
                 <label for="fname">First Name: </label>
-                <input class="flex-grow-1 input-field" type="text" formControlName="fname" id="fname">
-            </div>
-            <div *ngIf="getControl('fname')?.touched || this.submitted">
-                <div class="err-div" *ngIf="getControl('fname')?.errors?.['required']">
-                    This Field is Required
+                <input class="input-field" type="text" formControlName="fname" id="fname">
+                <div *ngIf="getControl('fname')?.touched || this.submitted">
+                    <div class="err-div" *ngIf="getControl('fname')?.errors?.['required']">
+                        This Field is Required
+                    </div>
                 </div>
             </div>
             <div class="d-flex flex-column input-div">
                 <label for="lname">Last Name: </label>
-                <input class="flex-grow-1 input-field" type="text" formControlName="lname" id="lname">
-            </div>
-            <div *ngIf="getControl('lname')?.touched || this.submitted">
-                <div class="err-div" *ngIf="getControl('lname')?.errors?.['required']">
-                    This Field is Required
+                <input class="input-field" type="text" formControlName="lname" id="lname">
+                <div *ngIf="getControl('lname')?.touched || this.submitted">
+                    <div class="err-div" *ngIf="getControl('lname')?.errors?.['required']">
+                        This Field is Required
+                    </div>
                 </div>
             </div>
             <div class="d-flex flex-column input-div">
                 <label for="email">Email Id: </label>
-                <input class="flex-grow-1 input-field" type="email" formControlName="emailId" id="emailId">
-            </div>
-            <div *ngIf="getControl('emailId')?.value.toString().length">
-                <div class="err-div" *ngIf="getControl('emailId')?.errors?.['pattern']">
-                    Please enter valid email id
+                <input class="input-field" type="email" formControlName="emailId" id="emailId">
+                <div *ngIf="getControl('emailId')?.value?.toString().length">
+                    <div class="err-div" *ngIf="getControl('emailId')?.errors?.['pattern']">
+                        Please enter valid email id
+                    </div>
                 </div>
             </div>
             <div class="d-flex flex-column input-div">
                 <label for="mobile">Mobile Number: </label>
-                <input class="flex-grow-1 input-field" type="text" formControlName="mobile" id="mobile">
-            </div>
-            <div *ngIf="getControl('mobile')?.touched || this.submitted || getControl('mobile')?.value.length">
-                <div class="err-div" *ngIf="getControl('mobile')?.errors?.['required']">
-                    This Field is Required
-                </div>
-                <div class="err-div" *ngIf="getControl('mobile')?.errors?.['maxlength']">
-                    Mobile Number should be atmost 10 digits long
-                </div>
-                <div class="err-div" *ngIf="getControl('mobile')?.errors?.['minlength']">
-                    Mobile Number should be atleast 10 digits long
+                <input class="input-field" type="text" formControlName="mobile" id="mobile">
+                <div *ngIf="getControl('mobile')?.touched || this.submitted || getControl('mobile')?.value.length">
+                    <div class="err-div" *ngIf="getControl('mobile')?.errors?.['required']">
+                        This Field is Required
+                    </div>
+                    <div class="err-div" *ngIf="getControl('mobile')?.errors?.['maxlength']">
+                        Mobile Number should be atmost 10 digits long
+                    </div>
+                    <div class="err-div" *ngIf="getControl('mobile')?.errors?.['minlength']">
+                        Mobile Number should be atleast 10 digits long
+                    </div>
                 </div>
             </div>
             <div class="d-flex flex-column input-div">
@@ -57,12 +57,12 @@
             </div>
             <div class="d-flex flex-column input-div">
                 <label for="emp-date">Date of Employment: </label>
-                <input class="flex-grow-1 input-field" type="date" formControlName="empdate" id="empdate">
+                <input class="input-field" type="date" formControlName="empdate" id="empdate">
             </div>
             <div class="d-flex flex-column input-div">
                 <label for="dept">Department: </label>
-                <select class="flex-grow-1 input-field" formControlName="dept" id="dept">
-                    <option value="0" selected d-none disabled>Select Department</option>
+                <select class="input-field" formControlName="dept" id="dept">
+                    <option value="0" selected hidden disabled>Select Department</option>
                     <option *ngFor="let dept of this.departmentOptions" [value]="dept.id">{{ dept.name }}</option>
                 </select>
             </div>

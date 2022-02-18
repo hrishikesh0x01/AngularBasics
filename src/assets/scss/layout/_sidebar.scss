@@ -12,10 +12,9 @@
         height: 3px;
         background-color: $primary-color;
         border-radius: $border-radius;
-        transition: all 0.25s;
+        transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.25s;
 
         &-2 {
-            transition: all 0.25s;
             transform: scaleX(0);
         }
 
@@ -31,7 +30,7 @@
 
 .sidenav {
     border-right: $border-main;
-    transition: all ease-in-out 0.25s;
+    transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.25s;
     font-weight: 500;
 
     .nav-title-container {
@@ -39,6 +38,25 @@
         font-size: 1.25rem;
         flex: 0 0 60px;
         border-bottom: $border-main;
+    }
+
+    .nav-container {
+        padding-top: 2.5rem;
+    }
+
+    .user-section {
+        margin: 0 12px;
+        padding: 0;
+
+        .user-section-text {
+            padding-left: 0.75rem;
+        }
+
+        .user-email {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: $light-text;
+        }
     }
 
     .nav-header-item,
@@ -61,7 +79,7 @@
             margin: 0 0.75rem;
             font-size: 1.25rem;
             color: #acadb1;
-            transition: all 0.4s;
+            transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.4s;
         }
     }
 
@@ -81,9 +99,11 @@
         flex: 0 0 300px;
 
         .nav-link-text,
-        .nav-header-text {
+        .nav-header-text,
+        .user-section-text {
+            font-weight: 500;
             transform: translateX(0);
-            transition: all ease-in-out 0.25s;
+            transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.25s;
         }
     }
 
@@ -91,14 +111,11 @@
         .checkbox-label {
             .line {
                 &-2 {
-                    transition: all 0.25s;
+                    transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.25s;
                     transform: scaleX(1);
                 }
 
-                &-1 {
-                    transform: translateY(0px) rotate(0deg);
-                }
-
+                &-1,
                 &-3 {
                     transform: translateY(0px) rotate(0deg);
                 }
@@ -106,12 +123,18 @@
         }
 
         .sidenav {
-            flex: 0 0 90px;
+            flex: 0 0 80px;
 
             .nav-link-text,
-            .nav-header-text {
+            .nav-header-text,
+            .user-section-text {
                 transform: translateX(300px);
             }
         }
     }
+}
+
+.nav-section {
+    padding: 1.5rem 0;
+    border-bottom: $border-main;
 }

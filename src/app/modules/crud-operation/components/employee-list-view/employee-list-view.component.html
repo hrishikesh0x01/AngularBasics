@@ -1,6 +1,6 @@
 <div class="d-flex flex-column employee-list-view overflow-hidden w-100 h-100">
     <div class="d-flex align-items-center main-content-title">
-        Employees
+        <h4 class="title-text">Employees</h4>
     </div>
     <div class="d-flex justify-content-between head">
         <div class="d-flex">
@@ -9,7 +9,7 @@
         </div>
         <button class="btn btn-primary" routerLink="/crud-operation/add">+ New employee</button>
     </div>
-    <div class="d-flex flex-grow-1 overflow-auto w-100 h-100">
+    <div class="d-flex overflow-auto w-100" [ngClass]="{'flex-grow-1':!this.employeeData?.length}">
         <table class="table">
             <thead>
                 <tr>
@@ -55,7 +55,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngIf="!this.employeeData.length">
+                <tr *ngIf="!this.employeeData?.length">
                     <td colspan="9" class="table-cell">
                         <div class=" text-center">
                             No data Found

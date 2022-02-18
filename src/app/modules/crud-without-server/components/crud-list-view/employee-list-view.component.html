@@ -1,13 +1,13 @@
 <div class="employee-list-view w-100">
     <div class="main-content-title">
-        Employees
+        <h4 class="title-text">Employees</h4>
     </div>
     <div class="d-flex justify-content-between head">
         <div class="d-flex">
-            <span class="icon icon-search d-flex align-items-center search-icon-field"></span>
-            <input class="input-field" type="search" [(ngModel)]='searchString' placeholder="Search for an employee">
+            <label class="icon icon-search d-flex align-items-center search-icon-field" for="search-input"></label>
+            <input class="input-field" type="search" id="search-input" [(ngModel)]='searchString' placeholder="Search for an employee">
         </div>
-        <button class="btn btn-primary" routerLink="/crud-without-server/add">+ Add new employee</button>
+        <button class="btn btn-primary" routerLink="/crud-without-server/add">+ New employee</button>
     </div>
     <table class="table">
         <thead>

@@ -6,25 +6,43 @@
                 <div class="line line-2"></div>
                 <div class="line line-3"></div>
             </label>
-            <span class="nav-header-text flex-grow-1 flex-shrink-0">Frontend Tasks</span>
+            <h4 class="nav-header-text flex-grow-1 flex-shrink-0">Frontend Tasks</h4>
         </div>
     </header>
-    <section class="d-flex flex-column justify-content-between overflow-hidden flex-grow-1">
-        <ul class="flex-grow-1 nav-list overflow-auto-y overflow-hidden-x">
-            <li *ngFor="let feature of this.features" class="nav-item">
-                <a [routerLink]="feature.routePath" routerLinkActive="active"
-                    class="d-flex align-items-center nav-link overflow-hidden">
-                    <div [ngClass]="['icon', feature.icon]"></div>
-                    <div class="nav-link-text flex-grow-1 flex-shrink-0">{{ feature.dispName }}</div>
-                </a>
-            </li>
-        </ul>
-        <footer>
-            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                class="d-flex align-items-center nav-link overflow-hidden">
-                <div [ngClass]="['icon', 'icon-log-out']"></div>
-                <div class="nav-link-text flex-grow-1 flex-shrink-0">Log Out</div>
-            </a>
-        </footer>
-    </section>
+    <div class="d-flex flex-column flex-grow-1 nav-container overflow-auto-y overflow-hidden-x">
+        <section class="d-flex align-items-center user-section">
+            <div class="avatar flex-shrink-0">
+                <figure>
+                    <img src="../../../assets/images/avatar.png" alt="">
+                </figure>
+            </div>
+            <div class="flex-grow-1 user-section-text flex-shrink-0">
+                <div class="user-name">
+                    Mr. Einstein
+                </div>
+                <div class="user-email">
+                    mr.einstein@1rivet.com
+                </div>
+            </div>
+        </section>
+        <section class="d-flex flex-column justify-content-between nav-section"
+            *ngFor="let feature_section of features">
+            <ul class="flex-grow-1 nav-list gutter-stable">
+                <li *ngFor="let feature of feature_section" class="nav-item">
+                    <a [routerLink]="feature.routePath" routerLinkActive="active"
+                        class="d-flex align-items-center nav-link">
+                        <div [ngClass]="['icon', feature.icon]"></div>
+                        <div class="nav-link-text flex-grow-1 flex-shrink-0">{{ feature.dispName }}</div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            class="d-flex align-items-center nav-link overflow-hidden">
+            <div [ngClass]="['icon', 'icon-log-out']"></div>
+            <div class="nav-link-text flex-grow-1 flex-shrink-0">Log Out</div>
+        </a>
+    </footer>
 </aside>

@@ -1,6 +1,6 @@
 <form class="form employee-form" [formGroup]="detailsForm" (ngSubmit)="onSubmit()">
     <div class="main-content-title">
-        Employee Details
+        <h4 class="title-text">Employee Details</h4>
     </div>
     <div class="d-flex flex-column input-div">
         <label for="name">Name: </label>
@@ -34,6 +34,6 @@
     <div class="d-flex justify-content-evenly">
         <button class="btn btn-primary" type="submit">Submit</button>
         <button class="btn btn-danger" type="button" (click)="onReset()">Reset</button>
-        <button class="btn btn-primary" type="button" routerLink="/crud-without-server/emplist">Return To List</button>
+        <button class="btn btn-secondary" type="button" routerLink="/crud-without-server/emplist">Return To List</button>
     </div>
 </form>
