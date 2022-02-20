@@ -24,7 +24,8 @@ body {
 
 ////////////////////////////////////////////////////////////////////////
 // START: employee-list-view.component
-.employee-list-view, .employee-form {
+.employee-list-view,
+.employee-form {
     padding: 0 2rem;
 }
 
@@ -61,10 +62,11 @@ body {
         border-bottom-left-radius: 0;
         color: #b5b5b5;
         padding-left: 0;
-        width: 225px;
+        width: 35%;
+        transition: all ease-in-out 0.4s;
 
         &:focus {
-            width: 500px;
+            width: 70%;
             outline: 0;
             box-shadow: none;
             border-color: $border-color;

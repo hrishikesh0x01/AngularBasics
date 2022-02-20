@@ -45,8 +45,13 @@
     }
 
     .user-section {
-        margin: 0 12px;
+        margin: 0 0.75rem;
         padding: 0;
+
+        .sidenav-avatar {
+            height: 55px;
+            width: 55px;
+        }
 
         .user-section-text {
             padding-left: 0.75rem;
@@ -61,7 +66,7 @@
 
     .nav-header-item,
     .nav-link {
-        margin: 4px 12px;
+        margin: 0.25rem 0.75rem;
         padding: 0.75rem 0.25rem;
     }
 
@@ -138,3 +143,527 @@
     padding: 1.5rem 0;
     border-bottom: $border-main;
 }
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1400px) {
+    .here-for-nothing {
+        display: block;
+    }
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1200px) {
+    .here-for-nothing {
+        display: block;
+    }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 992px) {
+    .checkbox-label,
+    .nav-header-icon {
+        margin: 0 0.5rem;
+
+        left: 10px;
+        top: 17px;
+    }
+
+    .sidenav {
+        .nav-title-container {
+            flex: 0 0 53px;
+        }
+
+        .nav-container {
+            padding-top: 1.25rem;
+        }
+
+        .user-section {
+            margin: 0 0.375rem;
+            padding: 0;
+
+            .sidenav-avatar {
+                height: 39px;
+                width: 39px;
+            }
+
+            .user-section-text {
+                padding-left: 0.5rem;
+            }
+        }
+
+        .nav-header-item,
+        .nav-link {
+            margin: 0.25rem 0.375rem;
+            padding: 0.5rem 0.25rem;
+        }
+
+        .nav-link {
+            .icon {
+                margin: 0 0.375rem;
+            }
+        }
+    }
+
+    #sidenav-checkbox {
+        & ~ .sidenav {
+            flex: 0 0 235px;
+        }
+
+        &:checked ~ {
+            .sidenav {
+                flex: 0 0 57px;
+
+                .nav-link-text,
+                .nav-header-text,
+                .user-section-text {
+                    transform: translateX(235px);
+                }
+            }
+        }
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 768px) {
+    .checkbox-label,
+    .nav-header-icon {
+        left: 10px;
+        top: 20px;
+
+        .line {
+            margin: 2px 1px;
+            width: 14px;
+            height: 2px;
+
+            &-1 {
+                transform: translateY(4px) rotate(45deg);
+            }
+
+            &-3 {
+                transform: translateY(-4px) rotate(-45deg);
+            }
+        }
+    }
+
+    .sidenav {
+        .nav-title-container {
+            font-size: 1.125rem;
+            flex: 0 0 55px;
+        }
+
+        .nav-container {
+            padding-top: 1.5rem;
+        }
+
+        .user-section {
+            margin: 0 0.5rem;
+            padding: 0;
+
+            .sidenav-avatar {
+                height: 33px;
+                width: 33px;
+            }
+
+            .user-section-text {
+                font-size: 0.75rem;
+                padding-left: 0.5rem;
+            }
+
+            .user-email {
+                font-size: 0.625rem;
+            }
+        }
+
+        .nav-link {
+            font-size: 0.75rem;
+
+            .icon {
+                margin: 0 0.375rem;
+                font-size: 1.125rem;
+            }
+        }
+    }
+
+    #sidenav-checkbox {
+        & ~ .sidenav {
+            flex: 0 0 200px;
+        }
+
+        &:checked ~ {
+            .sidenav {
+                flex: 0 0 52px;
+
+                .nav-link-text,
+                .nav-header-text,
+                .user-section-text {
+                    transform: translateX(200px);
+                }
+            }
+        }
+    }
+
+    .nav-section {
+        padding: 1.25rem 0;
+    }
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 576px) {
+    .here-for-nothing {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Please Ignore as I used a wrong approach by setting different font-size for html...
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// .checkbox-label,
+// .nav-header-icon {
+//     margin: 0 0.75rem;
+//     cursor: pointer;
+
+//     left: 16px;
+//     top: 21px;
+
+//     .line {
+//         margin: 3px 1px;
+//         width: 18px;
+//         height: 3px;
+//         background-color: $primary-color;
+//         border-radius: $border-radius;
+//         transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.25s;
+
+//         &-2 {
+//             transform: scaleX(0);
+//         }
+
+//         &-1 {
+//             transform: translateY(6px) rotate(45deg);
+//         }
+
+//         &-3 {
+//             transform: translateY(-6px) rotate(-45deg);
+//         }
+//     }
+// }
+
+// .sidenav {
+//     border-right: $border-main;
+//     transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.25s;
+//     font-weight: 500;
+
+//     .nav-title-container {
+//         color: $primary-color;
+//         font-size: 1.25rem;
+//         flex: 0 0 60px;
+//         border-bottom: $border-main;
+//     }
+
+//     .nav-container {
+//         padding-top: 2.5rem;
+//     }
+
+//     .user-section {
+//         margin: 0 0.75rem;
+//         padding: 0;
+
+//         .sidenav-avatar {
+//             height: 55px;
+//             width: 55px;
+//         }
+
+//         .user-section-text {
+//             padding-left: 0.75rem;
+//         }
+
+//         .user-email {
+//             font-size: 0.75rem;
+//             font-weight: 400;
+//             color: $light-text;
+//         }
+//     }
+
+//     .nav-header-item,
+//     .nav-link {
+//         margin: 0.25rem 0.75rem;
+//         padding: 0.75rem 0.25rem;
+//     }
+
+//     .nav-list {
+//         list-style-type: none;
+//     }
+
+//     .nav-link {
+//         color: #585858;
+//         border-radius: $border-radius;
+//         font-size: 1rem;
+//         transition: all 0.4s;
+
+//         .icon {
+//             margin: 0 0.75rem;
+//             font-size: 1.25rem;
+//             color: #acadb1;
+//             transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.4s;
+//         }
+//     }
+
+//     .nav-link:hover,
+//     .nav-link.active {
+//         color: $primary-color;
+//         background-color: #eaedfc;
+
+//         .icon {
+//             color: $primary-color;
+//         }
+//     }
+// }
+
+// #sidenav-checkbox {
+//     & ~ .sidenav {
+//         flex: 0 0 300px;
+
+//         .nav-link-text,
+//         .nav-header-text,
+//         .user-section-text {
+//             font-weight: 500;
+//             transform: translateX(0);
+//             transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.25s;
+//         }
+//     }
+
+//     &:checked ~ {
+//         .checkbox-label {
+//             .line {
+//                 &-2 {
+//                     transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.25s;
+//                     transform: scaleX(1);
+//                 }
+
+//                 &-1,
+//                 &-3 {
+//                     transform: translateY(0px) rotate(0deg);
+//                 }
+//             }
+//         }
+
+//         .sidenav {
+//             flex: 0 0 80px;
+
+//             .nav-link-text,
+//             .nav-header-text,
+//             .user-section-text {
+//                 transform: translateX(300px);
+//             }
+//         }
+//     }
+// }
+
+// .nav-section {
+//     padding: 1.5rem 0;
+//     border-bottom: $border-main;
+// }
+
+// @media (max-width: 992px) {
+//     .checkbox-label,
+//     .nav-header-icon {
+//         margin: 0 0.5rem;
+
+//         left: 11px;
+//         top: 16px;
+//     }
+
+//     .sidenav {
+//         .nav-title-container {
+//             flex: 0 0 53px;
+//         }
+
+//         .nav-container {
+//             padding-top: 1.25rem;
+//         }
+
+//         .user-section {
+//             margin: 0 0.5rem;
+//             padding: 0;
+
+//             .sidenav-avatar {
+//                 height: 39px;
+//                 width: 39px;
+//             }
+
+//             .user-section-text {
+//                 padding-left: 0.5rem;
+//             }
+//         }
+
+//         .nav-header-item,
+//         .nav-link {
+//             margin: 0.25rem 0.5rem;
+//             padding: 0.5rem 0.25rem;
+//         }
+
+//         .nav-link {
+//             .icon {
+//                 margin: 0 0.5rem;
+//             }
+//         }
+//     }
+
+//     #sidenav-checkbox {
+//         & ~ .sidenav {
+//             flex: 0 0 230px;
+//         }
+
+//         &:checked ~ {
+//             .sidenav {
+//                 flex: 0 0 58px;
+
+//                 .nav-link-text,
+//                 .nav-header-text,
+//                 .user-section-text {
+//                     transform: translateX(230px);
+//                 }
+//             }
+//         }
+//     }
+
+//     .nav-section {
+//         padding: 1.25rem 0;
+//     }
+// }
+
+// @media (max-width: 768px) {
+//     .checkbox-label,
+//     .nav-header-icon {
+//         left: 9px;
+//         top: 18px;
+
+//         .line {
+//             margin: 2px 1px;
+//             width: 12px;
+//             height: 2px;
+
+//             &-2 {
+//                 transform: scaleX(0);
+//             }
+
+//             &-1 {
+//                 transform: translateY(4px) rotate(45deg);
+//             }
+
+//             &-3 {
+//                 transform: translateY(-4px) rotate(-45deg);
+//             }
+//         }
+//     }
+
+//     .sidenav {
+//         .nav-title-container {
+//             flex: 0 0 50px;
+//         }
+
+//         .user-section {
+//             .sidenav-avatar {
+//                 height: 33px;
+//                 width: 33px;
+//             }
+//         }
+//     }
+
+//     #sidenav-checkbox {
+//         & ~ .sidenav {
+//             flex: 0 0 180px;
+//         }
+
+//         &:checked ~ {
+//             .sidenav {
+//                 flex: 0 0 48px;
+
+//                 .nav-link-text,
+//                 .nav-header-text,
+//                 .user-section-text {
+//                     transform: translateX(180px);
+//                 }
+//             }
+//         }
+//     }
+
+//     .nav-section {
+//         padding: 1rem 0;
+//     }
+// }
+
+// // @media (max-width: 380px) {
+// //     .sidenav {
+// //         position: absolute;
+// //         background-color: #ffffff;
+// //         display: flex;
+// //         align-items: flex-start;
+// //         justify-content: center;
+
+// //         *.d-flex {
+// //             align-items: flex-start;
+// //             justify-content: center;
+// //         }
+
+// //         *.d-flex.flex-column {
+// //             align-items: center;
+// //             justify-content: flex-start;
+// //         }
+// //     }
+
+// //     #sidenav-checkbox {
+// //         & ~ .sidenav {
+// //             top: 0;
+// //             left: 0;
+// //             right: 0;
+// //             visibility: visible;
+// //         }
+
+// //         &:checked ~ .sidenav {
+// //             top: -100%;
+// //             visibility: hidden;
+
+// //             .nav-link-text,
+// //             .nav-header-text,
+// //             .user-section-text {
+// //                 transform: none;
+// //             }
+// //         }
+// //     }
+// // }

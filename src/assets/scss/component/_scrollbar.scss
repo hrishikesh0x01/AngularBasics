@@ -10,10 +10,8 @@
 // ::-webkit-resizer the draggable resizing handle that appears at the bottom corner of some elements.
 
 ::-webkit-scrollbar {
-    position: absolute;
     width: 4px;
     height: 4px;
-    opacity: 0.5;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -41,4 +39,16 @@
 ::-webkit-scrollbar-button:horizontal:start:increment,
 ::-webkit-scrollbar-button:horizontal:end:decrement {
     display: none;
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 2px;
+        height: 2px;
+    }
+    ::-webkit-scrollbar-button {
+        height: 2px;
+        width: 2px;
+    }
 }
