@@ -33,3 +33,62 @@
         border: none;
     }
 }
+
+// XX-Large devices (larger desktops)
+// No media query since the xxl breakpoint has no upper bound on its width
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1400px) {
+    .here-for-nothing {
+        display: block;
+    }
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1200px) {
+    .here-for-nothing {
+        display: block;
+    }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 992px) {
+    .table {
+        .table-cell {
+            padding: 0.5rem;
+        }
+    
+        th.table-cell {
+            padding: 0.5rem 1rem;
+        }
+    
+        tr {
+            th:first-child,
+            td:first-child {
+                padding: 0 0.75rem;
+            }
+        }
+    }
+    
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 768px) {
+    .here-for-nothing {
+        display: block;
+    }
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 576px) {
+    .here-for-nothing {
+        display: block;
+    }
+}
+
+// Mobile devices (portrait phones, less than 380px)
+@media (max-width: 380px) {
+    .here-for-nothing {
+        display: block;
+    }
+}
