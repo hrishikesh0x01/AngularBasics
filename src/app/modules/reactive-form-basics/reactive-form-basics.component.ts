@@ -21,7 +21,7 @@ export class ReactiveFormBasicsComponent implements OnInit {
       fullName: ['', [Validators.required, Validators.minLength(3)]],  
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.maxLength(150), Validators.minLength(20)]],
-      mobile: ['', [Validators.required, Validators.pattern(/[0-9]{10}$/)]],
+      mobile: ['', [Validators.required, Validators.pattern(/\([0-9]{3}\)\-[0-9]{3}\-[0-9]{4}$/)]],
       age: ['', ]
     });
   }

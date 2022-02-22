@@ -141,6 +141,14 @@
 .nav-section {
     padding: 1.5rem 0;
     border-bottom: $border-main;
+
+    &:last-child {
+        border: none;
+    }
+}
+
+.footer {
+    border-top: $border-main;
 }
 
 // X-Large devices (large desktops, less than 1400px)
@@ -303,8 +311,117 @@
 
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 576px) {
-    .here-for-nothing {
-        display: block;
+    .checkbox-label {
+        margin: 0 0.5rem;
+
+        left: 16px;
+        top: 21px;
+    }
+
+    .sidenav {
+        position: absolute;
+        background-color: #ffffff;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    #sidenav-checkbox {
+        & ~ .sidenav {
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            // visibility: visible;
+            transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.4s;
+        }
+
+        &:checked ~ .sidenav {
+            left: -100%;
+            right: 100%;
+            // visibility: hidden;
+
+            .nav-link-text,
+            .nav-header-text,
+            .user-section-text {
+                transform: none;
+            }
+        }
+    }
+
+    .checkbox-label,
+    .nav-header-icon {
+        margin: 0 0.75rem;
+
+        .line {
+            margin: 3px 1px;
+            width: 18px;
+            height: 3px;
+            background-color: $primary-color;
+            border-radius: $border-radius;
+            transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.25s;
+
+            &-2 {
+                transform: scaleX(0);
+            }
+
+            &-1 {
+                transform: translateY(6px) rotate(45deg);
+            }
+
+            &-3 {
+                transform: translateY(-6px) rotate(-45deg);
+            }
+        }
+    }
+
+    .sidenav {
+        $header-height: 60px;
+        .nav-title-container {
+            font-size: 1.25rem;
+            flex: 0 0 $header-height;
+        }
+
+        .nav-container {
+            padding-top: 2.5rem;
+        }
+
+        .user-section {
+            margin: 0 0.75rem;
+            padding: 0;
+
+            .sidenav-avatar {
+                height: 55px;
+                width: 55px;
+            }
+
+            .user-section-text {
+                padding-left: 0.75rem;
+            }
+
+            .user-email {
+                font-size: 0.75rem;
+            }
+        }
+
+        .nav-header-item,
+        .nav-link {
+            margin: 0.25rem 0.75rem;
+            padding: 0.75rem 0.25rem;
+        }
+
+        .nav-link {
+            font-size: 1rem;
+
+            .icon {
+                margin: 0 0.75rem;
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+    .nav-section {
+        padding: 1.5rem 0;
     }
 }
 
@@ -584,118 +701,3 @@
 //         padding: 1rem 0;
 //     }
 // }
-
-// Mobile devices (portrait phones, less than 380px)
-@media (max-width: 380px) {
-    .checkbox-label {
-        margin: 0 0.5rem;
-
-        left: 16px;
-        top: 21px;
-    }
-
-    .sidenav {
-        position: absolute;
-        background-color: #ffffff;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-    }
-
-    #sidenav-checkbox {
-        & ~ .sidenav {
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            visibility: visible;
-            transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.4s;
-        }
-
-        &:checked ~ .sidenav {
-            top: -100%;
-            visibility: hidden;
-
-            .nav-link-text,
-            .nav-header-text,
-            .user-section-text {
-                transform: none;
-            }
-        }
-    }
-
-    .checkbox-label,
-    .nav-header-icon {
-        margin: 0 0.75rem;
-
-        .line {
-            margin: 3px 1px;
-            width: 18px;
-            height: 3px;
-            background-color: $primary-color;
-            border-radius: $border-radius;
-            transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.25s;
-
-            &-2 {
-                transform: scaleX(0);
-            }
-
-            &-1 {
-                transform: translateY(6px) rotate(45deg);
-            }
-
-            &-3 {
-                transform: translateY(-6px) rotate(-45deg);
-            }
-        }
-    }
-
-    .sidenav {
-        $header-height: 60px;
-        .nav-title-container {
-            font-size: 1.25rem;
-            flex: 0 0 $header-height;
-        }
-
-        .nav-container {
-            padding-top: 2.5rem;
-        }
-
-        .user-section {
-            margin: 0 0.75rem;
-            padding: 0;
-    
-            .sidenav-avatar {
-                height: 55px;
-                width: 55px;
-            }
-    
-            .user-section-text {
-                padding-left: 0.75rem;
-            }
-    
-            .user-email {
-                font-size: 0.75rem;
-            }
-        }
-
-        .nav-header-item,
-        .nav-link {
-            margin: 0.25rem 0.75rem;
-            padding: 0.75rem 0.25rem;
-        }
-
-        .nav-link {
-            font-size: 1rem;
-
-            .icon {
-                margin: 0 0.75rem;
-                font-size: 1.25rem;
-            }
-        }
-    }
-
-    .nav-section {
-        padding: 1.5rem 0;
-    }
-}
