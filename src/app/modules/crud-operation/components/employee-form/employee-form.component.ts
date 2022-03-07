@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 
 import { Department } from '../../models/department.model';
 import { Employee } from '../../models/employee.model';
@@ -16,25 +15,27 @@ export class EmployeeFormComponent implements OnInit {
   empForm: FormGroup;
   isEditMode: boolean = false;
   submitted: boolean = false;
-  currentEmpDataId: number;
+  currentEmpDataId?: number = undefined;
   departmentOptions: Department[];
 
-  constructor(private fb: FormBuilder, private router: Router, private activeRoute: ActivatedRoute, private crudService: CrudService) {}
+  @Output() closeEvent: EventEmitter<Event> = new EventEmitter<Event>();
+
+  constructor(private fb: FormBuilder, private crudService: CrudService) {}
 
   ngOnInit(): void {
+
     this.empForm = this.generateForm();
     this.getDepartmentData();
-    this.currentEmpDataId = this.activeRoute.snapshot.params['id'];
     if (this.currentEmpDataId) {
       this.isEditMode = true;
       console.log("EDIT MODE");
       this.getEmpToEdit();
-      console.log("Are bhai bhai bhai....", );
     }
   }
 
   getEmpToEdit(): void {
     this.empForm.patchValue(this.crudService.getEmployeeToEdit().getValue());
+    console.log();
   }
 
   getDepartmentData(): void {
@@ -75,8 +76,8 @@ export class EmployeeFormComponent implements OnInit {
     console.log(emp);
     this.crudService.saveEmp(emp).subscribe(data => {
       console.log("Like Share Subscribe...\nKeep supporting...");
-      this.router.navigate(['/crud-operation/emplist']);
     });
+    this.closeEvent.emit();
   }
 
   onReset() {
@@ -86,5 +87,10 @@ export class EmployeeFormComponent implements OnInit {
 
   getControl(cname: string): AbstractControl | null {
     return this.empForm.get(cname);
+  }
+
+  onClose() {
+    console.log('close');
+    this.closeEvent.emit();
   }
 }

@@ -26,11 +26,11 @@
             </div>
         </section>
         <section class="d-flex flex-column justify-content-between nav-section"
-            *ngFor="let feature_section of features">
-            <ul class="flex-grow-1 nav-list gutter-stable">
+            *ngFor="let feature_section of features; let i = index">
+            <ul cdkDropList class="example-list flex-grow-1 nav-list gutter-stable" (cdkDropListDropped)="drop($event, i)">
                 <li *ngFor="let feature of feature_section" class="nav-item">
                     <a [routerLink]="feature.routePath" routerLinkActive="active"
-                        class="d-flex align-items-center nav-link">
+                        class="example-box d-flex align-items-center nav-link" cdkDrag>
                         <div [ngClass]="['icon', feature.icon]"></div>
                         <div class="nav-link-text flex-grow-1 flex-shrink-0">{{ feature.dispName }}</div>
                     </a>

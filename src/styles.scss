@@ -10,6 +10,9 @@
 // layouts like sidebar, etc.
 @import "./assets/scss/layout/index";
 
+// CDK Overlay styles
+@import '@angular/cdk/overlay-prebuilt.css';
+
 body {
     color: #1a1a1c;
 }

@@ -5,8 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ReactiveFormBasicsModule } from '../modules/reactive-form-basics/reactive-form-basics.module';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,8 @@ import { ReactiveFormBasicsModule } from '../modules/reactive-form-basics/reacti
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    DragDropModule
   ],
   exports: [
     HeaderComponent,
