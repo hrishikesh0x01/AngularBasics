@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DirectivePipesModule } from './modules/directive-pipes/directive-pipes.module';
-import { DataBindingModule } from './modules/data-binding/data-binding.module';
+import { DirectivePipesModule } from './directive-pipes/directive-pipes.module';
+import { DataBindingModule } from './data-binding/data-binding.module';
 import { CoreModule } from './core/core.module';
 
 @NgModule({

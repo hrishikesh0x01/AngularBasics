@@ -25,18 +25,23 @@
                 </div>
             </div>
         </section>
-        <section class="d-flex flex-column justify-content-between nav-section"
-            *ngFor="let feature_section of features; let i = index">
-            <ul cdkDropList class="example-list flex-grow-1 nav-list gutter-stable" (cdkDropListDropped)="drop($event, i)">
-                <li *ngFor="let feature of feature_section" class="nav-item">
-                    <a [routerLink]="feature.routePath" routerLinkActive="active"
-                        class="example-box d-flex align-items-center nav-link" cdkDrag>
-                        <div [ngClass]="['icon', feature.icon]"></div>
-                        <div class="nav-link-text flex-grow-1 flex-shrink-0">{{ feature.dispName }}</div>
-                    </a>
-                </li>
-            </ul>
-        </section>
+        <div cdkDropListGroup>
+            <nav class="d-flex flex-column justify-content-between nav-section"
+                *ngFor="let feature_section of features; let i = index">
+                <ul cdkDropList class="flex-grow-1 nav-list gutter-stable" [cdkDropListData]="feature_section"
+                    (cdkDropListDropped)="drop($event)">
+                    <li *ngFor="let feature of feature_section" class="nav-item">
+                        <a [routerLink]="feature.routePath" routerLinkActive="active"
+                            class="d-flex align-items-center nav-link" cdkDragLockAxis="y" cdkDrag>
+                            <div [ngClass]="['icon', feature.icon]"></div>
+                            <div class="nav-link-text flex-grow-1 flex-shrink-0">
+                                {{ feature.dispName }}
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
     <footer class="footer">
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
