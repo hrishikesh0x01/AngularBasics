@@ -3,7 +3,7 @@
         <h4 class="title-text">Employee Details</h4>
     </div>
     <form class="form" [formGroup]="empForm" (ngSubmit)="onSubmit()">
-        <div class="d-flex flex-wrap justify-content-evenly">
+        <div class="d-flex flex-column justify-content-evenly">
             <div class="d-flex flex-column input-div">
                 <label for="fname">First Name: </label>
                 <input class="input-field" type="text" formControlName="fname" id="fname">
@@ -66,13 +66,8 @@
                     <option *ngFor="let dept of this.departmentOptions" [value]="dept.id">{{ dept.name }}</option>
                 </select>
             </div>
-            <div class="input-div"></div>
-            <div class="input-div"></div>
-            <div class="d-flex input-div">
-                <button class="btn btn-secondary" type="button" (click)="onClose()">Cancel</button>
-            </div>
-            <div class="input-div"></div>
             <div class="d-flex justify-content-around input-div">
+                <button class="btn btn-secondary" type="button" (click)="onClose()">Cancel</button>
                 <button class="btn btn-danger" type="button" (click)="onReset()">Reset</button>
                 <button class="btn btn-primary" type="submit">Submit</button>
             </div>

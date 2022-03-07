@@ -36,6 +36,17 @@ body {
     padding: 0 2rem;
 }
 
+.employee-form {
+    background-color: #f7f8fa;
+    box-shadow: 0 0 100px 10px #a0a0a3;
+    width: 600px;
+
+    .form {
+        margin: 0;
+        padding: 1.5rem;
+    }
+}
+
 .main-content-title {
     font-size: 1.25rem;
     .title-text {
@@ -95,15 +106,15 @@ body {
 
 ////////////////////////////////////////////////////////////////////////
 // START: employee-form.component
-.employee-form {
-    .form {
-        width: 100%;
+// .employee-form {
+//     .form {
+//         width: 100%;
 
-        .input-div {
-            width: 30%;
-        }
-    }
-}
+//         .input-div {
+//             width: 30%;
+//         }
+//     }
+// }
 // END: employee-form.component
 ////////////////////////////////////////////////////////////////////////
 
@@ -163,13 +174,13 @@ body {
 
     ////////////////////////////////////////////////////////////////////////
     // START: employee-form.component
-    .employee-form {
-        .form {
-            .input-div {
-                width: 47%;
-            }
-        }
-    }
+    // .employee-form {
+    //     .form {
+    //         .input-div {
+    //             width: 47%;
+    //         }
+    //     }
+    // }
     // END: employee-form.component
     ////////////////////////////////////////////////////////////////////////
 }
@@ -214,14 +225,14 @@ body {
 
     ////////////////////////////////////////////////////////////////////////
     // START: employee-form.component
-    .employee-form {
-        .form {
-            padding: 1.5rem;
-            .input-div {
-                width: 97%;
-            }
-        }
-    }
+    // .employee-form {
+    //     .form {
+    //         padding: 1.5rem;
+    //         .input-div {
+    //             width: 97%;
+    //         }
+    //     }
+    // }
     // END: employee-form.component
     ////////////////////////////////////////////////////////////////////////
 }

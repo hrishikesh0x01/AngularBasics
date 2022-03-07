@@ -8,6 +8,7 @@ import { MapDeptPipe } from './pipes/map-dept.pipe';
 import { SearchFromArrayOnPipe } from './pipes/search-from-array-on.pipe';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EmployeeFormComponent } from './components/employee-form/employee-form.
   imports: [
     CommonModule,
     CrudOperationRoutingModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     OverlayModule
