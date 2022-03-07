@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'resume-builder',
     loadChildren: () => import('./resume-builder/resume-builder.module').then(m => m.ResumeBuilderModule)
   },
+  {
+    path: 'template-ref',
+    loadChildren: () => import('./template-ref-example/template-ref-example.module').then(m => m.TemplateRefExampleModule)
+  },
   { path: '**', component: PageNotFoundComponent }
 ];
 

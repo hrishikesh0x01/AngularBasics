@@ -25,6 +25,10 @@ a {
     cursor: pointer;
 }
 
+ul, dl, ol {
+    list-style-type: none;
+}
+
 .d- {
     &none {
         display: none;

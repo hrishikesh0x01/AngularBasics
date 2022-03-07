@@ -1,0 +1,32 @@
+<ng-template #listView>
+    <ul class="list">
+        <li class="list-item" *ngFor="let student of this.students">
+            ID: {{ student.id }}, Name: {{ student.name }}, Grade: {{ student.grade }}
+        </li>
+    </ul>
+</ng-template>
+<ng-template #cardView>
+    <div class="card-row d-flex flex-wrap">
+        <div class="card-wrapper" *ngFor="let student of this.students">
+            <div class="card">
+                <div class="title">
+                    ID: {{ student.id }}
+                </div>
+                <div class="name">
+                    Name: {{ student.name }}
+                </div>
+                <div class="grade">
+                    Grade: {{ student.grade }}
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<div class="template-ref-example">
+    <div class="tool-tip text-right">
+        <button class="btn btn-primary" type="button" (click)="toggleView()">{{ this.view_mode }}</button>
+    </div>
+    
+    <ng-container [ngTemplateOutlet]="viewMode"></ng-container>
+</div>

@@ -1,1 +1,16 @@
 // Card styles goes here
+.card-row {
+    margin-left: -1rem;
+
+    .card-wrapper {
+        width: 25%;
+    }
+
+    .card {
+        background-color: $white;
+        border-radius: $border-radius;
+        padding: 1rem;
+        margin-left: 1rem;
+        box-shadow: 0 0 30px 5px #dedede;
+    }
+}

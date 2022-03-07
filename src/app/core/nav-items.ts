@@ -16,8 +16,8 @@ export let navItems: Feature[][] = [
         },
         {
             "icon": "icon-sync",
-            "dispName": "REST API",
-            "routePath": "/rest-api"
+            "dispName": "Template Ref",
+            "routePath": "/template-ref"
         },
         {
             "icon": "icon-tools",
