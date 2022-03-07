@@ -7,7 +7,7 @@
             <div class="d-flex flex-column input-div">
                 <label for="fname">First Name: </label>
                 <input class="input-field" type="text" formControlName="fname" id="fname">
-                <div *ngIf="getControl('fname')?.touched || this.submitted || getControl('fname')?.dirty">
+                <div *ngIf="getControl('fname')?.touched || this.submitted">
                     <div class="err-div" *ngIf="getControl('fname')?.errors?.['required']">
                         This Field is Required
                     </div>
@@ -16,7 +16,7 @@
             <div class="d-flex flex-column input-div">
                 <label for="lname">Last Name: </label>
                 <input class="input-field" type="text" formControlName="lname" id="lname">
-                <div *ngIf="getControl('lname')?.touched || this.submitted || getControl('lname')?.dirty">
+                <div *ngIf="getControl('lname')?.touched || this.submitted">
                     <div class="err-div" *ngIf="getControl('lname')?.errors?.['required']">
                         This Field is Required
                     </div>
@@ -34,7 +34,7 @@
             <div class="d-flex flex-column input-div">
                 <label for="mobile">Mobile Number: </label>
                 <input class="input-field" type="text" formControlName="mobile" id="mobile">
-                <div *ngIf="getControl('mobile')?.touched || this.submitted || getControl('mobile')?.dirty">
+                <div *ngIf="getControl('mobile')?.touched || this.submitted || getControl('mobile')?.value.length">
                     <div class="err-div" *ngIf="getControl('mobile')?.errors?.['required']">
                         This Field is Required
                     </div>

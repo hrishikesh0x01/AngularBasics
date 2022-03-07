@@ -172,10 +172,6 @@ a {
         position: fixed;
     }
 }
-
-.mb-3 {
-    margin-bottom: 3rem;
-}
 // END: Common Styles
 ////////////////////////////////////////////////////////////////////////
 
@@ -215,6 +211,13 @@ a {
 
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 576px) {
+    .here-for-nothing {
+        display: block;
+    }
+}
+
+// Mobile devices (portrait phones, less than 380px)
+@media (max-width: 380px) {
     .here-for-nothing {
         display: block;
     }

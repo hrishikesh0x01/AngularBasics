@@ -85,3 +85,10 @@
         display: block;
     }
 }
+
+// Mobile devices (portrait phones, less than 380px)
+@media (max-width: 380px) {
+    .here-for-nothing {
+        display: block;
+    }
+}

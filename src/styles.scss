@@ -69,7 +69,7 @@ body {
         border-bottom-left-radius: 0;
         color: #b5b5b5;
         padding-left: 0;
-        width: 40%;
+        width: 35%;
         transition: all ease-in-out 0.4s;
 
         &:focus {
@@ -176,37 +176,19 @@ body {
 
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 576px) {
-    .header-height {
-        flex: 0 0 60px;
-    }
-
-    .main-content-title {
-        padding: 0 2rem;
-        height: $header-height;
-    }
     ////////////////////////////////////////////////////////////////////////
     // START: employee-list-view.component
     .head {
-        .btn {
-            font-size: 0.625rem;
-            padding: 0 10px;
-            height: 30px;
-        }
-        .search-icon-field, #search-input {
-            height: 30px;
-        }
         .search-icon-field {
             width: 35px;
-            font-size: 0.75rem;
+            font-size: 1rem;
             padding: {
                 left: 0.625rem;
             }
         }
+
         #search-input {
             width: 80%;
-            &:focus {
-                width: 80%;
-            }
         }
     }
     // END: employee-list-view.component
@@ -224,4 +206,16 @@ body {
     }
     // END: employee-form.component
     ////////////////////////////////////////////////////////////////////////
+}
+
+// X-Small devices (portrait phones, less than 380px)
+@media (max-width: 380px) {
+    .header-height {
+        flex: 0 0 60px;
+    }
+
+    .main-content-title {
+        padding: 0 2rem;
+        height: $header-height;
+    }
 }

@@ -41,7 +41,7 @@
   <div class="input-div">
     <label for="mobile">Mobile Number:</label>
     <!-- <input class="input-field" type="text" appPhoneMask formControlName="mobile" id="mobile"> -->
-    <input class="input-field" type="text" appPhoneMask formControlName="mobile" id="mobile">
+    <input class="input-field" type="text" formControlName="mobile" id="mobile">
     <div *ngIf="getControls['mobile']?.value?.toString().length">
       <div class="err-div" *ngIf="getControls['mobile']?.errors?.['required']">
         Mobile Number is required
