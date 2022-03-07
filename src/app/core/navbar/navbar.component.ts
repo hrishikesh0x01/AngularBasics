@@ -1,4 +1,3 @@
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Feature } from '../models/feature.model';
 import { navItems } from '../nav-items';
@@ -15,8 +14,4 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void { }
-
-  drop(event: CdkDragDrop<Feature>, index: number) {
-      moveItemInArray(this.features[index], event.previousIndex, event.currentIndex);
-  }
 }

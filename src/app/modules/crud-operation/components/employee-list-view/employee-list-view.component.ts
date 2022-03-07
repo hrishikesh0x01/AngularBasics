@@ -1,12 +1,9 @@
-import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
-import { Component, ComponentRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Department } from '../../models/department.model';
 
 import { Employee } from '../../models/employee.model';
 import { CrudService } from '../../services/crud.service';
-import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 
 @Component({
   selector: 'app-employee-list-view',
@@ -19,10 +16,7 @@ export class EmployeeListViewComponent implements OnInit {
   departmentOptions: Department[];
   searchString: string;
 
-  formOverlayComponentRef: ComponentRef<EmployeeFormComponent>;
-  formOverlayRef: OverlayRef;
-
-  constructor(private router: Router, private crudService: CrudService, private overlay: Overlay) { }
+  constructor(private router: Router, private crudService: CrudService) { }
 
   ngOnInit(): void {
     this.getEmployeeData();
@@ -49,7 +43,7 @@ export class EmployeeListViewComponent implements OnInit {
 
   editEmp(employee: Employee): void {
     this.crudService.sendEmployeeToEdit(employee);
-    this.displayForm(employee.id);
+    this.router.navigate([`/crud-operation/edit/${employee.id}`]);
   }
 
   deleteEmp(id: number) {
@@ -63,27 +57,5 @@ export class EmployeeListViewComponent implements OnInit {
 
   empTrack(index: number, employee: Employee) {
     return employee.id;
-  }
-  
-  displayForm(id?: number): void {
-    let formOverlayConfig: OverlayConfig = {
-      positionStrategy: this.overlay.position().global().right().centerHorizontally()
-    }
-
-    this.formOverlayRef = this.overlay.create(formOverlayConfig);
-
-    const formComponent = new ComponentPortal(EmployeeFormComponent);
-
-    this.formOverlayComponentRef = this.formOverlayRef.attach(formComponent);
-    
-    this.formOverlayComponentRef.instance.currentEmpDataId = id;
-
-    this.closeForm();
-  }
-  
-  closeForm(): void {
-    this.formOverlayComponentRef.instance.closeEvent.subscribe(() => {
-      this.formOverlayRef.detach();
-    })
   }
 }

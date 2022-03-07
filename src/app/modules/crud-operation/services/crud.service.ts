@@ -37,7 +37,6 @@ export class CrudService {
   }
 
   getEmployeeToEdit(): BehaviorSubject<Employee> {
-    console.log('sent');
     return this.employeeToEdit;
   }
 

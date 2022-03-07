@@ -11,12 +11,12 @@ const routes: Routes = [
       {
         path: '', redirectTo: 'emplist', pathMatch: 'full'
       },
-      // {
-      //   path: 'add', component: EmployeeFormComponent
-      // },
-      // {
-      //   path: 'edit/:id', component: EmployeeFormComponent
-      // },
+      {
+        path: 'add', component: EmployeeFormComponent
+      },
+      {
+        path: 'edit/:id', component: EmployeeFormComponent
+      },
       {
         path: 'emplist', component: EmployeeListViewComponent
       },
