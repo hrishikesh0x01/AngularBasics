@@ -1,8 +1,8 @@
 <div class="confirmation-popup d-flex flex-column">
-    Are you sure to delete employee with ID: {{this.id}}?
+    {{ this.msg }}
 
     <div class="d-flex justify-content-between">
-        <button class="btn btn-danger" (click)="onButtonClick('delete')">Delete</button>
-        <button class="btn btn-secondary" (click)="onButtonClick('cancel')">Cancel</button>
+        <button *ngFor="let button of this.buttons" class="btn" [ngClass]="button.type"
+            (click)="onButtonClick(button.value)">{{ button.name }}</button>
     </div>
 </div>

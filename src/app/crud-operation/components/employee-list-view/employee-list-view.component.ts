@@ -7,6 +7,7 @@ import { Employee } from '../../models/employee.model';
 import { CrudService } from '../../services/crud.service';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';
+import { Button } from 'src/app/shared/models/button.model';
 
 @Component({
   selector: 'app-employee-list-view',
@@ -70,6 +71,7 @@ export class EmployeeListViewComponent implements OnInit {
 
   displayConfirmationPopup(id: number): void {
     let formOverlayConfig: OverlayConfig = {
+      hasBackdrop: true,
       positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
     };
 
@@ -79,23 +81,29 @@ export class EmployeeListViewComponent implements OnInit {
 
     this.confirmationPopupComponentRef = this.confirmationPopupRef.attach(formComponent);
 
-    this.confirmationPopupComponentRef.instance.id = id;
+    this.confirmationPopupComponentRef.instance.msg = "Are you sure you want to delete ID: " + id + "?";
 
-    this.closeConfirmationPopup();
+    this.confirmationPopupComponentRef.instance.buttons = [
+      new Button('Cancel', 'secondary', 'cancel'),
+      new Button('Delete', 'danger', 'delete'),
+    ]
+
+    this.closeConfirmationPopup(id);
   }
 
-  closeConfirmationPopup(): void {
+  closeConfirmationPopup(id: number): void {
     this.confirmationPopupComponentRef.instance.buttonClick.subscribe((val) => {
       if (val === 'delete') {
-        this.deleteEmp(this.confirmationPopupComponentRef.instance.id);
+        this.deleteEmp(id);
       }
       this.confirmationPopupRef.detach();
-    })
+    });
   }
 
   displayForm(id?: number): void {
     let formOverlayConfig: OverlayConfig = {
-      positionStrategy: this.overlay.position().global().right().centerVertically()
+      hasBackdrop: true,
+      positionStrategy: this.overlay.position().global().right().centerVertically().height('100%')
     };
 
     this.formOverlayRef = this.overlay.create(formOverlayConfig);

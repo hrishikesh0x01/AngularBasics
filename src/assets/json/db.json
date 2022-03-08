@@ -33,16 +33,6 @@
       "id": 1
     },
     {
-      "fname": "Rajat",
-      "lname": "Dalvi",
-      "emailId": "rajat.dalvi@gmail.com",
-      "mobile": "8945758435",
-      "gender": "male",
-      "empdate": "2022-02-17",
-      "dept": "2",
-      "id": 2
-    },
-    {
       "fname": "Viral",
       "lname": "Patel",
       "emailId": "viral.patel@gmail.com",

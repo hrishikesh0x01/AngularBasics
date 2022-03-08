@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Button } from '../models/button.model';
 
 @Component({
   selector: 'app-confirmation-popup',
@@ -6,7 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./confirmation-popup.component.scss']
 })
 export class ConfirmationPopupComponent implements OnInit {
-  @Input() id: number;
+  @Input() msg: string;
+  @Input() buttons: Button[];
   @Output() buttonClick: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
@@ -17,5 +19,4 @@ export class ConfirmationPopupComponent implements OnInit {
   onButtonClick(name: string) {
     this.buttonClick.emit(name);
   }
-
 }
