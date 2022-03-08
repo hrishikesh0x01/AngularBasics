@@ -5,7 +5,8 @@
     <div class="d-flex justify-content-between head">
         <div class="d-flex flex-grow-1">
             <label class="icon icon-search d-flex align-items-center search-icon-field" for="search-input"></label>
-            <input class="input-field" type="search" id="search-input" [(ngModel)]='searchString' placeholder="Search employee">
+            <input class="input-field" type="search" id="search-input" [(ngModel)]='searchString'
+                placeholder="Search employee">
         </div>
         <!-- <button class="btn btn-primary" routerLink="/crud-operation/add">+ New employee</button> -->
         <button class="btn btn-primary" (click)="displayForm()">+ New employee</button>
@@ -14,101 +15,103 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th class="table-cell">
+                    <th>
                     </th>
-                    <th class="table-cell">
+                    <th>
                         <div class="d-flex align-items-center">
                             #
                         </div>
                     </th>
-                    <th class="table-cell">
+                    <th>
                         <div class="d-flex align-items-center">
                             Name
                         </div>
                     </th>
-                    <th class="table-cell">
+                    <th>
                         <div class="d-flex align-items-center">
                             Email Id
                         </div>
                     </th>
-                    <th class="table-cell">
+                    <th>
                         <div class="d-flex align-items-center">
                             Mobile
                         </div>
                     </th>
-                    <th class="table-cell">
+                    <th>
                         <div class="d-flex align-items-center">
                             Gender
                         </div>
                     </th>
-                    <th class="table-cell">
+                    <th>
                         <div class="d-flex align-items-center">
                             Employment Date
                         </div>
                     </th>
-                    <th class="table-cell">
+                    <th>
                         <div class="d-flex align-items-center">
                             Department
                         </div>
                     </th>
-                    <th class="table-cell">
+                    <th>
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody cdkDropList [cdkDropListData]="this.employeeData" (cdkDropListDropped)="drop($event)">
                 <tr *ngIf="!this.employeeData?.length">
-                    <td colspan="9" class="table-cell">
+                    <td colspan="9">
                         <div class=" text-center">
                             No data Found
                         </div>
                     </td>
                 </tr>
                 <tr
-                    *ngFor="let employee of this.employeeData | searchFromArrayOn: 'fname' : this.searchString; let i = index; trackBy:empTrack">
-                    <td class="table-cell">
+                    *ngFor="let employee of this.employeeData | searchFromArrayOn: 'fname' : this.searchString; let i = index; trackBy:empTrack" cdkDrag>
+                    <td>
                         <div class="d-flex align-items-center">
                             <input class="form-check-input" type="checkbox" name="" id="">
                         </div>
                     </td>
-                    <td class="table-cell">
+                    <td>
                         <div class="d-flex align-items-center">
                             {{ employee.id }}
                         </div>
                     </td>
-                    <td class="table-cell">
+                    <td>
                         <div class="d-flex align-items-center">
                             {{ employee.fname + ' ' + employee.lname }}
                         </div>
                     </td>
-                    <td class="table-cell">
+                    <td>
                         <div class="d-flex align-items-center">
                             {{ employee.emailId }}
                         </div>
                     </td>
-                    <td class="table-cell">
+                    <td>
                         <div class="d-flex align-items-center">
                             {{ employee.mobile }}
                         </div>
                     </td>
-                    <td class="table-cell">
+                    <td>
                         <div class="d-flex align-items-center">
                             {{ employee.gender }}
                         </div>
                     </td>
-                    <td class="table-cell">
+                    <td>
                         <div class="d-flex align-items-center">
                             {{ employee.empdate }}
                         </div>
                     </td>
-                    <td class="table-cell">
+                    <td>
                         <div class="d-flex align-items-center">
                             {{ employee.dept | mapDept: departmentOptions }}
                         </div>
                     </td>
-                    <td class="table-cell">
+                    <td>
                         <div class="d-flex align-items-center">
-                            <a class="edit-employee-link btn btn-secondary icon icon-write" (click)="editEmp(employee)"></a>
-                            <a class="delete-employee-link btn btn-secondary icon icon-delete" (click)="displayConfirmationPopup(employee.id)"></a>
+                            <a class="edit-employee-link btn btn-secondary icon icon-write"
+                                (click)="editEmp(employee)"></a>
+                            <a class="delete-employee-link btn btn-secondary icon icon-delete"
+                                (click)="displayConfirmationPopup(employee.id)"></a>
                         </div>
                     </td>
                 </tr>

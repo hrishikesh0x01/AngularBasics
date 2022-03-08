@@ -9,6 +9,7 @@ import { SearchFromArrayOnPipe } from './pipes/search-from-array-on.pipe';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
 import { SharedModule } from '../shared/shared.module';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    OverlayModule
+    OverlayModule,
+    DragDropModule
   ]
 })
 export class CrudOperationModule { }

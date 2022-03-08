@@ -6,7 +6,7 @@
     font-size: 0.825rem;
     width: 100%;
 
-    .table-cell {
+    td, th {
         text-align: left;
         padding: 1.25rem;
         border-bottom: $border-main;
@@ -16,7 +16,7 @@
         color: #6f6f6f;
     }
 
-    th.table-cell {
+    th {
         font-weight: normal;
         color: $light-text;
         padding: 0.825rem 1.75rem;
@@ -27,6 +27,7 @@
         td:first-child {
             padding: 0 1.25rem;
         }
+        transition: all 0.4s;
     }
 
     tr:last-child td {
@@ -54,14 +55,14 @@
 // Medium devices (tablets, less than 992px)
 @media (max-width: 992px) {
     .table {
-        .table-cell {
+        td, th {
             padding: 0.5rem;
         }
-    
-        th.table-cell {
+
+        th {
             padding: 0.5rem 1rem;
         }
-    
+
         tr {
             th:first-child,
             td:first-child {
@@ -69,7 +70,6 @@
             }
         }
     }
-    
 }
 
 // Small devices (landscape phones, less than 768px)

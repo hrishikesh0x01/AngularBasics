@@ -8,6 +8,7 @@ import { CrudService } from '../../services/crud.service';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';
 import { Button } from 'src/app/shared/models/button.model';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-employee-list-view',
@@ -121,5 +122,9 @@ export class EmployeeListViewComponent implements OnInit {
     this.formOverlayComponentRef.instance.closeEvent.subscribe(() => {
       this.formOverlayRef.detach();
     })
+  }
+
+  drop(event: CdkDragDrop<Employee[]>) {
+    moveItemInArray(this.employeeData, event.previousIndex, event.currentIndex);
   }
 }
