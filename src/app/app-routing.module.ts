@@ -29,6 +29,10 @@ const routes: Routes = [
     path: 'template-ref',
     loadChildren: () => import('./template-ref-example/template-ref-example.module').then(m => m.TemplateRefExampleModule)
   },
+  {
+    path: 'mvp-practice',
+    loadChildren: () => import('./mvp-practice/mvp-practice.module').then(m => m.MVPPracticeModule)
+  },
   { path: '**', component: PageNotFoundComponent }
 ];
 

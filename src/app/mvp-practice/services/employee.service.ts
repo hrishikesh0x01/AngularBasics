@@ -1,18 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
 import { Department } from 'src/app/shared/models/department.model';
 import { Employee } from 'src/app/shared/models/employee.model';
-
 import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class CrudService {
-
+@Injectable()
+export class EmployeeService {
   apiLink: string;
   employeeToEdit: BehaviorSubject<Employee> = new BehaviorSubject<Employee>(new Employee(0, '', '', '', '', '', '', 0));
 

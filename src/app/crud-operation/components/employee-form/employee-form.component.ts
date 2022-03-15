@@ -1,8 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Department } from '../../models/department.model';
-import { Employee } from '../../models/employee.model';
+///////////////////////////////////////////////////////////////////////////////
+import { Department } from 'src/app/shared/models/department.model';
+import { Employee } from 'src/app/shared/models/employee.model';
 import { CrudService } from '../../services/crud.service';
 
 @Component({

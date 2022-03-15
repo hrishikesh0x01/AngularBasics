@@ -2,8 +2,9 @@ import { Component, ComponentRef, OnInit } from '@angular/core';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 
-import { Department } from '../../models/department.model';
-import { Employee } from '../../models/employee.model';
+///////////////////////////////////////////////////////////////////////////////
+import { Department } from 'src/app/shared/models/department.model';
+import { Employee } from 'src/app/shared/models/employee.model';
 import { CrudService } from '../../services/crud.service';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';

@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+/////////////////////////////////////////////////////////////////
+import { Details } from 'src/app/shared/models/details.model';
 import { environment } from 'src/environments/environment';
-import { Details } from '../models/details.model';
 // import persons from './personDetails.json';
 
 @Injectable({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Details } from 'src/app/shared/models/details.model';
 
-import { Details } from '../../models/details.model';
 import { CrudNoServerService } from '../../services/crud-no-server.service';
 
 @Component({

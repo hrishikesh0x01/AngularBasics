@@ -40,6 +40,11 @@ export let navItems: Feature[][] = [
             "icon": "icon-file-text2",
             "dispName": "Resume Builder",
             "routePath": "/resume-builder"
-        }
+        },
+        {
+            "icon": "icon-stack",
+            "dispName": "MVP Practice",
+            "routePath": "/mvp-practice"
+        },
     ]
 ];
