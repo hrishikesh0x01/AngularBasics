@@ -10,10 +10,11 @@ export class ReactiveFormBasicsComponent implements OnInit {
   demoForm: FormGroup;
   submitted: boolean = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+    this.demoForm = this.createContactForm();
+  }
 
   ngOnInit(): void {
-    this.demoForm = this.createContactForm();
     this.jsArrays();
   }
 

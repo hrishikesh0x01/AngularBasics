@@ -13,15 +13,17 @@ import { CrudNoServerService } from '../../services/crud-no-server.service';
 export class EmployeeFormComponent implements OnInit {
 
   detailsForm: FormGroup;
-  idToEdit: number;
+  idToEdit!: number;
   isEditMode: boolean = false;
   submitted: boolean = false;
   details: Details[];
 
-  constructor(private fb: FormBuilder, private router: Router, private activeRoute: ActivatedRoute, private crudNoServerService: CrudNoServerService) {}
+  constructor(private fb: FormBuilder, private router: Router, private activeRoute: ActivatedRoute, private crudNoServerService: CrudNoServerService) {
+    this.detailsForm = this.generateForm();
+    this.details = new Array<Details>();
+  }
 
   ngOnInit(): void {
-    this.detailsForm = this.generateForm();
     this.idToEdit = this.activeRoute.snapshot.params['id'];
     if (this.idToEdit) {
       this.isEditMode = true;

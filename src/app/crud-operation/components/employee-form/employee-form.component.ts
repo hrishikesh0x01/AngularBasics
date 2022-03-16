@@ -21,11 +21,12 @@ export class EmployeeFormComponent implements OnInit {
 
   @Output() closeEvent: EventEmitter<Event> = new EventEmitter<Event>();
 
-  constructor(private fb: FormBuilder, private crudService: CrudService) {}
+  constructor(private fb: FormBuilder, private crudService: CrudService) {
+    this.empForm = this.generateForm();
+    this.departmentOptions = new Array<Department>();
+  }
 
   ngOnInit(): void {
-
-    this.empForm = this.generateForm();
     this.getDepartmentData();
     if (this.currentEmpDataId) {
       this.isEditMode = true;

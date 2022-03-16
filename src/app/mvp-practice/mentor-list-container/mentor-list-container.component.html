@@ -1,0 +1,6 @@
+<app-mentor-list-presentation
+    [departmentOptions]="this.departmentOptions"
+    [mentorData]="this.mentorData$ | async"
+    (delete)="delete($event)"
+>
+</app-mentor-list-presentation>

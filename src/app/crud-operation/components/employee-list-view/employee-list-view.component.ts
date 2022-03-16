@@ -22,10 +22,14 @@ export class EmployeeListViewComponent implements OnInit {
   departmentOptions: Department[];
   searchString: string;
 
-  formOverlayComponentRef: ComponentRef<EmployeeFormComponent>;
-  formOverlayRef: OverlayRef;
+  formOverlayComponentRef!: ComponentRef<EmployeeFormComponent>;
+  formOverlayRef!: OverlayRef;
 
-  constructor(private crudService: CrudService, private overlay: Overlay) { }
+  constructor(private crudService: CrudService, private overlay: Overlay) {
+    this.employeeData = new Array<Employee>();
+    this.departmentOptions = new Array<Department>();
+    this.searchString = "";
+  }
 
   ngOnInit(): void {
     this.getEmployeeData();
@@ -68,8 +72,8 @@ export class EmployeeListViewComponent implements OnInit {
     return employee.id;
   }
 
-  confirmationPopupRef: OverlayRef;
-  confirmationPopupComponentRef: ComponentRef<ConfirmationPopupComponent>;
+  confirmationPopupRef!: OverlayRef;
+  confirmationPopupComponentRef!: ComponentRef<ConfirmationPopupComponent>;
 
   displayConfirmationPopup(id: number): void {
     let formOverlayConfig: OverlayConfig = {

@@ -22,11 +22,12 @@ export class ResumeFormComponent implements OnInit {
   public experienceArray: FormArray = this.fb.array([]);
   public educationArray: FormArray = this.fb.array([]);
 
-  constructor(private fb: FormBuilder, private resumeService: ResumeService, private router: Router) { }
-
-  public ngOnInit(): void {
+  constructor(private fb: FormBuilder, private resumeService: ResumeService, private router: Router) {
     // Builds the main form group.
     this.resumeForm = this.createResumeForm();
+  }
+
+  public ngOnInit(): void {
     
     // Adds the first field in the array. These cannot be deleted.
     this.addTechnicalField();

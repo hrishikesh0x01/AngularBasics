@@ -16,7 +16,11 @@ export class EmployeeListViewComponent implements OnInit {
   searchString: string;
   genderOptions: string[];
 
-  constructor(private router: Router, private crudNoServerService: CrudNoServerService) { }
+  constructor(private router: Router, private crudNoServerService: CrudNoServerService) {
+    this.details = new Array<Details>();
+    this.searchString = "";
+    this.genderOptions = new Array<string>();
+  }
 
   ngOnInit(): void {
     this.details = this.crudNoServerService.getDetails();

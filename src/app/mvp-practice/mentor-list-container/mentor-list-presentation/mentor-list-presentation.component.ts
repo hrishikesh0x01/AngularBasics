@@ -1,64 +1,67 @@
 import { ChangeDetectionStrategy, Component, ComponentRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-
-//////////////////////////////////////////////////////////////////////
-import { Employee } from 'src/app/shared/models/employee.model';
-import { Department } from 'src/app/shared/models/department.model';
-import { EmployeeListPresenterService } from '../employee-list-presenter/employee-list-presenter.service';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
-import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';
-import { Button } from 'src/app/shared/models/button.model';
 import { ComponentPortal } from '@angular/cdk/portal';
 
+//////////////////////////////////////////////////////////////////////
+import { Mentor } from 'src/app/shared/models/mentor.model';
+import { Department } from 'src/app/shared/models/department.model';
+import { MentorListPresenterService } from '../mentor-list-presenter/mentor-list-presenter.service';
+import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';
+import { Button } from 'src/app/shared/models/button.model';
+
 @Component({
-  viewProviders: [EmployeeListPresenterService],
-  selector: 'app-employee-list-presentation',
-  templateUrl: './employee-list-presentation.component.html',
-  styleUrls: ['./employee-list-presentation.component.scss'],
+  viewProviders: [MentorListPresenterService],
+  selector: 'app-mentor-list-presentation',
+  templateUrl: './mentor-list-presentation.component.html',
+  styleUrls: ['./mentor-list-presentation.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EmployeeListPresentationComponent implements OnInit {
+export class MentorListPresentationComponent implements OnInit {
 
-  searchString: string;
+  private _searchString: string;
+  public set searchString(val: string) {
+    this._searchString = val;
+  }
+  public get searchString(): string {
+    return this._searchString;
+  }
 
   @Output() public displayFormEvent: EventEmitter<number> = new EventEmitter<number>();
   @Output() public delete: EventEmitter<number> = new EventEmitter<number>();
-  
+
   private _departmentOptions: Department[];
   @Input() public set departmentOptions(val: Department[]) {
-    if (val) {
-      this._departmentOptions = val;
-    }
+    this._departmentOptions = val;
   }
   public get departmentOptions(): Department[] {
     return this._departmentOptions;
   }
-  
-  private _employeeData!: Employee[];
-  @Input() public set employeeData(val: Employee[] | null) {
+
+  private _mentorData!: Mentor[];
+  @Input() public set mentorData(val: Mentor[] | null) {
     if (val) {
-      this._employeeData = val;
+      this._mentorData = val;
     }
   }
-  public get employeeData(): Employee[] {
-    return this._employeeData;
+  public get mentorData(): Mentor[] {
+    return this._mentorData;
   }
 
-  constructor(private employeeListPresenter: EmployeeListPresenterService, private router: Router, private overlay: Overlay) { }
+  constructor(private mentorListPresenter: MentorListPresenterService, private router: Router, private overlay: Overlay) {
+    this._departmentOptions = new Array<Department>();
+    this._searchString = "";
+  }
 
   ngOnInit(): void {
-    this.employeeListPresenter.delete$.subscribe(id => {
+    this.mentorListPresenter.delete$.subscribe(id => {
       this.delete.emit(id);
     })
   }
 
-  editEmp(emp: Employee) {
-
-  }
-
-  confirmationPopupRef: OverlayRef;
-  confirmationPopupComponentRef: ComponentRef<ConfirmationPopupComponent>;
+  confirmationPopupRef!: OverlayRef;
+  confirmationPopupComponentRef!: ComponentRef<ConfirmationPopupComponent>;
 
   displayConfirmationPopup(id: number): void {
     let formOverlayConfig: OverlayConfig = {
@@ -83,19 +86,27 @@ export class EmployeeListPresentationComponent implements OnInit {
   }
 
   closeConfirmationPopup(id: number): void {
+    this.confirmationPopupRef.backdropClick().subscribe(() => {
+      this.confirmationPopupRef.detach();
+    });
+
     this.confirmationPopupComponentRef.instance.buttonClick.subscribe((val) => {
       if (val === 'delete') {
-        this.employeeListPresenter.delete(id);
+        this.mentorListPresenter.delete(id);
       }
       this.confirmationPopupRef.detach();
     });
   }
 
   displayForm(id?: number) {
-    this.displayFormEvent.emit(id);
+    if (id) {
+      this.router.navigateByUrl(`/mvp-practice/edit/${id}`);
+    } else {
+      this.router.navigateByUrl('/mvp-practice/add');
+    }
   }
 
-  drop(event: CdkDragDrop<Employee[]>) {
-    moveItemInArray(this.employeeData, event.previousIndex, event.currentIndex);
+  drop(event: CdkDragDrop<Mentor[]>) {
+    moveItemInArray(this.mentorData, event.previousIndex, event.currentIndex);
   }
 }

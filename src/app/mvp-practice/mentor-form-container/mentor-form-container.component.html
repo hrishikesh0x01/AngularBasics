@@ -1,0 +1,6 @@
+<app-mentor-form-presentation
+    [departmentOptions]="this.departmentOptions$ | async"
+    [empData]="this.empData$ | async"
+    (edit)="saveData($event)"
+    (add)="saveData($event)"
+></app-mentor-form-presentation>

@@ -1,6 +1,6 @@
 import { Template } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { Student } from './Student';
+import { Student } from './Student.model';
 
 @Component({
   selector: 'app-template-ref-example',
@@ -32,13 +32,15 @@ export class TemplateRefExampleComponent implements OnInit {
     },
   ];
 
-  @ViewChild('listView', {static: true}) list_view: TemplateRef<Template>;
-  @ViewChild('cardView', {static: true}) card_view: TemplateRef<Template>;
+  @ViewChild('listView', {static: true}) list_view!: TemplateRef<Template>;
+  @ViewChild('cardView', {static: true}) card_view!: TemplateRef<Template>;
 
-  viewMode: TemplateRef<Template>;
+  viewMode!: TemplateRef<Template>;
   view_mode: string;
 
-  constructor() { }
+  constructor() {
+    this.view_mode = "";
+  }
 
   ngOnInit(): void {
     this.viewMode = this.list_view;

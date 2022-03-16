@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmployeeFormContainerComponent } from './employee-form-container/employee-form-container.component';
-import { EmployeeListContainerComponent } from './employee-list-container/employee-list-container.component';
+import { MentorFormContainerComponent } from './mentor-form-container/mentor-form-container.component';
+import { MentorListContainerComponent } from './mentor-list-container/mentor-list-container.component';
 import { MVPPracticeComponent } from './mvp-practice.component';
 
 const routes: Routes = [
@@ -12,13 +12,13 @@ const routes: Routes = [
         path: '', redirectTo: 'list', pathMatch: 'full'
       },
       {
-        path: 'list', component: EmployeeListContainerComponent
+        path: 'list', component: MentorListContainerComponent
       },
       {
-        path: 'add', component: EmployeeFormContainerComponent
+        path: 'add', component: MentorFormContainerComponent
       },
       {
-        path: 'edit/:id', component: EmployeeFormContainerComponent
+        path: 'edit/:id', component: MentorFormContainerComponent
       },
     ]
   }

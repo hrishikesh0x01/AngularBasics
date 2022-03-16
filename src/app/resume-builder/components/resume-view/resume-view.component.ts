@@ -11,9 +11,10 @@ import { ResumeService } from '../../services/resume.service';
 })
 export class ResumeViewComponent implements OnInit {
 
-  resumeInfo: ResumeInfo;
+  resumeInfo!: ResumeInfo;
 
-  constructor(private resumeService: ResumeService, private activatedRoute: ActivatedRoute) { }
+  constructor(private resumeService: ResumeService, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     // Gets the id from the route parameter and passes it to getResumeInfo function.

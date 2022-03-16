@@ -7,11 +7,12 @@ import { Button } from '../models/button.model';
   styleUrls: ['./confirmation-popup.component.scss']
 })
 export class ConfirmationPopupComponent implements OnInit {
-  @Input() msg: string;
-  @Input() buttons: Button[];
+  @Input() msg!: string;
+  @Input() buttons!: Button[];
   @Output() buttonClick: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

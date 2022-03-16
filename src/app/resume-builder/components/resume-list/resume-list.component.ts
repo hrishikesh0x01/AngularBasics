@@ -13,7 +13,9 @@ export class ResumeListComponent implements OnInit {
   // Stores list of resumes.
   public resumeList: ResumeInfo[];
 
-  constructor(private resumeService: ResumeService, private router: Router) { }
+  constructor(private resumeService: ResumeService, private router: Router) {
+    this.resumeList = new Array<ResumeInfo>();
+  }
 
   public ngOnInit(): void {
     // call to the function for fetching resume list.    
