@@ -27,8 +27,8 @@ export class EmployeeListViewComponent implements OnInit {
     this.genderOptions = this.crudNoServerService.getGenderOptions();
   }
 
-  editDetail(id: number): void {
-    this.router.navigate([`/crud-without-server/edit/${id}`]);
+  editDetail(data: Details): void {
+    this.crudNoServerService.sendDataToEdit(data);
   }
 
   deleteDetail(id: number) {

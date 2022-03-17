@@ -5,11 +5,13 @@ import { CrudWithoutServerRoutingModule } from './crud-without-server-routing.mo
 import { EmployeeFormComponent } from './components/crud-form/employee-form.component';
 import { EmployeeListViewComponent } from './components/crud-list-view/employee-list-view.component';
 import { SharedModule } from '../shared/shared.module';
+import { CrudWithoutServerComponent } from './crud-without-server.component';
 
 @NgModule({
   declarations: [
     EmployeeFormComponent,
     EmployeeListViewComponent,
+    CrudWithoutServerComponent,
   ],
   imports: [
     CommonModule,

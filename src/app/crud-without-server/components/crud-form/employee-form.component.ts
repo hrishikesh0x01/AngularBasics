@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Details } from 'src/app/shared/models/details.model';
 
+/////////////////////////////////////////////////////////////////////
+import { Details } from 'src/app/shared/models/details.model';
 import { CrudNoServerService } from '../../services/crud-no-server.service';
 
 @Component({
@@ -13,23 +14,21 @@ import { CrudNoServerService } from '../../services/crud-no-server.service';
 export class EmployeeFormComponent implements OnInit {
 
   detailsForm: FormGroup;
-  idToEdit!: number;
+  detailsToEdit!: Details;
   isEditMode: boolean = false;
   submitted: boolean = false;
-  details: Details[];
 
   constructor(private fb: FormBuilder, private router: Router, private activeRoute: ActivatedRoute, private crudNoServerService: CrudNoServerService) {
     this.detailsForm = this.generateForm();
-    this.details = new Array<Details>();
   }
 
   ngOnInit(): void {
-    this.idToEdit = this.activeRoute.snapshot.params['id'];
-    if (this.idToEdit) {
+    this.crudNoServerService.dataToEdit$.subscribe((data) => {
       this.isEditMode = true;
-      this.detailsForm.patchValue({...this.crudNoServerService.getDetailById(this.idToEdit)});
+      this.detailsToEdit = data;
+      this.detailsForm.patchValue(this.detailsToEdit);
       console.log("EDIT MODE");
-    }
+    });
   }
   
   generateForm(): FormGroup {
@@ -49,16 +48,17 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   saveDetails() {
-    let details: Details;
     if (this.isEditMode) {
-      if (this.crudNoServerService.updateDetail(this.idToEdit, this.detailsForm.value)) {
-        this.router.navigate(['/crud-without-server/emplist']);
+      if (this.crudNoServerService.updateDetail(this.detailsToEdit.id, this.detailsForm.value)) {
+        this.onReset();
+        // this.router.navigate(['/crud-without-server/emplist']);
       } else {
         alert('Error occured while saving...');
       }
     } else {
       if (this.crudNoServerService.addNewDetail(this.detailsForm.value)) {
-        this.router.navigate(['/crud-without-server/emplist']);
+        this.onReset();
+        // this.router.navigate(['/crud-without-server/emplist']);
       } else {
         alert('Error occured while saving...');
       }
