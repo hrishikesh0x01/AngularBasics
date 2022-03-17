@@ -1,22 +1,14 @@
-import { HttpClient } from '@angular/common/http';
-import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Subject } from 'rxjs/internal/Subject';
 
 /////////////////////////////////////////////////////////////////
+import { Observable } from 'rxjs/internal/Observable';
+import { Subject } from 'rxjs/internal/Subject';
 import { Details } from 'src/app/shared/models/details.model';
-import { environment } from 'src/environments/environment';
-// import persons from './personDetails.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudNoServerService {
-
-  apiLink: string;
-
-  data: Details[];
 
   genderOptions: string[] = [
     "Male",
@@ -28,63 +20,28 @@ export class CrudNoServerService {
   public get dataToEdit$(): Observable<Details> {
     return this._dataToEdit$;
   }
+  private _dataToSave: Subject<Details>;
+  private _dataToSave$: Observable<Details>;
+  public get dataToSave$(): Observable<Details> {
+    return this._dataToSave$;
+  }
 
-  constructor(private http: HttpClient) {
-    this.apiLink = environment.baseURL;
-    this.data = new Array<Details>();
-
+  constructor() {
     this._dataToEdit = new Subject();
     this._dataToEdit$ = this._dataToEdit.asObservable();
+    this._dataToSave = new Subject();
+    this._dataToSave$ = this._dataToSave.asObservable();
   }
 
   getGenderOptions(): string[] {
     return this.genderOptions;
   }
 
-  getDetails(): Details[] {
-    return this.data;
-  }
-
-  getDetailById(id: number): Details | undefined {
-    return this.data.find((val) => id == val.id);
-  }
-
-  addNewDetail(newDetails: Details): boolean {
-    if (this.data.length) {
-      newDetails.id = this.data.slice(-1)[0].id + 1;
-    } else {
-      newDetails.id = 1;
-    }
-    try {
-      this.data.push(newDetails);
-      return true;
-    }
-    catch (err) {
-      console.log('Error: ', err);
-      return false;
-    }
-  }
-
   sendDataToEdit(data: Details) {
     this._dataToEdit.next(data);
   }
-
-  // getDataToEdit(data: Details): Observable< {
-  //   return this.dataToEdit$;
-  // }
-
-  updateDetail(id: number, data: Details): boolean {
-    try {
-      this.data[this.data.findIndex((val) => id == val.id)] = { ...this.getDetailById(id), ...data };
-      return true;
-    }
-    catch (err) {
-      console.log('Error: ', err);
-      return false;
-    }
-  }
-
-  deleteDetail(id: number): Details[] {
-    return this.data.splice(this.data.findIndex((val) => id == val.id), 1);
+  
+  sendDetailsToSave(data: Details) {
+    this._dataToSave.next(data);
   }
 }

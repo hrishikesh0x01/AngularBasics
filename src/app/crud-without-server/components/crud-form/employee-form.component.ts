@@ -14,7 +14,7 @@ import { CrudNoServerService } from '../../services/crud-no-server.service';
 export class EmployeeFormComponent implements OnInit {
 
   detailsForm: FormGroup;
-  detailsToEdit!: Details;
+  oldDetails!: Details;
   isEditMode: boolean = false;
   submitted: boolean = false;
 
@@ -25,12 +25,12 @@ export class EmployeeFormComponent implements OnInit {
   ngOnInit(): void {
     this.crudNoServerService.dataToEdit$.subscribe((data) => {
       this.isEditMode = true;
-      this.detailsToEdit = data;
-      this.detailsForm.patchValue(this.detailsToEdit);
+      this.oldDetails = data;
+      this.detailsForm.patchValue(this.oldDetails);
       console.log("EDIT MODE");
     });
   }
-  
+
   generateForm(): FormGroup {
     return this.fb.group({
       name: [null, Validators.required],
@@ -41,29 +41,20 @@ export class EmployeeFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log(this.detailsForm);
     if (this.detailsForm.status === 'VALID') {
+      console.log(this.detailsForm);
       this.saveDetails();
     }
   }
 
   saveDetails() {
+    let data = this.detailsForm.value;
     if (this.isEditMode) {
-      if (this.crudNoServerService.updateDetail(this.detailsToEdit.id, this.detailsForm.value)) {
-        this.onReset();
-        // this.router.navigate(['/crud-without-server/emplist']);
-      } else {
-        alert('Error occured while saving...');
-      }
-    } else {
-      if (this.crudNoServerService.addNewDetail(this.detailsForm.value)) {
-        this.onReset();
-        // this.router.navigate(['/crud-without-server/emplist']);
-      } else {
-        alert('Error occured while saving...');
-      }
+      data.id = this.oldDetails.id;
     }
-    console.log(this.detailsForm.value);
+    this.crudNoServerService.sendDetailsToSave(data);
+    this.onReset();
+    this.isEditMode = false;
   }
 
   onReset() {
