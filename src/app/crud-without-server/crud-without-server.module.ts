@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 ////////////////////////////////////////////////////////////////////////////////////////
 import { CrudWithoutServerRoutingModule } from './crud-without-server-routing.module';
@@ -19,8 +18,6 @@ import { CrudWithoutServerComponent } from './crud-without-server.component';
     CommonModule,
     CrudWithoutServerRoutingModule,
     SharedModule,
-    FormsModule,
-    ReactiveFormsModule
   ]
 })
 export class CrudWithoutServerModule { }

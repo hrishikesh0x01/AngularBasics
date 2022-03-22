@@ -43,7 +43,7 @@
       "id": 3
     },
     {
-      "fname": "Himaniiiii",
+      "fname": "Himani",
       "lname": "Barot",
       "emailId": "himani.barot@gmail.com",
       "mobile": "8934573472",
@@ -76,7 +76,7 @@
   "mentors": [
     {
       "fname": "Nirali",
-      "lname": "Tandel",
+      "lname": "Tandell",
       "emailId": "nirali.tandel@gmail.com",
       "mobile": "9345745784",
       "gender": "female",
@@ -116,7 +116,7 @@
     },
     {
       "fname": "Jigar",
-      "lname": "Patel",
+      "lname": "Bhanushali",
       "emailId": "jigaboy10@gmail.com",
       "mobile": "6985496465",
       "gender": "male",
@@ -143,6 +143,16 @@
       "empdate": "2012-01-11",
       "dept": "1",
       "id": 9
+    },
+    {
+      "fname": "Keval",
+      "lname": "Patel",
+      "emailId": "kevalpatel@gmail.com",
+      "mobile": "5435345453",
+      "gender": "male",
+      "empdate": "2022-03-10",
+      "dept": "2",
+      "id": 10
     }
   ],
   "resumes": [

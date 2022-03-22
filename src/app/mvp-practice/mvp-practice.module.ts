@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { HttpClientModule } from '@angular/common/http';
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import { MentorListContainerComponent } from './mentor-list-container/mentor-list-container.component';
@@ -27,9 +25,6 @@ import { MentorService } from './services/mentor.service';
     CommonModule,
     MVPPracticeRoutingModule,
     SharedModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
     OverlayModule,
     DragDropModule
   ],

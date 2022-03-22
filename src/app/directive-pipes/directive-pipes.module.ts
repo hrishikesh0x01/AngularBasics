@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+//////////////////////////////////////////////////////////////////////////
+import { DirectivePipesRoutingModule } from './directive-pipes-routing.module';
 import { DirectivePipesComponent } from './directive-pipes.component';
 import { CustomDirectiveDirective } from './directives/customDirective/custom-directive.directive';
 import { PostsTableViewComponent } from './posts-table-view/posts-table-view.component';
@@ -15,11 +18,8 @@ import { FirstCapitalPipe } from './pipes/first-capital-pipe/first-capital.pipe'
     FirstCapitalPipe
   ],
   imports: [
-    CommonModule
-  ],
-  exports: [
-    DirectivePipesComponent,
-    CustomDirectiveDirective
+    CommonModule,
+    DirectivePipesRoutingModule
   ]
 })
 export class DirectivePipesModule { }

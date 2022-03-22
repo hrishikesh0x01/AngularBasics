@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
-import { DirectivePipesComponent } from './directive-pipes/directive-pipes.component';
 
 const routes: Routes = [
   {
     path: 'data-binding',
     loadChildren: () => import('./data-binding/data-binding.module').then(m => m.DataBindingModule)
   },
-  { path: 'directive-and-pipes', component: DirectivePipesComponent },
+  {
+    path: 'directive-and-pipes',
+    loadChildren: () => import('./directive-pipes/directive-pipes.module').then(m => m.DirectivePipesModule)
+  },
   {
     path: 'reactive-form-basics',
     loadChildren: () => import('./reactive-form-basics/reactive-form-basics.module').then(m => m.ReactiveFormBasicsModule)
