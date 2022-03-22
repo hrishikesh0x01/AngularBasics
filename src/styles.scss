@@ -4,6 +4,10 @@
 // Common styles
 @import "./assets/scss/base/index";
 
+// Bootstrap
+@import "./assets/scss/vendor/bootstrap-base";
+@import "./assets/scss/vendor/bootstrap-component";
+
 // Project Specific Components
 @import "./assets/scss/component/index";
 

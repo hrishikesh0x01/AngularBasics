@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './core/components/auth/login/login.component';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: 'data-binding',
     loadChildren: () => import('./data-binding/data-binding.module').then(m => m.DataBindingModule)

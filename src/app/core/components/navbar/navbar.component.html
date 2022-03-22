@@ -10,7 +10,7 @@
         </div>
     </header>
     <div class="d-flex flex-column flex-grow-1 nav-container overflow-auto-y overflow-hidden-x">
-        <section class="d-flex align-items-center user-section">
+        <nav class="d-flex align-items-center user-section">
             <div class="avatar sidenav-avatar flex-shrink-0">
                 <figure>
                     <img src="../../../assets/images/avatar.png" alt="">
@@ -24,11 +24,11 @@
                     mr.einstein@1rivet.com
                 </div>
             </div>
-        </section>
+        </nav>
         <div cdkDropListGroup>
             <nav class="d-flex flex-column justify-content-between nav-section"
                 *ngFor="let feature_section of features; let i = index">
-                <ul cdkDropList class="flex-grow-1 nav-list gutter-stable" [cdkDropListData]="feature_section"
+                <ul cdkDropList class="flex-grow-1 nav nav-list gutter-stable" [cdkDropListData]="feature_section"
                     (cdkDropListDropped)="drop($event)">
                     <li *ngFor="let feature of feature_section" class="nav-item">
                         <a [routerLink]="feature.routePath" routerLinkActive="active"
@@ -44,7 +44,7 @@
         </div>
     </div>
     <footer class="footer">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+        <a routerLink="/logout" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
             class="d-flex align-items-center nav-link overflow-hidden">
             <div [ngClass]="['icon', 'icon-log-out']"></div>
             <div class="nav-link-text flex-grow-1 flex-shrink-0">Log Out</div>

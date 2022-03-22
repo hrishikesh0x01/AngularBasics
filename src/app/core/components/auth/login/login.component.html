@@ -1,0 +1,30 @@
+<form class="p-5" [formGroup]="this.loginForm" (ngSubmit)="onSubmit()">
+    <div class="d-flex align-items-center main-content-title header-height">
+        <h4 class="title-text">Employee Details</h4>
+    </div>
+    <div class="d-flex flex-column input-div">
+        <label class="form-label" for="email">Email</label>
+        <input class="flex-grow-1 form-control" type="text" formControlName="email" id="email">
+    </div>
+    <div *ngIf="this.loginForm.controls['email']?.touched || this.submitted || this.loginForm.controls['email']?.dirty">
+        <div class="err-div" *ngIf="this.loginForm.controls['email']?.errors?.['required']">
+            This Field is Required
+        </div>
+        <div class="err-div" *ngIf="this.loginForm.controls['email']?.errors?.['email']">
+            Please enter valid email id
+        </div>
+    </div>
+    <div class="d-flex flex-column input-div">
+        <label class="form-label" for="password">Password</label>
+        <input class="flex-grow-1 form-control" type="password" formControlName="password" id="password">
+    </div>
+    <div
+        *ngIf="this.loginForm.controls['password']?.touched || this.submitted || this.loginForm.controls['password']?.dirty">
+        <div class="err-div" *ngIf="this.loginForm.controls['password']?.errors?.['required']">
+            This Field is Required
+        </div>
+    </div>
+    <div class="d-flex justify-content-evenly">
+        <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+</form>

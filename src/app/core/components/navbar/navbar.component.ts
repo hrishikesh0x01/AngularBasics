@@ -1,7 +1,7 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
-import { Feature } from '../models/feature.model';
-import { navItems } from '../nav-items';
+import { Feature } from '../../models/feature.model';
+import { navItems } from '../../nav-items';
 
 @Component({
   selector: 'app-navbar',

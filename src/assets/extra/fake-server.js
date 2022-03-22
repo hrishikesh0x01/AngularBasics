@@ -17,7 +17,7 @@ const app = express();
 
 // See the react auth blog in which cors is required for access
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
     next();
 });
@@ -36,43 +36,51 @@ const jwtMW = exjwt({
 let users = [
     {
         id: 1,
-        username: 'test',
-        password: 'asdf123'
+        email: 'patelhrishikesh2000@gmail.com',
+        password: 'N00b!1%5'
     },
     {
         id: 2,
-        username: 'test2',
+        email: 'test2',
         password: 'asdf12345'
     }
 ];
 
 // LOGIN ROUTE
 app.post('/login', (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
     // Use your DB ORM logic here to find user and compare password
-    for (let user of users) { // I am using a simple array users which i made above
-        if (username == user.username && password == user.password /* Use your password hash checking logic here !*/) {
-            //If all credentials are correct do this
-            let token = jwt.sign({ id: user.id, username: user.username }, 'keyboard cat 4 ever', { expiresIn: 129600 }); // Sigining the token
-            res.json({
-                sucess: true,
-                err: null,
-                token
-            });
+    let loginStatus = -1;
+    for (let user of users.entries()) { // I am using a simple array users which i made above
+        if (email == user[1].email && password == user[1].password) {
+            loginStatus = user[0];
             break;
         }
-        else {
-            res.status(401).json({
-                sucess: false,
-                token: null,
-                err: 'Username or password is incorrect'
-            });
-        }
     }
+    if (loginStatus != -1) {
+        //If all credentials are correct do this
+        let token = jwt.sign({ id: users[loginStatus].id, email: users[loginStatus].email }, 'keyboard cat 4 ever', { expiresIn: 129600 }); // Sigining the token
+        res.json({
+            sucess: true,
+            err: null,
+            token: token
+        });
+    }
+    else {
+        res.status(401).json({
+            sucess: false,
+            token: null,
+            err: 'Email or password is incorrect'
+        });
+    }
+    return res;
 });
 
-app.get('/', jwtMW /* Using the express jwt MW here */, (req, res) => {
-    res.send('You are authenticated'); //Sending some response when authenticated
+app.get('/check-auth', jwtMW /* Using the express jwt MW here */, (req, res) => {
+    res.send({
+        msg: 'You are authenticated',
+        status: true
+    }); //Sending some response when authenticated
 });
 
 // Error handling 
