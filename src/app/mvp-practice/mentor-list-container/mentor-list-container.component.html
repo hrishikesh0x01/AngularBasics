@@ -1,5 +1,7 @@
 <app-mentor-list-presentation
-    [departmentOptions]="this.departmentOptions"
+    [departmentOptions]="this.departmentOptions$ | async"
+    [designations]="this.designations$ | async"
+    [genderOptions]="this.genderOptions"
     [mentorData]="this.mentorData$ | async"
     (delete)="delete($event)"
 >

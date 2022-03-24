@@ -12,6 +12,7 @@ import { MentorListPresentationComponent } from './mentor-list-container/mentor-
 import { MVPPracticeRoutingModule } from './mvp-practice-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { MentorService } from './services/mentor.service';
+import { FilterPresentationComponent } from './mentor-list-container/mentor-list-presentation/filter-presentation/filter-presentation.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MentorService } from './services/mentor.service';
     MentorListContainerComponent,
     MentorFormContainerComponent,
     MentorListPresentationComponent,
-    MentorFormPresentationComponent
+    MentorFormPresentationComponent,
+    FilterPresentationComponent
   ],
   imports: [
     CommonModule,

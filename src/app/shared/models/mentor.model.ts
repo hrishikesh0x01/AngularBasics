@@ -4,9 +4,10 @@ export class Mentor {
     lname: string;
     emailId: string;
     mobile: string;
-    gender: string;
+    gender: number;
     empdate: string;
     dept: number;
+    designation: number;
 
     constructor(
         id: number,
@@ -14,9 +15,10 @@ export class Mentor {
         lname: string,
         emailId: string,
         mobile: string,
-        gender: string,
+        gender: number,
         empdate: string,
-        dept: number
+        dept: number,
+        designation: number
     ) {
         this.id = id;
         this.fname = fname;
@@ -26,5 +28,6 @@ export class Mentor {
         this.gender = gender;
         this.empdate = empdate;
         this.dept = dept;
+        this.designation = designation;
     }
 }

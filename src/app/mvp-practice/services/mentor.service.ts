@@ -3,20 +3,34 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
 import { Department } from 'src/app/shared/models/department.model';
+import { Designation } from 'src/app/shared/models/designation.model';
 import { Mentor } from 'src/app/shared/models/mentor.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class MentorService {
   apiLink: string;
-  mentorToEdit: BehaviorSubject<Mentor> = new BehaviorSubject<Mentor>(new Mentor(0, '', '', '', '', '', '', 0));
+  mentorToEdit: BehaviorSubject<Mentor> = new BehaviorSubject<Mentor>(new Mentor(0, '', '', '', '', 0, '', 0, 0));
 
   constructor(private http: HttpClient) {
     this.apiLink = environment.baseURL;
   }
 
+  private _genderOptions: string[] = [
+    "Male",
+    "Female"
+  ];
+
+  getGenderOptions(): string[] {
+    return this._genderOptions;
+  }
+
   getDeptData(): Observable<Department[]> {
-    return this.http.get<Department[]>(`${this.apiLink}/department`);
+    return this.http.get<Department[]>(`${this.apiLink}/departments`);
+  }
+
+  getDesignationsData(): Observable<Designation[]> {
+    return this.http.get<Designation[]>(`${this.apiLink}/designations`);
   }
 
   getEmpList(): Observable<Mentor[]> {

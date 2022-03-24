@@ -1,0 +1,56 @@
+<div class="d-flex flex-column bg-white p-5 h-100">
+    <form *ngIf="this.filterForm" [formGroup]="this.filterForm" (ngSubmit)="onSubmit()">
+        <fieldset formGroupName="searchBy">
+            <legend>Search By: </legend>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-0 border-0 border-bottom border-2" id="name"
+                    formControlName="name" placeholder="Name">
+                <label for="name">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control rounded-0 border-0 border-bottom border-2" id="email"
+                    formControlName="email" placeholder="name@example.com">
+                <label for="email">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-0 border-0 border-bottom border-2" id="mobile"
+                    formControlName="mobile" placeholder="8888888888">
+                <label for="mobile">Mobile No.</label>
+            </div>
+        </fieldset>
+        <fieldset formArrayName="departments">
+            <legend>Select Departments: </legend>
+            <div class="form-check" *ngFor="let departmentOption of this.departmentOptions; let i = index">
+                <input class="form-check-input" type="checkbox" [formControlName]="i"
+                    [id]="'department' + departmentOption.id">
+                <label class="form-check-label" [for]="'department' + departmentOption.id">
+                    {{ departmentOption.name }}
+                </label>
+            </div>
+        </fieldset>
+        <fieldset formArrayName="designations">
+            <legend>Select Designations: </legend>
+            <div class="form-check" *ngFor="let designation of this.designations; let i = index;">
+                <input class="form-check-input" type="checkbox" [formControlName]="i"
+                    [id]="'designation' + designation.id">
+                <label class="form-check-label" [for]="'designation' + designation.id">
+                    {{ designation.name }}
+                </label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Select Gender: </legend>
+            <select class="form-select" formControlName="gender">
+                <option selected value="3">Both</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+        </fieldset>
+        <div class="d-flex justify-content-between h-100">
+            <button type="submit" class="btn btn-primary">Apply</button>
+            <button type="button" class="btn btn-danger" (click)="onReset()">Reset</button>
+            <button *ngFor="let button of this.buttons" class="btn" [ngClass]="button.type"
+                (click)="onButtonClick(button.value)">{{ button.name }}</button>
+        </div>
+    </form>
+</div>

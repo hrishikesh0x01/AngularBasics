@@ -8,6 +8,7 @@ import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-po
 import { MapDeptPipe } from './pipes/map-dept.pipe';
 import { SearchFromArrayOnPipe } from './pipes/search-from-array-on.pipe';
 import { MapGenderPipe } from './pipes/map-gender.pipe';
+import { IdToNamePipe } from './pipes/id-to-name.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MapGenderPipe } from './pipes/map-gender.pipe';
     ConfirmationPopupComponent,
     MapDeptPipe,
     MapGenderPipe,
-    SearchFromArrayOnPipe
+    SearchFromArrayOnPipe,
+    IdToNamePipe
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { MapGenderPipe } from './pipes/map-gender.pipe';
   exports: [
     PhoneMaskDirective,
     ConfirmationPopupComponent,
+    IdToNamePipe,
     MapDeptPipe,
     MapGenderPipe,
     SearchFromArrayOnPipe,

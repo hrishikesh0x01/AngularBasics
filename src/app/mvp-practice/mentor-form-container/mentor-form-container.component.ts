@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { Department } from 'src/app/shared/models/department.model';
+import { Designation } from 'src/app/shared/models/designation.model';
 import { Mentor } from 'src/app/shared/models/mentor.model';
 import { MentorService } from '../services/mentor.service';
 
@@ -17,6 +18,11 @@ export class MentorFormContainerComponent implements OnInit {
     return this._departmentOptions$;
   }
 
+  private _designations$: Observable<Designation[]>;
+  public get designations$(): Observable<Designation[]> {
+    return this._designations$;
+  }
+
   private _empData$: Observable<Mentor>;
   public get empData$(): Observable<Mentor> {
     return this._empData$;
@@ -25,12 +31,15 @@ export class MentorFormContainerComponent implements OnInit {
   private _idToEdit: number | null;
 
   constructor(private mentorService: MentorService, private activatedRoute: ActivatedRoute, private router: Router) {
-    this._departmentOptions$ = this.mentorService.getDeptData();
+    this._departmentOptions$ = new Observable();
+    this._designations$ = new Observable();
     this._empData$ = new Observable();
     this._idToEdit = null;
   }
 
   ngOnInit(): void {
+    this._departmentOptions$ = this.mentorService.getDeptData();
+    this._designations$ = this.mentorService.getDesignationsData();
     this._idToEdit = this.activatedRoute.snapshot.params['id'];
     if (this._idToEdit) {
       this._empData$ = this.mentorService.getMentorById(this._idToEdit);

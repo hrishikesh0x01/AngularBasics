@@ -47,3 +47,7 @@
     font-size: 0.75rem;
     color: #D61801;
 }
+
+.form-control:focus {
+    box-shadow: none;
+}

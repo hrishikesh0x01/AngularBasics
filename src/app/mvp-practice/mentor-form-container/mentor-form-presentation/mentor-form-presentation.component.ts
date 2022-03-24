@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 //////////////////////////////////////////////////////////////////////
 import { Department } from 'src/app/shared/models/department.model';
+import { Designation } from 'src/app/shared/models/designation.model';
 import { Mentor } from 'src/app/shared/models/mentor.model';
 import { MentorFormPresenterService } from '../mentor-form-presenter/mentor-form-presenter.service';
 
@@ -36,6 +37,19 @@ export class MentorFormPresentationComponent implements OnInit {
     return this._departmentOptions;
   }
 
+  private _designations: Designation[];
+  @Input() public set designations(val: Designation[] | null) {
+    console.log(val);
+    if (val) {
+      console.log(val);
+      this._designations = val;
+    }
+  };
+
+  public get designations(): Designation[] {
+    return this._designations;
+  }
+
   // private _empData!: Mentor;
   @Input() public set empData(val: Mentor | null) {
     if (val) {
@@ -53,6 +67,7 @@ export class MentorFormPresentationComponent implements OnInit {
     this.submitted = false;
     
     this._departmentOptions = new Array<Department>();
+    this._designations = new Array<Designation>();
 
     this.edit = new EventEmitter();
     this.add = new EventEmitter();

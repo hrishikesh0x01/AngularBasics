@@ -1,24 +1,42 @@
 {
-  "department": [
+  "departments": [
     {
-      "id": 1,
+      "id": 0,
       "name": "Frontend Development"
     },
     {
-      "id": 2,
+      "id": 1,
       "name": "Backend Development"
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "DataBase"
     },
     {
-      "id": 4,
+      "id": 3,
       "name": "Mobile App Development"
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "QA"
+    }
+  ],
+  "designations": [
+    {
+      "id": 0,
+      "name": "Junior Developer"
+    },
+    {
+      "id": 1,
+      "name": "Senior Developer"
+    },
+    {
+      "id": 2,
+      "name": "Project Lead"
+    },
+    {
+      "id": 3,
+      "name": "Project Manager"
     }
   ],
   "employees": [
@@ -75,84 +93,24 @@
   ],
   "mentors": [
     {
-      "fname": "Nirali",
-      "lname": "Tandell",
-      "emailId": "nirali.tandel@gmail.com",
-      "mobile": "9345745784",
-      "gender": "female",
-      "empdate": "2022-02-25",
-      "dept": "1",
+      "fname": "fgnfgnbdfb",
+      "lname": "bdbdf",
+      "emailId": "dfbdf@fdsf.com",
+      "mobile": "3453453455",
+      "gender": "1",
+      "dept": "2",
+      "designation": "3",
       "id": 1
     },
     {
-      "fname": "Viral",
-      "lname": "Patel",
-      "emailId": "viral.patel@gmail.com",
-      "mobile": "9584746385",
-      "gender": "male",
-      "empdate": "2022-02-08",
+      "fname": "fghrthrth",
+      "lname": "rthrthfd",
+      "emailId": "sdfgsd@gmail.com",
+      "mobile": "5452352343",
+      "gender": "0",
       "dept": "1",
-      "id": 3
-    },
-    {
-      "fname": "Himani",
-      "lname": "Barot",
-      "emailId": "himani.barot@gmail.com",
-      "mobile": "8934573472",
-      "gender": "female",
-      "empdate": "2022-02-10",
-      "dept": "1",
-      "id": 5
-    },
-    {
-      "fname": "Abhi Abhi Shake",
-      "lname": "Patel",
-      "emailId": "abhiabhishakekpatel@gmail.com",
-      "mobile": "3274365339",
-      "gender": "male",
-      "empdate": "2022-03-17",
-      "dept": "1",
-      "id": 6
-    },
-    {
-      "fname": "Jigar",
-      "lname": "Bhanushali",
-      "emailId": "jigaboy10@gmail.com",
-      "mobile": "6985496465",
-      "gender": "male",
-      "empdate": "2022-05-06",
-      "dept": "1",
-      "id": 7
-    },
-    {
-      "fname": "Mehul",
-      "lname": "Patel",
-      "emailId": "cometodubai@habibi.com",
-      "mobile": "5897690435",
-      "gender": "male",
-      "empdate": "2021-12-03",
-      "dept": "1",
-      "id": 8
-    },
-    {
-      "fname": "Chirag",
-      "lname": "Patel",
-      "emailId": "chirag.patel@gmail.com",
-      "mobile": "9868564545",
-      "gender": "male",
-      "empdate": "2012-01-11",
-      "dept": "1",
-      "id": 9
-    },
-    {
-      "fname": "Keval",
-      "lname": "Patel",
-      "emailId": "kevalpatel@gmail.com",
-      "mobile": "5435345453",
-      "gender": "male",
-      "empdate": "2022-03-10",
-      "dept": "2",
-      "id": 10
+      "designation": "2",
+      "id": 2
     }
   ],
   "resumes": [

@@ -24,8 +24,8 @@ export class MentorFormPresenterService {
       emailId: ['', Validators.pattern(/^[a-zA-Z0-9!#$%&'*+-/=?^_`{|}~][a-zA-Z0-9!#$%&'*+-/=?^_`{|}~.]*@[a-zA-Z]*.com$/)],
       mobile: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
       gender: ['male'],
-      empdate: ['', Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)],
-      dept: [0]
+      dept: [0],
+      designation: [0]
     });
   }
 

@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
-      console.log(event);
+      // console.log(event);
       if (event instanceof NavigationStart) {
         if (localStorage.getItem('token')) {
           if (event.url == '/login') {
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
           } else if (event.url == '/logout') {
             localStorage.removeItem('token');
             this.router.navigateByUrl('/login');
-            console.log("OOff");
+            // console.log("OOff");
           }
         } else if (event.url != '/login') {
           this.router.navigateByUrl('/login');
