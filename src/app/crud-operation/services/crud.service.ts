@@ -8,9 +8,7 @@ import { Employee } from 'src/app/shared/models/employee.model';
 
 import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CrudService {
 
   apiLink: string;

@@ -7,6 +7,7 @@ import { ResumeViewComponent } from './components/resume-view/resume-view.compon
 import { ResumeFormComponent } from './components/resume-form/resume-form.component';
 import { ResumeListComponent } from './components/resume-list/resume-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ResumeService } from './services/resume.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     ResumeBuilderRoutingModule,
     SharedModule
+  ],
+  providers: [
+    ResumeService
   ]
 })
 export class ResumeBuilderModule { }

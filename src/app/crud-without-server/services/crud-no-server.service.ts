@@ -5,9 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs/internal/Subject';
 import { Details } from 'src/app/shared/models/details.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CrudNoServerService {
 
   genderOptions: string[] = [

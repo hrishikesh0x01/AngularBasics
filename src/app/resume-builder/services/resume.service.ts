@@ -4,15 +4,13 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ResumeInfo } from '../models/resume-info.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ResumeService {
 
   apiLink: string;
 
   constructor(private http: HttpClient) {
-    this.apiLink = environment.baseURL; // assigns the baseURL form the environment file.
+    this.apiLink = environment.baseURL; // assigns the baseURL from the environment file.
   }
 
   // Gets all the resumes from database.
