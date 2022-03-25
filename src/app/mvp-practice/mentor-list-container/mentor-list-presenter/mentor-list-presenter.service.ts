@@ -12,7 +12,7 @@ import { Designation } from 'src/app/shared/models/designation.model';
 import { FilterForm } from '../../models/filter-form.model';
 import { FilterPresentationComponent } from '../mentor-list-presentation/filter-presentation/filter-presentation.component';
 import { Mentor } from 'src/app/shared/models/mentor.model';
-import { filter } from 'rxjs';
+
 
 @Injectable()
 export class MentorListPresenterService {
@@ -32,13 +32,6 @@ export class MentorListPresenterService {
     return this._filteredData$;
   }
 
-  private _clearFilters: Subject<number>;
-  private _clearFilters$: Observable<number>;
-
-  public get clearFilters$(): Observable<number> {
-    return this._clearFilters$;
-  }
-
   private _displayForm: Subject<number>;
   private _displayForm$: Observable<number>;
 
@@ -52,9 +45,6 @@ export class MentorListPresenterService {
 
     this._filteredData = new Subject();
     this._filteredData$ = this._filteredData.asObservable();
-
-    this._clearFilters = new Subject();
-    this._clearFilters$ = this._clearFilters.asObservable();
 
     this._displayForm = new Subject();
     this._displayForm$ = this._displayForm.asObservable();
@@ -90,6 +80,8 @@ export class MentorListPresenterService {
     this.filterOverlayComponentRef.instance.departmentOptions = departmentOptions;
     this.filterOverlayComponentRef.instance.designations = designations;
 
+    this.filterOverlayComponentRef.instance.appliedFilters = this._appliedFilters;
+
     this.closeFilterOverlay();
     this.filterData(mentorList);
   }
@@ -97,7 +89,7 @@ export class MentorListPresenterService {
   filterData(mentorList: Mentor[]): void {
     this.filterOverlayComponentRef.instance.applyFilters.subscribe((val: FilterForm) => {
       this._appliedFilters = val;
-      this.applyFilters(mentorList);
+      this._applyFilters(mentorList);
       this.filterOverlayRef.detach();
     });
   }
@@ -108,9 +100,6 @@ export class MentorListPresenterService {
     });
 
     this.filterOverlayComponentRef.instance.buttonClick.subscribe((val: string) => {
-      if (val === 'clear') {
-        this._clearFilters.next(0);
-      }
       this.filterOverlayRef.detach();
     });
   }
@@ -147,63 +136,56 @@ export class MentorListPresenterService {
 
     this.confirmationPopupComponentRef.instance.buttonClick.subscribe((val) => {
       if (val === 'delete') {
-        // this.mentorListPresenter.delete(id);
+        this.delete(id);
       }
       this.confirmationPopupRef.detach();
     });
   }
 
-  applyFilters(mentorList: Mentor[]): void {
+  private _applyFilters(mentorList: Mentor[]): void {
     if (this._appliedFilters) {
-
+      console.log("FullName: ", mentorList[0].fname);
       console.log(this._appliedFilters);
-      
-      this._appliedFilters.departments.forEach((element, i) => {
-        if (element) {
-          mentorList = mentorList.filter(mentor => {
-            return mentor.dept == i;
-          });
-        }
-      });
-  
-      this._appliedFilters.designations.forEach((element, i) => {
-        if (element) {
-          console.log("kkkk", element, i)
-          mentorList = mentorList.filter(mentor => {
-            console.log("ok", mentor.designation, i, mentor.designation == i);
-            return mentor.designation == i;
-          });
-        }
-      });
-      console.log("Afterdesg", mentorList);
-  
+
+      if (this._appliedFilters.departments?.length) {
+        mentorList = mentorList.filter(mentor => {
+          return this._appliedFilters!.departments.includes(mentor.dept);
+        });
+      }
+
+      if (this._appliedFilters.designations?.length) {
+        mentorList = mentorList.filter(mentor => {
+          return this._appliedFilters!.designations.includes(mentor.designation);
+        });
+      }
+
       if (this._appliedFilters.gender != 3) {
         mentorList = mentorList.filter(mentor => {
           return mentor.gender == this._appliedFilters?.gender;
         });
       }
-  
+
       let name = this._appliedFilters.searchBy.name.trim();
-      if (name != '') {
+      if (name) {
         mentorList = mentorList.filter(mentor => {
           return (mentor.fname + mentor.lname).includes(name);
         })
       }
-  
+
       let email = this._appliedFilters.searchBy.email.trim();
-      if (email != '') {
+      if (email) {
         mentorList = mentorList.filter(mentor => {
           return mentor.emailId.includes(email);
         })
       }
-  
+
       let mobile = this._appliedFilters.searchBy.mobile.trim();
-      if (mobile != '') {
+      if (mobile) {
         mentorList = mentorList.filter(mentor => {
           return mentor.mobile.includes(mobile);
         })
       }
-  
+
       console.log(mentorList);
     }
     this._filteredData.next(mentorList);
@@ -212,6 +194,6 @@ export class MentorListPresenterService {
 
   resetFilters(mentorList: Mentor[]) {
     this._appliedFilters = null;
-    this.applyFilters(mentorList);
+    this._applyFilters(mentorList);
   }
 }

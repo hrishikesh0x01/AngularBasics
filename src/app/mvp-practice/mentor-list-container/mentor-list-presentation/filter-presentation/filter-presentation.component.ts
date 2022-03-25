@@ -14,7 +14,7 @@ import { FilterPresenterService } from '../filter-presenter/filter-presenter.ser
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilterPresentationComponent implements OnInit, DoCheck {
-  @Input() appliedFilters!: FilterForm;
+  @Input() appliedFilters!: FilterForm | null;
   @Input() buttons!: Button[];
   @Input() departmentOptions!: Department[];
   @Input() designations!: Designation[];
@@ -37,7 +37,7 @@ export class FilterPresentationComponent implements OnInit, DoCheck {
   ngDoCheck(): void {
     if (this.departmentOptions && this.designations && !this.filterForm) {
       console.log(this.departmentOptions, this.designations);
-      this.filterForm = this.filterPresenterService.generateFilterForm(this.departmentOptions, this.designations);
+      this.filterForm = this.filterPresenterService.generateFilterForm(this.appliedFilters);
     }
   }
 

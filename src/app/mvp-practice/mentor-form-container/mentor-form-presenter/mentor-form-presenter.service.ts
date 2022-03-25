@@ -23,7 +23,7 @@ export class MentorFormPresenterService {
       lname: ['', Validators.required],
       emailId: ['', Validators.pattern(/^[a-zA-Z0-9!#$%&'*+-/=?^_`{|}~][a-zA-Z0-9!#$%&'*+-/=?^_`{|}~.]*@[a-zA-Z]*.com$/)],
       mobile: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
-      gender: ['male'],
+      gender: [0],
       dept: [0],
       designation: [0]
     });
@@ -34,6 +34,7 @@ export class MentorFormPresenterService {
       alert("Invalid form data!!!");
       return;
     } else {
+      form.value.gender = parseInt(form.value.gender);
       this._mentorForm.next(form.value);
     }
   }

@@ -37,6 +37,10 @@
     {
       "id": 3,
       "name": "Project Manager"
+    },
+    {
+      "id": 4,
+      "name": "CEO"
     }
   ],
   "employees": [
@@ -93,24 +97,84 @@
   ],
   "mentors": [
     {
-      "fname": "fgnfgnbdfb",
-      "lname": "bdbdf",
-      "emailId": "dfbdf@fdsf.com",
-      "mobile": "3453453455",
-      "gender": "1",
-      "dept": "2",
-      "designation": "3",
-      "id": 1
-    },
-    {
       "fname": "fghrthrth",
-      "lname": "rthrthfd",
+      "lname": "rthrthfd1",
       "emailId": "sdfgsd@gmail.com",
       "mobile": "5452352343",
-      "gender": "0",
-      "dept": "1",
-      "designation": "2",
+      "gender": 1,
+      "dept": 1,
+      "designation": 2,
       "id": 2
+    },
+    {
+      "fname": "Viiiiral",
+      "lname": "Pateeeel",
+      "emailId": "viral.patel@gmail.com",
+      "mobile": "5897690435",
+      "gender": 0,
+      "dept": 0,
+      "designation": 3,
+      "id": 3
+    },
+    {
+      "fname": "Nirali",
+      "lname": "Tandel",
+      "emailId": "niraliaccountmaker@gmail.com",
+      "mobile": "7568769675",
+      "gender": 1,
+      "dept": 0,
+      "designation": 3,
+      "id": 4
+    },
+    {
+      "fname": "Abhi Abhi Shake",
+      "lname": "Patel",
+      "emailId": "abhiabhishakekpatel@gmail.com",
+      "mobile": "3274365339",
+      "gender": 0,
+      "dept": 0,
+      "designation": 3,
+      "id": 5
+    },
+    {
+      "fname": "Abhi Abhi Shake2",
+      "lname": "Patel",
+      "emailId": "abhiabhishakek2patel@gmail.com",
+      "mobile": "5897690435",
+      "gender": 0,
+      "dept": 0,
+      "designation": 2,
+      "id": 6
+    },
+    {
+      "fname": "Himani",
+      "lname": "Barot",
+      "emailId": "himanibarot@gmail.com",
+      "mobile": "5775754745",
+      "gender": 1,
+      "dept": 0,
+      "designation": 1,
+      "id": 7
+    },
+    {
+      "fname": "Aaaayushiiii",
+      "lname": "Parmaaaarrr",
+      "emailId": "aaayushiiiparmaar@gmail.com",
+      "mobile": "4633475687",
+      "gender": 1,
+      "dept": 0,
+      "designation": 4,
+      "id": 8
+    },
+    {
+      "fname": "Abhi Abhi Shake",
+      "lname": "Patel",
+      "emailId": "abhiabhishakekpatel@gmail.com",
+      "mobile": "3274365339",
+      "gender": 0,
+      "dept": 3,
+      "designation": 3,
+      "id": 9
     }
   ],
   "resumes": [
@@ -118,7 +182,7 @@
       "name": "Hrish",
       "designation": "Coder",
       "email": "hhp@gmail.com",
-      "mobileNo": 9879293425,
+      "mobileNo": "9879293425",
       "technical": [
         "C/C++",
         "Python",

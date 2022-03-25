@@ -41,7 +41,7 @@ let users = [
     },
     {
         id: 2,
-        email: 'test2',
+        email: 'test2@gmail.com',
         password: 'asdf12345'
     }
 ];
@@ -93,7 +93,7 @@ app.use(function (err, req, res, next) {
     }
 });
 
-// Starting the app on PORT 3000
+// Starting the app on PORT 3001
 const PORT = 3001;
 app.listen(PORT, () => {
     // eslint-disable-next-line

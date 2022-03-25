@@ -21,10 +21,10 @@ export class FilterPresenterService {
     this._filterForm$ = this._filterForm.asObservable();
   }
 
-  generateFilterForm(departmentOptions: Department[], designations: Designation[]): FormGroup {
+  generateFilterForm(appliedFilters: FilterForm | null): FormGroup {
     let form = this.fb.group({
-      designations: this.fb.array([]),
-      departments: this.fb.array([]),
+      designations: [null],
+      departments: [null],
       gender: [3],
       searchBy: this.fb.group({
         name: [''],
@@ -33,14 +33,9 @@ export class FilterPresenterService {
       })
     });
 
-    departmentOptions.forEach(() => {
-      (<FormArray>form.controls['departments']).push(this.fb.control(false));
-    });
-
-    designations.forEach(() => {
-      (<FormArray>form.controls['designations']).push(this.fb.control(false));
-    });
-
+    if (appliedFilters) {
+      form.patchValue(appliedFilters);
+    }
     console.log(form);
 
     return form;

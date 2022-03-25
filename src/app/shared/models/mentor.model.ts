@@ -1,6 +1,6 @@
 export class Mentor {
     id: number;
-    fname: string;
+    private _fname: string;
     lname: string;
     emailId: string;
     mobile: string;
@@ -21,7 +21,7 @@ export class Mentor {
         designation: number
     ) {
         this.id = id;
-        this.fname = fname;
+        this._fname = fname;
         this.lname = lname;
         this.emailId = emailId;
         this.mobile = mobile;
@@ -29,5 +29,8 @@ export class Mentor {
         this.empdate = empdate;
         this.dept = dept;
         this.designation = designation;
+    }
+    get fname(): string {
+        return this.fname;
     }
 }

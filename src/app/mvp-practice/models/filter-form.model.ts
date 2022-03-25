@@ -1,12 +1,12 @@
 export class FilterForm {
-    designations: boolean[];
-    departments: boolean[];
+    designations: number[];
+    departments: number[];
     gender: number;
     searchBy: SearchBy;
 
     constructor(
-        designations: boolean[],
-        departments: boolean[],
+        designations: number[],
+        departments: number[],
         gender: number,
         searchBy: SearchBy,
     ) {

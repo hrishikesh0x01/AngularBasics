@@ -14,7 +14,7 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
-  removeToken(token: string) {
+  removeToken() {
     localStorage.removeItem('token');
   }
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Overlay } from '@angular/cdk/overlay';
@@ -12,7 +12,8 @@ import { MentorListPresenterService } from '../mentor-list-presenter/mentor-list
   viewProviders: [MentorListPresenterService],
   selector: 'app-mentor-list-presentation',
   templateUrl: './mentor-list-presentation.component.html',
-  styleUrls: ['./mentor-list-presentation.component.scss']
+  styleUrls: ['./mentor-list-presentation.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MentorListPresentationComponent implements OnInit {
 
@@ -69,7 +70,7 @@ export class MentorListPresentationComponent implements OnInit {
     return this._genderOptions;
   }
 
-  constructor(private mentorListPresenter: MentorListPresenterService, private router: Router, private overlay: Overlay) {
+  constructor(private mentorListPresenter: MentorListPresenterService, private changeDetectorRef: ChangeDetectorRef, private router: Router, private overlay: Overlay) {
     this._departmentOptions = new Array<Department>();
     this._designations = new Array<Department>();
     this._searchString = "";
@@ -82,11 +83,12 @@ export class MentorListPresentationComponent implements OnInit {
 
     this.mentorListPresenter.filteredData$.subscribe(data => {
       this._mentorData = data;
+      this.changeDetectorRef.markForCheck();
     });
   }
 
   displayFilterOverlay() {
-    this.mentorListPresenter.displayFilterOverlay(this.departmentOptions, this.designations, this._mentorData);
+    this.mentorListPresenter.displayFilterOverlay(this.departmentOptions, this.designations, this._mentorDataOrig);
   }
 
   displayConfirmationPopup(id: number) {

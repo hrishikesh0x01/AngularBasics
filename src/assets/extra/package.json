@@ -1,9 +1,10 @@
 {
-  "name": "fake-server",
+  "name": "dummy-server",
   "version": "1.0.0",
   "description": "",
-  "main": "fake-server.js",
+  "main": "dummy-server.js",
   "scripts": {
+    "start": "nodemon dummy-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

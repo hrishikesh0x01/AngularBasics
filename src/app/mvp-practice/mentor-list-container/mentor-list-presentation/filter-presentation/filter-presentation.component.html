@@ -18,26 +18,20 @@
                 <label for="mobile">Mobile No.</label>
             </div>
         </fieldset>
-        <fieldset formArrayName="departments">
-            <legend>Select Departments: </legend>
-            <div class="form-check" *ngFor="let departmentOption of this.departmentOptions; let i = index">
-                <input class="form-check-input" type="checkbox" [formControlName]="i"
-                    [id]="'department' + departmentOption.id">
-                <label class="form-check-label" [for]="'department' + departmentOption.id">
-                    {{ departmentOption.name }}
-                </label>
-            </div>
-        </fieldset>
-        <fieldset formArrayName="designations">
-            <legend>Select Designations: </legend>
-            <div class="form-check" *ngFor="let designation of this.designations; let i = index;">
-                <input class="form-check-input" type="checkbox" [formControlName]="i"
-                    [id]="'designation' + designation.id">
-                <label class="form-check-label" [for]="'designation' + designation.id">
-                    {{ designation.name }}
-                </label>
-            </div>
-        </fieldset>
+        <div class="flex flex-column">
+            <label for="departments">Select Departments: </label>
+            <select formControlName="departments" multiple name="departments" id="departments">
+                <option class="form-check" *ngFor="let departmentOption of this.departmentOptions; let i = index"
+                    [ngValue]="i">{{ departmentOption.name }}</option>
+            </select>
+        </div>
+        <div class="flex flex-column">
+            <label for="designations">Select Designations: </label>
+            <select formControlName="designations" multiple name="designations" id="designations">
+                <option class="form-check" *ngFor="let designation of this.designations; let i = index"
+                    [ngValue]="i">{{ designation.name }}</option>
+            </select>
+        </div>
         <fieldset>
             <legend>Select Gender: </legend>
             <select class="form-select" formControlName="gender">
