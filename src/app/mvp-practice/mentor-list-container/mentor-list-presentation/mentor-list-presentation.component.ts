@@ -91,7 +91,7 @@ export class MentorListPresentationComponent implements OnInit {
     this.mentorListPresenter.displayFilterOverlay(this.departmentOptions, this.designations, this._mentorDataOrig);
   }
 
-  displayConfirmationPopup(id: number) {
+  displayConfirmationPopup(id?: number) {
     this.mentorListPresenter.displayConfirmationPopup(id);
   }
 
@@ -99,7 +99,7 @@ export class MentorListPresentationComponent implements OnInit {
     this.mentorListPresenter.resetFilters(this._mentorDataOrig);
   }
 
-  displayForm(id?: number) {
+  displayForm(id?: number | undefined) {
     if (id) {
       this.router.navigateByUrl(`/mvp-practice/edit/${id}`);
     } else {

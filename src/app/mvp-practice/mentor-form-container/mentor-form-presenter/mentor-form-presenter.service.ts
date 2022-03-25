@@ -1,7 +1,7 @@
 import { Injectable, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
-import { Mentor } from 'src/app/shared/models/mentor.model';
+import { Mentor, MentorAdapter } from 'src/app/shared/models/mentor.model';
 
 @Injectable()
 export class MentorFormPresenterService {
@@ -12,7 +12,7 @@ export class MentorFormPresenterService {
     return this._mentorForm$;
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private mentorAdapter: MentorAdapter) {
     this._mentorForm = new Subject();
     this._mentorForm$ = this._mentorForm.asObservable();
   }
@@ -35,7 +35,7 @@ export class MentorFormPresenterService {
       return;
     } else {
       form.value.gender = parseInt(form.value.gender);
-      this._mentorForm.next(form.value);
+      this._mentorForm.next(this.mentorAdapter.adapt(form.value));
     }
   }
 }

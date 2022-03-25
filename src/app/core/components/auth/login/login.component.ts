@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 ///////////////////////////////////////////////////////////////////
 import { AuthService } from '../../../services/auth.service';
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private router: Router
   ) {
     this.submitted = false;
   }
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
       this._authService.login(this.loginForm.value).subscribe((res) => {
         console.log(res.token);
         this._authService.setToken(res.token);
+        this.router.navigateByUrl("/data-binding");
       });
     }
   }

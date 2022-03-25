@@ -108,7 +108,7 @@ export class MentorListPresenterService {
   confirmationPopupRef!: OverlayRef;
   confirmationPopupComponentRef!: ComponentRef<ConfirmationPopupComponent>;
 
-  displayConfirmationPopup(id: number): void {
+  displayConfirmationPopup(id?: number): void {
     let formOverlayConfig: OverlayConfig = {
       hasBackdrop: true,
       positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
@@ -130,13 +130,13 @@ export class MentorListPresenterService {
     this.closeConfirmationPopup(id);
   }
 
-  closeConfirmationPopup(id: number): void {
+  closeConfirmationPopup(id?: number): void {
     this.confirmationPopupRef.backdropClick().subscribe(() => {
       this.confirmationPopupRef.detach();
     });
 
     this.confirmationPopupComponentRef.instance.buttonClick.subscribe((val) => {
-      if (val === 'delete') {
+      if (val === 'delete' && id) {
         this.delete(id);
       }
       this.confirmationPopupRef.detach();
@@ -166,25 +166,11 @@ export class MentorListPresenterService {
         });
       }
 
-      // let name = this._appliedFilters.searchBy.name?.trim();
-      // if (name) {
-      //   mentorList = mentorList.filter(mentor => {
-      //     return (mentor.fname + mentor.lname).includes(name);
-      //   })
-      // }
-
-      // let email = this._appliedFilters.searchBy.email?.trim();
-      // if (email) {
-      //   mentorList = mentorList.filter(mentor => {
-      //     return mentor.email.includes(email);
-      //   })
-      // }
-
       for (let [key, value] of Object.entries(this._appliedFilters.searchBy)) {
         if (value.trim()) {
           mentorList = mentorList.filter(mentor => {
-            console.log(key as keyof Mentor)
-            console.log(<string>mentor[key as keyof Mentor])
+            console.log("Key: ", key as keyof Mentor)
+            console.log("Value: ", mentor[key as keyof Mentor])
             return (<string>mentor[key as keyof Mentor])?.includes(value.trim());
           });
         }

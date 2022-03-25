@@ -21,7 +21,7 @@ export class CrudService {
   }
 
   getDeptData(): Observable<Department[]> {
-    return this.http.get<Department[]>(`${this.apiLink}/department`);
+    return this.http.get<Department[]>(`${this.apiLink}/departments`);
   }
 
   getEmpList(): Observable<Employee[]> {

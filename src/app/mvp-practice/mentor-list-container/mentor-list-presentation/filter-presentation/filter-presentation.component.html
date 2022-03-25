@@ -1,50 +1,52 @@
-<div class="d-flex flex-column bg-white p-5 h-100">
-    <form *ngIf="this.filterForm" [formGroup]="this.filterForm" (ngSubmit)="onSubmit()">
-        <fieldset formGroupName="searchBy">
-            <legend>Search By: </legend>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control rounded-0 border-0 border-bottom border-2" id="name"
-                    formControlName="name" placeholder="Name">
-                <label for="name">Name</label>
+<div class="overflow-auto h-100">
+    <div class="d-flex flex-column bg-white p-5">
+        <form *ngIf="this.filterForm" [formGroup]="this.filterForm" (ngSubmit)="onSubmit()">
+            <fieldset formGroupName="searchBy">
+                <legend>Search By: </legend>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control rounded-0 border-0 border-bottom border-2" id="name"
+                        formControlName="name" placeholder="Name">
+                    <label for="name">Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control rounded-0 border-0 border-bottom border-2" id="email"
+                        formControlName="email" placeholder="name@example.com">
+                    <label for="email">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control rounded-0 border-0 border-bottom border-2" id="mobile"
+                        formControlName="mobile" placeholder="8888888888">
+                    <label for="mobile">Mobile No.</label>
+                </div>
+            </fieldset>
+            <div class="d-flex flex-column mb-3">
+                <label for="departments">Select Departments: </label>
+                <select formControlName="departments" multiple class="form-select mt-2" name="departments" id="departments">
+                    <option class="form-check ps-1" *ngFor="let departmentOption of this.departmentOptions; let i = index"
+                        [ngValue]="i">{{ departmentOption.name }}</option>
+                </select>
             </div>
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control rounded-0 border-0 border-bottom border-2" id="email"
-                    formControlName="email" placeholder="name@example.com">
-                <label for="email">Email address</label>
+            <div class="d-flex flex-column mb-3">
+                <label for="designations">Select Designations: </label>
+                <select formControlName="designations" multiple class="form-select mt-2" name="designations" id="designations">
+                    <option class="form-check ps-1" *ngFor="let designation of this.designations; let i = index"
+                        [ngValue]="i">{{ designation.name }}</option>
+                </select>
             </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control rounded-0 border-0 border-bottom border-2" id="mobile"
-                    formControlName="mobile" placeholder="8888888888">
-                <label for="mobile">Mobile No.</label>
+            <div class="d-flex flex-column mb-3">
+                <label for="gender">Select Gender: </label>
+                <select class="form-select mt-2" name="gender" id="gender" formControlName="gender">
+                    <option selected [ngValue]="3">Both</option>
+                    <option [ngValue]="0">Male</option>
+                    <option [ngValue]="1">Female</option>
+                </select>
             </div>
-        </fieldset>
-        <div class="d-flex flex-column mb-3">
-            <label for="departments">Select Departments: </label>
-            <select formControlName="departments" multiple class="form-select mt-2" name="departments" id="departments">
-                <option class="form-check ps-1" *ngFor="let departmentOption of this.departmentOptions; let i = index"
-                    [ngValue]="i">{{ departmentOption.name }}</option>
-            </select>
-        </div>
-        <div class="d-flex flex-column mb-3">
-            <label for="designations">Select Designations: </label>
-            <select formControlName="designations" multiple class="form-select mt-2" name="designations" id="designations">
-                <option class="form-check ps-1" *ngFor="let designation of this.designations; let i = index"
-                    [ngValue]="i">{{ designation.name }}</option>
-            </select>
-        </div>
-        <div class="d-flex flex-column mb-3">
-            <label for="gender">Select Gender: </label>
-            <select class="form-select mt-2" name="gender" id="gender" formControlName="gender">
-                <option selected [ngValue]="3">Both</option>
-                <option [ngValue]="0">Male</option>
-                <option [ngValue]="1">Female</option>
-            </select>
-        </div>
-        <div class="d-flex justify-content-between mt-5 h-100">
-            <button type="submit" class="btn btn-primary">Apply</button>
-            <button type="button" class="btn btn-danger ms-3" (click)="onReset()">Reset</button>
-            <button *ngFor="let button of this.buttons" class="btn ms-3" [ngClass]="button.type"
-                (click)="onButtonClick(button.value)">{{ button.name }}</button>
-        </div>
-    </form>
+            <div class="d-flex justify-content-between mt-5 h-100">
+                <button type="submit" class="btn btn-primary">Apply</button>
+                <button type="button" class="btn btn-danger ms-3" (click)="onReset()">Reset</button>
+                <button *ngFor="let button of this.buttons" class="btn ms-3" [ngClass]="button.type"
+                    (click)="onButtonClick(button.value)">{{ button.name }}</button>
+            </div>
+        </form>
+    </div>
 </div>

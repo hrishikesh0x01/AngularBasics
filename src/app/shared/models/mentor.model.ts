@@ -1,5 +1,5 @@
 export class Mentor {
-    id: number;
+    id?: number;
     fname: string;
     lname: string;
     email: string;
@@ -10,7 +10,6 @@ export class Mentor {
     designation: number;
 
     constructor(
-        id: number,
         fname: string,
         lname: string,
         email: string,
@@ -18,7 +17,8 @@ export class Mentor {
         gender: number,
         empdate: string,
         dept: number,
-        designation: number
+        designation: number,
+        id?: number,
     ) {
         this.id = id;
         this.fname = fname;
@@ -29,6 +29,10 @@ export class Mentor {
         this.empdate = empdate;
         this.dept = dept;
         this.designation = designation;
+    }
+
+    public get name() {
+        return this.fname + this.lname;
     }
 }
 
@@ -42,7 +46,6 @@ import { Adapter } from "./adapter.interface";
 export class MentorAdapter implements Adapter<Mentor> {
     adapt(item: any): Mentor {
         return new Mentor(
-            item.id,
             item.fname,
             item.lname,
             item.email,
@@ -51,6 +54,7 @@ export class MentorAdapter implements Adapter<Mentor> {
             item.empdate,
             item.dept,
             item.designation,
+            item.id,
         );
     }
 }
