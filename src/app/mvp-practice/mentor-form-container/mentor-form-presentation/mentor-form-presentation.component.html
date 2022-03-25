@@ -26,9 +26,9 @@
             </div>
             <div class="d-flex flex-column input-div">
                 <label for="email">Email Id: </label>
-                <input class="input-field" type="email" formControlName="emailId" id="emailId">
-                <div *ngIf="getControl('emailId')?.value?.toString().length">
-                    <div class="err-div" *ngIf="getControl('emailId')?.errors?.['pattern']">
+                <input class="input-field" type="email" formControlName="email" id="email">
+                <div *ngIf="getControl('email')?.value?.toString().length">
+                    <div class="err-div" *ngIf="getControl('email')?.errors?.['pattern']">
                         Please enter valid email id
                     </div>
                 </div>

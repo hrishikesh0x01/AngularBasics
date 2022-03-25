@@ -21,7 +21,7 @@ export class MentorFormPresenterService {
     return this.fb.group({
       fname: ['', Validators.required],
       lname: ['', Validators.required],
-      emailId: ['', Validators.pattern(/^[a-zA-Z0-9!#$%&'*+-/=?^_`{|}~][a-zA-Z0-9!#$%&'*+-/=?^_`{|}~.]*@[a-zA-Z]*.com$/)],
+      email: ['', Validators.pattern(/^[a-zA-Z0-9!#$%&'*+-/=?^_`{|}~][a-zA-Z0-9!#$%&'*+-/=?^_`{|}~.]*@[a-zA-Z]*.com$/)],
       mobile: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
       gender: [0],
       dept: [0],

@@ -12,6 +12,7 @@ import { Designation } from 'src/app/shared/models/designation.model';
 import { FilterForm } from '../../models/filter-form.model';
 import { FilterPresentationComponent } from '../mentor-list-presentation/filter-presentation/filter-presentation.component';
 import { Mentor } from 'src/app/shared/models/mentor.model';
+import { keyframes } from '@angular/animations';
 
 
 @Injectable()
@@ -165,25 +166,28 @@ export class MentorListPresenterService {
         });
       }
 
-      let name = this._appliedFilters.searchBy.name.trim();
-      if (name) {
-        mentorList = mentorList.filter(mentor => {
-          return (mentor.fname + mentor.lname).includes(name);
-        })
-      }
+      // let name = this._appliedFilters.searchBy.name?.trim();
+      // if (name) {
+      //   mentorList = mentorList.filter(mentor => {
+      //     return (mentor.fname + mentor.lname).includes(name);
+      //   })
+      // }
 
-      let email = this._appliedFilters.searchBy.email.trim();
-      if (email) {
-        mentorList = mentorList.filter(mentor => {
-          return mentor.emailId.includes(email);
-        })
-      }
+      // let email = this._appliedFilters.searchBy.email?.trim();
+      // if (email) {
+      //   mentorList = mentorList.filter(mentor => {
+      //     return mentor.email.includes(email);
+      //   })
+      // }
 
-      let mobile = this._appliedFilters.searchBy.mobile.trim();
-      if (mobile) {
-        mentorList = mentorList.filter(mentor => {
-          return mentor.mobile.includes(mobile);
-        })
+      for (let [key, value] of Object.entries(this._appliedFilters.searchBy)) {
+        if (value.trim()) {
+          mentorList = mentorList.filter(mentor => {
+            console.log(key as keyof Mentor)
+            console.log(<string>mentor[key as keyof Mentor])
+            return (<string>mentor[key as keyof Mentor])?.includes(value.trim());
+          });
+        }
       }
 
       console.log(mentorList);

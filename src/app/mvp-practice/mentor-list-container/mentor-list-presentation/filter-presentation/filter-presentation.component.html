@@ -18,32 +18,32 @@
                 <label for="mobile">Mobile No.</label>
             </div>
         </fieldset>
-        <div class="flex flex-column">
+        <div class="d-flex flex-column mb-3">
             <label for="departments">Select Departments: </label>
-            <select formControlName="departments" multiple name="departments" id="departments">
-                <option class="form-check" *ngFor="let departmentOption of this.departmentOptions; let i = index"
+            <select formControlName="departments" multiple class="form-select mt-2" name="departments" id="departments">
+                <option class="form-check ps-1" *ngFor="let departmentOption of this.departmentOptions; let i = index"
                     [ngValue]="i">{{ departmentOption.name }}</option>
             </select>
         </div>
-        <div class="flex flex-column">
+        <div class="d-flex flex-column mb-3">
             <label for="designations">Select Designations: </label>
-            <select formControlName="designations" multiple name="designations" id="designations">
-                <option class="form-check" *ngFor="let designation of this.designations; let i = index"
+            <select formControlName="designations" multiple class="form-select mt-2" name="designations" id="designations">
+                <option class="form-check ps-1" *ngFor="let designation of this.designations; let i = index"
                     [ngValue]="i">{{ designation.name }}</option>
             </select>
         </div>
-        <fieldset>
-            <legend>Select Gender: </legend>
-            <select class="form-select" formControlName="gender">
-                <option selected value="3">Both</option>
-                <option value="0">Male</option>
-                <option value="1">Female</option>
+        <div class="d-flex flex-column mb-3">
+            <label for="gender">Select Gender: </label>
+            <select class="form-select mt-2" name="gender" id="gender" formControlName="gender">
+                <option selected [ngValue]="3">Both</option>
+                <option [ngValue]="0">Male</option>
+                <option [ngValue]="1">Female</option>
             </select>
-        </fieldset>
-        <div class="d-flex justify-content-between h-100">
+        </div>
+        <div class="d-flex justify-content-between mt-5 h-100">
             <button type="submit" class="btn btn-primary">Apply</button>
-            <button type="button" class="btn btn-danger" (click)="onReset()">Reset</button>
-            <button *ngFor="let button of this.buttons" class="btn" [ngClass]="button.type"
+            <button type="button" class="btn btn-danger ms-3" (click)="onReset()">Reset</button>
+            <button *ngFor="let button of this.buttons" class="btn ms-3" [ngClass]="button.type"
                 (click)="onButtonClick(button.value)">{{ button.name }}</button>
         </div>
     </form>

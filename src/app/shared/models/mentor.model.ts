@@ -1,8 +1,8 @@
 export class Mentor {
     id: number;
-    private _fname: string;
+    fname: string;
     lname: string;
-    emailId: string;
+    email: string;
     mobile: string;
     gender: number;
     empdate: string;
@@ -13,7 +13,7 @@ export class Mentor {
         id: number,
         fname: string,
         lname: string,
-        emailId: string,
+        email: string,
         mobile: string,
         gender: number,
         empdate: string,
@@ -21,16 +21,36 @@ export class Mentor {
         designation: number
     ) {
         this.id = id;
-        this._fname = fname;
+        this.fname = fname;
         this.lname = lname;
-        this.emailId = emailId;
+        this.email = email;
         this.mobile = mobile;
         this.gender = gender;
         this.empdate = empdate;
         this.dept = dept;
         this.designation = designation;
     }
-    get fname(): string {
-        return this.fname;
+}
+
+// app/core/course.model.ts
+import { Injectable } from "@angular/core";
+import { Adapter } from "./adapter.interface";
+
+@Injectable({
+    providedIn: "root",
+})
+export class MentorAdapter implements Adapter<Mentor> {
+    adapt(item: any): Mentor {
+        return new Mentor(
+            item.id,
+            item.fname,
+            item.lname,
+            item.email,
+            item.mobile,
+            item.gender,
+            item.empdate,
+            item.dept,
+            item.designation,
+        );
     }
 }
