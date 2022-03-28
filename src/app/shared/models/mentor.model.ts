@@ -1,3 +1,6 @@
+import { Injectable } from "@angular/core";
+import { Adapter } from "./adapter.interface";
+
 export class Mentor {
     id?: number;
     fname: string;
@@ -35,10 +38,6 @@ export class Mentor {
         return this.fname + this.lname;
     }
 }
-
-// app/core/course.model.ts
-import { Injectable } from "@angular/core";
-import { Adapter } from "./adapter.interface";
 
 @Injectable({
     providedIn: "root",

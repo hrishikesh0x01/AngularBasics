@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
             this.router.navigateByUrl('/login');
             // console.log("OOff");
           }
-        } else if (event.url != '/login') {
+        } else if (event.url != '/login' && event.url != '/register') {
           this.router.navigateByUrl('/login');
         }
       }

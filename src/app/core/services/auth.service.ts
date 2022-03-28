@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginCredentials } from '../components/auth/login-credentials.model';
+import { UserCredentials } from '../components/auth/user-credentials.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,13 @@ export class AuthService {
   removeToken() {
     localStorage.removeItem('token');
   }
-
-  login(creds: LoginCredentials): Observable<any> {
+  
+  login(creds: UserCredentials): Observable<any> {
     return this.http.post<any>(`http://localhost:3001/login`, creds);
+  }
+
+  register(creds: UserCredentials): Observable<any> {
+    return this.http.post<any>(`http://localhost:3001/register`, creds);
   }
 
   checkAuth(): Observable<any> {

@@ -12,23 +12,6 @@ import { MentorService } from '../services/mentor.service';
   styleUrls: ['./mentor-list-container.component.scss']
 })
 export class MentorListContainerComponent implements OnInit {
-
-  // private _departmentOptions: Department[];
-  // public set departmentOptions(value: Department[]) {
-  //   this._departmentOptions = value;
-  // }
-  // public get departmentOptions(): Department[] {
-  //   return this._departmentOptions;
-  // }
-
-  // private _designations: Department[];
-  // public set designations(value: Department[]) {
-  //   this._designations = value;
-  // }
-  // public get designations(): Department[] {
-  //   return this._designations;
-  // }
-
   private _designations$: Observable<Designation[]>;
   public get designations$(): Observable<Designation[]> {
     return this._designations$;
@@ -54,28 +37,10 @@ export class MentorListContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getDepartmentData();
-    // this.getDesignations();
     this._departmentOptions$ = this.mentorService.getDeptData();
     this._designations$ = this.mentorService.getDesignationsData();
     this._mentorData$ = this.mentorService.getEmpList();
   }
-
-  // private getDepartmentData(): void {
-  //   this.mentorService.getDeptData().subscribe(data => {
-  //     this.departmentOptions = data;
-  //   }, errors => {
-  //     alert(errors);
-  //   });
-  // }
-
-  // private getDesignations(): void {
-  //   this.mentorService.getDesignationsData().subscribe(data => {
-  //     this.designations = data;
-  //   }, errors => {
-  //     alert(errors);
-  //   });
-  // }
 
   public delete(id: number): void {
     this.mentorService.deleteEmp(id).subscribe(res => {

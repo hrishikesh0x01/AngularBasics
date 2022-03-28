@@ -9,7 +9,7 @@ import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/co
 import { Button } from 'src/app/shared/models/button.model';
 import { Department } from 'src/app/shared/models/department.model';
 import { Designation } from 'src/app/shared/models/designation.model';
-import { FilterForm } from '../../models/filter-form.model';
+import { FilterForm, SearchBy } from '../../models/filter-form.model';
 import { FilterPresentationComponent } from '../mentor-list-presentation/filter-presentation/filter-presentation.component';
 import { Mentor } from 'src/app/shared/models/mentor.model';
 import { keyframes } from '@angular/animations';
@@ -160,18 +160,17 @@ export class MentorListPresenterService {
         });
       }
 
-      if (this._appliedFilters.gender != 3) {
+      if (this._appliedFilters.gender !== 3) {
         mentorList = mentorList.filter(mentor => {
-          return mentor.gender == this._appliedFilters?.gender;
+          return mentor.gender === this._appliedFilters?.gender;
         });
       }
 
-      for (let [key, value] of Object.entries(this._appliedFilters.searchBy)) {
-        if (value.trim()) {
+      for (let key in this._appliedFilters.searchBy) {
+        let value = this._appliedFilters.searchBy[key as keyof SearchBy].trim();
+        if (value) {
           mentorList = mentorList.filter(mentor => {
-            console.log("Key: ", key as keyof Mentor)
-            console.log("Value: ", mentor[key as keyof Mentor])
-            return (<string>mentor[key as keyof Mentor])?.includes(value.trim());
+            return (<string>mentor[key as keyof Mentor])?.includes(value);
           });
         }
       }
@@ -179,7 +178,6 @@ export class MentorListPresenterService {
       console.log(mentorList);
     }
     this._filteredData.next(mentorList);
-    // return mentorList;
   }
 
   resetFilters(mentorList: Mentor[]) {
