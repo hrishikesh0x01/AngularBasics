@@ -49,12 +49,10 @@ export class MentorFormContainerComponent implements OnInit {
   public saveData(newData: Mentor) {
     if (this._idToEdit) {
       this.mentorService.editEmp(newData, this._idToEdit).subscribe((data) => {
-        console.log(data);
         this.router.navigateByUrl('/mvp-practice/list');
       });
     } else {
       this.mentorService.addEmp(newData).subscribe((data) => {
-        console.log(data);
         this.router.navigateByUrl('/mvp-practice/list');
       });
     }

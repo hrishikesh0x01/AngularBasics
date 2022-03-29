@@ -36,7 +36,6 @@ export class FilterPresentationComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     if (this.departmentOptions && this.designations && !this.filterForm) {
-      console.log(this.departmentOptions, this.designations);
       this.filterForm = this.filterPresenterService.generateFilterForm(this.appliedFilters);
     }
   }

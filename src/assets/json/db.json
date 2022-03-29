@@ -97,22 +97,12 @@
   ],
   "mentors": [
     {
-      "fname": "fghrthrth",
-      "lname": "rthrthfd1",
-      "email": "sdfgsd@gmail.com",
-      "mobile": "5452352343",
-      "gender": 1,
-      "dept": 1,
-      "designation": 2,
-      "id": 2
-    },
-    {
       "fname": "Viiiiral",
       "lname": "Pateeeel",
       "email": "viral.patel@gmail.com",
       "mobile": "5897690435",
       "gender": 0,
-      "dept": 0,
+      "department": 0,
       "designation": 3,
       "id": 3
     },
@@ -122,7 +112,7 @@
       "email": "niraliaccountmaker@gmail.com",
       "mobile": "7568769675",
       "gender": 1,
-      "dept": 0,
+      "department": 0,
       "designation": 3,
       "id": 4
     },
@@ -132,7 +122,7 @@
       "email": "abhiabhishakekpatel@gmail.com",
       "mobile": "3274365339",
       "gender": 0,
-      "dept": 0,
+      "department": 0,
       "designation": 3,
       "id": 5
     },
@@ -142,7 +132,7 @@
       "email": "himanibarot@gmail.com",
       "mobile": "5775754745",
       "gender": 1,
-      "dept": 0,
+      "department": 0,
       "designation": 1,
       "id": 7
     },
@@ -152,19 +142,9 @@
       "email": "aaayushiiiparmaar@gmail.com",
       "mobile": "4633475687",
       "gender": 1,
-      "dept": 0,
+      "department": 0,
       "designation": 4,
       "id": 8
-    },
-    {
-      "fname": "Abhi Abhi Shake",
-      "lname": "Patel",
-      "email": "abhiabhishakekpatel@gmail.com",
-      "mobile": "3274365339",
-      "gender": 0,
-      "dept": 3,
-      "designation": 3,
-      "id": 9
     }
   ],
   "resumes": [

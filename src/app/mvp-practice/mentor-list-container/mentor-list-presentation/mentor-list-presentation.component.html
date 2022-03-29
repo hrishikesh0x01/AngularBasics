@@ -16,41 +16,41 @@
     <div class="d-flex overflow-auto w-100 mb-3" [ngClass]="{'flex-grow-1':!this.mentorData?.length}">
         <table class="table">
             <thead>
-                <tr>
+                <tr (click)="sort($event)">
                     <th>
                     </th>
                     <th>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center" data-value="id">
                             #
                         </div>
                     </th>
                     <th>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center" data-value="name">
                             Name
                         </div>
                     </th>
                     <th>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center" data-value="email">
                             Email Id
                         </div>
                     </th>
                     <th>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center" data-value="mobile">
                             Mobile
                         </div>
                     </th>
                     <th>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center" data-value="gender">
                             Gender
                         </div>
                     </th>
                     <th>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center" data-value="department">
                             Department
                         </div>
                     </th>
                     <th>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center" data-value="designation">
                             Designation
                         </div>
                     </th>
@@ -80,7 +80,7 @@
                     </td>
                     <td>
                         <div class="d-flex align-items-center">
-                            {{ mentor.fname + ' ' + mentor.lname }}
+                            {{ mentor.name }}
                         </div>
                     </td>
                     <td>
@@ -100,7 +100,7 @@
                     </td>
                     <td>
                         <div class="d-flex align-items-center">
-                            {{ mentor.dept | idToName: this.departmentOptions }}
+                            {{ mentor.department | idToName: this.departmentOptions }}
                         </div>
                     </td>
                     <td>

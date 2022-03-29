@@ -70,7 +70,11 @@ export class MentorListPresentationComponent implements OnInit {
     return this._genderOptions;
   }
 
-  constructor(private mentorListPresenter: MentorListPresenterService, private changeDetectorRef: ChangeDetectorRef, private router: Router, private overlay: Overlay) {
+  constructor(
+    private mentorListPresenter: MentorListPresenterService,
+    private changeDetectorRef: ChangeDetectorRef,
+    private router: Router
+  ) {
     this._departmentOptions = new Array<Department>();
     this._designations = new Array<Department>();
     this._searchString = "";
@@ -105,6 +109,22 @@ export class MentorListPresentationComponent implements OnInit {
     } else {
       this.router.navigateByUrl('/mvp-practice/add');
     }
+  }
+
+  sortedBy: string = 'id';
+  isDesc: boolean = false;
+
+  sort(colName: any) {
+    let sortBy = colName.target.getAttribute('data-value');
+    
+    if (this.sortedBy === sortBy) {
+      this.isDesc = !this.isDesc
+    } else {
+      this.sortedBy = sortBy;
+      this.isDesc = true;
+    }
+    console.log(this.sortedBy, this.isDesc)
+    this.mentorListPresenter.sortBy(sortBy, this.mentorData, this.isDesc);
   }
 
   drop(event: CdkDragDrop<Mentor[]>) {

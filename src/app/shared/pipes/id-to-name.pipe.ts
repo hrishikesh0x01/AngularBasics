@@ -6,9 +6,7 @@ import { Designation } from '../models/designation.model';
   name: 'idToName'
 })
 export class IdToNamePipe implements PipeTransform {
-
   transform(value: number, map: Department[] | Designation[]): string | undefined {
     return map?.find(x => x.id == value)?.name;
   }
-
 }

@@ -50,18 +50,12 @@ export class MentorFormPresentationComponent implements OnInit {
     return this._designations;
   }
 
-  // private _empData!: Mentor;
   @Input() public set empData(val: Mentor | null) {
     if (val) {
-      // this._empData = val;
       this.formTitle = "Edit Mentor Details"
       this.empForm.patchValue(val);
     }
   }
-
-  // public get empData(): Mentor {
-  //   return this._empData;
-  // }
 
   constructor(private mentorFormPresenter: MentorFormPresenterService, private router: Router) {
     this.submitted = false;

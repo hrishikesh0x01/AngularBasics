@@ -60,10 +60,10 @@
                 </div>
             </div>
             <div class="d-flex flex-column input-div">
-                <label for="dept">Department: </label>
-                <select class="input-field" formControlName="dept" id="dept">
+                <label for="department">Department: </label>
+                <select class="input-field" formControlName="department" id="department">
                     <option value="0" selected hidden disabled>Select Department</option>
-                    <option *ngFor="let dept of this.departmentOptions" [ngValue]="dept.id">{{ dept.name }}</option>
+                    <option *ngFor="let department of this.departmentOptions" [ngValue]="department.id">{{ department.name }}</option>
                 </select>
             </div>
             <div class="d-flex flex-column input-div">

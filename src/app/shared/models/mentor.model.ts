@@ -1,15 +1,17 @@
 import { Injectable } from "@angular/core";
+
+///////////////////////////////////////////////////////
 import { Adapter } from "./adapter.interface";
 
 export class Mentor {
-    id?: number;
+    id: number;
     fname: string;
     lname: string;
     email: string;
     mobile: string;
     gender: number;
     empdate: string;
-    dept: number;
+    department: number;
     designation: number;
 
     constructor(
@@ -19,9 +21,9 @@ export class Mentor {
         mobile: string,
         gender: number,
         empdate: string,
-        dept: number,
+        department: number,
         designation: number,
-        id?: number,
+        id: number,
     ) {
         this.id = id;
         this.fname = fname;
@@ -30,12 +32,16 @@ export class Mentor {
         this.mobile = mobile;
         this.gender = gender;
         this.empdate = empdate;
-        this.dept = dept;
+        this.department = department;
         this.designation = designation;
     }
 
     public get name() {
-        return this.fname + this.lname;
+        return this.fname + ' ' + this.lname;
+    }
+
+    public static comparator(property: keyof Mentor, isReverse: number): any {
+        return (a: Mentor, b: Mentor) => isReverse * (a[property] < b[property] ? -1 : (a[property] === b[property] ? 0 : 1));
     }
 }
 
@@ -51,7 +57,7 @@ export class MentorAdapter implements Adapter<Mentor> {
             item.mobile,
             item.gender,
             item.empdate,
-            item.dept,
+            item.department,
             item.designation,
             item.id,
         );

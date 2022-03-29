@@ -12,8 +12,6 @@ import { Designation } from 'src/app/shared/models/designation.model';
 import { FilterForm, SearchBy } from '../../models/filter-form.model';
 import { FilterPresentationComponent } from '../mentor-list-presentation/filter-presentation/filter-presentation.component';
 import { Mentor } from 'src/app/shared/models/mentor.model';
-import { keyframes } from '@angular/animations';
-
 
 @Injectable()
 export class MentorListPresenterService {
@@ -150,7 +148,7 @@ export class MentorListPresenterService {
 
       if (this._appliedFilters.departments?.length) {
         mentorList = mentorList.filter(mentor => {
-          return this._appliedFilters!.departments.includes(mentor.dept);
+          return this._appliedFilters!.departments.includes(mentor.department);
         });
       }
 
@@ -183,5 +181,9 @@ export class MentorListPresenterService {
   resetFilters(mentorList: Mentor[]) {
     this._appliedFilters = null;
     this._applyFilters(mentorList);
+  }
+
+  sortBy(sortBy: string, mentorData: Mentor[], isDesc: boolean) {
+    mentorData.sort(Mentor.comparator(sortBy as keyof Mentor, isDesc ? 1 : -1));
   }
 }

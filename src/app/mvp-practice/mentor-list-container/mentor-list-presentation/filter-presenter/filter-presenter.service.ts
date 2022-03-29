@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs/internal/Subject';
 import { FilterForm } from 'src/app/mvp-practice/models/filter-form.model';
-import { Department } from 'src/app/shared/models/department.model';
-import { Designation } from 'src/app/shared/models/designation.model';
 
 @Injectable()
 export class FilterPresenterService {
@@ -36,7 +34,6 @@ export class FilterPresenterService {
     if (appliedFilters) {
       form.patchValue(appliedFilters);
     }
-    console.log(form);
 
     return form;
   }
