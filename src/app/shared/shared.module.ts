@@ -9,6 +9,7 @@ import { MapDeptPipe } from './pipes/map-dept.pipe';
 import { SearchFromArrayOnPipe } from './pipes/search-from-array-on.pipe';
 import { MapGenderPipe } from './pipes/map-gender.pipe';
 import { IdToNamePipe } from './pipes/id-to-name.pipe';
+import { PaginationPipe } from './pipes/pagination.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { IdToNamePipe } from './pipes/id-to-name.pipe';
     MapDeptPipe,
     MapGenderPipe,
     SearchFromArrayOnPipe,
-    IdToNamePipe
+    IdToNamePipe,
+    PaginationPipe
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { IdToNamePipe } from './pipes/id-to-name.pipe';
     MapDeptPipe,
     MapGenderPipe,
     SearchFromArrayOnPipe,
+    PaginationPipe,
     FormsModule,
     ReactiveFormsModule
   ]

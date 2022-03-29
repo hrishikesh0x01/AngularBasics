@@ -19,40 +19,26 @@
                 <tr (click)="sort($event)">
                     <th>
                     </th>
-                    <th>
-                        <div class="d-flex align-items-center" data-value="id">
-                            #
-                        </div>
+                    <th data-value="id">
+                        #
                     </th>
-                    <th>
-                        <div class="d-flex align-items-center" data-value="name">
-                            Name
-                        </div>
+                    <th data-value="name">
+                        Name
                     </th>
-                    <th>
-                        <div class="d-flex align-items-center" data-value="email">
-                            Email Id
-                        </div>
+                    <th data-value="email">
+                        Email Id
                     </th>
-                    <th>
-                        <div class="d-flex align-items-center" data-value="mobile">
-                            Mobile
-                        </div>
+                    <th data-value="mobile">
+                        Mobile
                     </th>
-                    <th>
-                        <div class="d-flex align-items-center" data-value="gender">
-                            Gender
-                        </div>
+                    <th data-value="gender">
+                        Gender
                     </th>
-                    <th>
-                        <div class="d-flex align-items-center" data-value="department">
-                            Department
-                        </div>
+                    <th data-value="department">
+                        Department
                     </th>
-                    <th>
-                        <div class="d-flex align-items-center" data-value="designation">
-                            Designation
-                        </div>
+                    <th data-value="designation">
+                        Designation
                     </th>
                     <th>
                     </th>
@@ -66,8 +52,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr
-                    *ngFor="let mentor of this.mentorData; let i = index;" cdkDrag>
+                <tr *ngFor="let mentor of this.mentorData | pagination: this.currentPage; let i = index;" cdkDrag>
                     <td>
                         <div class="d-flex align-items-center">
                             <input class="form-check-input" type="checkbox" name="" id="">
@@ -119,5 +104,10 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="text-end w-100">
+        <button type="button" class="btn btn-primary"
+            (click)="this.currentPage = this.currentPage - 1">back</button>
+        <button type="button" class="btn btn-primary ms-4" (click)="this.currentPage = this.currentPage + 1">next</button>
     </div>
 </div>

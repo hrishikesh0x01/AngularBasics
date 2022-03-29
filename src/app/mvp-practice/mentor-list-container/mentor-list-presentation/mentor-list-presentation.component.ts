@@ -70,6 +70,8 @@ export class MentorListPresentationComponent implements OnInit {
     return this._genderOptions;
   }
 
+  currentPage = 0;
+
   constructor(
     private mentorListPresenter: MentorListPresenterService,
     private changeDetectorRef: ChangeDetectorRef,
@@ -114,17 +116,17 @@ export class MentorListPresentationComponent implements OnInit {
   sortedBy: string = 'id';
   isDesc: boolean = false;
 
-  sort(colName: any) {
-    let sortBy = colName.target.getAttribute('data-value');
+  sort(event: any) {
+    let sortBy = event.target.getAttribute('data-value');
     
     if (this.sortedBy === sortBy) {
       this.isDesc = !this.isDesc
     } else {
       this.sortedBy = sortBy;
-      this.isDesc = true;
+      this.isDesc = false;
     }
     console.log(this.sortedBy, this.isDesc)
-    this.mentorListPresenter.sortBy(sortBy, this.mentorData, this.isDesc);
+    this.mentorListPresenter.sortBy(this.sortedBy, this.mentorData, this.isDesc);
   }
 
   drop(event: CdkDragDrop<Mentor[]>) {

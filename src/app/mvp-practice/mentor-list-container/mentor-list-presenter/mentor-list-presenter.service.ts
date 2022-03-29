@@ -143,9 +143,6 @@ export class MentorListPresenterService {
 
   private _applyFilters(mentorList: Mentor[]): void {
     if (this._appliedFilters) {
-      console.log("FullName: ", mentorList[0].fname);
-      console.log(this._appliedFilters);
-
       if (this._appliedFilters.departments?.length) {
         mentorList = mentorList.filter(mentor => {
           return this._appliedFilters!.departments.includes(mentor.department);
@@ -172,8 +169,6 @@ export class MentorListPresenterService {
           });
         }
       }
-
-      console.log(mentorList);
     }
     this._filteredData.next(mentorList);
   }
@@ -184,6 +179,6 @@ export class MentorListPresenterService {
   }
 
   sortBy(sortBy: string, mentorData: Mentor[], isDesc: boolean) {
-    mentorData.sort(Mentor.comparator(sortBy as keyof Mentor, isDesc ? 1 : -1));
+    mentorData.sort(Mentor.comparator(sortBy as keyof Mentor, isDesc ? -1 : 1));
   }
 }
