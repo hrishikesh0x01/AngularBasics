@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'mvp-practice',
     loadChildren: () => import('./mvp-practice/mvp-practice.module').then(m => m.MVPPracticeModule)
   },
+  {
+    path: 'file-upload',
+    loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule)
+  },
   { path: '**', component: PageNotFoundComponent }
 ];
 

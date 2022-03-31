@@ -46,5 +46,10 @@ export let navItems: Feature[][] = [
             "dispName": "MVP Practice",
             "routePath": "/mvp-practice"
         },
+        {
+            "icon": "icon-stack",
+            "dispName": "File Upload",
+            "routePath": "/file-upload"
+        },
     ]
 ];

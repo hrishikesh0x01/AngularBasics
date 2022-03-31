@@ -1,0 +1,11 @@
+<div>
+    <div class="drop-zone position-relative mb-3">
+        <label for="file-input" class="form-label position-absolute top-50 start-50 translate-middle">Email address</label>
+        <input type="file" multiple class="w-100 h-100" (change)="onChange($event)" id="file-input">
+    </div>
+    <div id="emailHelp" class="form-text">We'll never share your file with anyone else.</div>
+    <div *ngFor="let file of this.addedFiles">
+        {{ file.name }}
+    </div>
+    <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
+</div>

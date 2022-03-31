@@ -1,0 +1,11 @@
+
+.drop-zone {
+    height: 400px;
+    width: 400px;
+    border: 2px dashed gray;
+
+    #file-input {
+        opacity: 0;
+        cursor: pointer;
+    }
+}
