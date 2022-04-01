@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output, Sanitizer, SecurityContext } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+///////////////////////////////////////////////////////////
+import { SHA256 } from 'crypto-js';
 
 @Component({
   selector: 'app-file-upload',
@@ -17,36 +20,77 @@ export class FileUploadComponent implements OnInit {
     }
   }
 
-  constructor(private _fb: FormBuilder) { }
+  @Output() filesEmitter: EventEmitter<any>;
+
+  public addedFiles: File[];
+  public readFiles: any[];
+
+  constructor(private sanitizer: DomSanitizer) {
+    this.addedFiles = [];
+    this.readFiles = [];
+
+    this.filesEmitter = new EventEmitter();
+  }
 
   ngOnInit(): void {
+    this.filesEmitter.subscribe((data) => {
+      console.log(data);
+    });
   }
 
+  /**
+   * Reads all the given files.
+   * @param files Takes File[].
+   * @param buff Output Array.
+   */
+  readmultifiles(files: File[], buff: any) {
+    let reader = new FileReader();
+    let emitter = this.filesEmitter;
+    const readFile = (index: number) => {
+      if (index >= files.length) {
+        emitter.emit(buff);
+        return;
+      }
+      var file = files[index];
+      reader.onload = function (e) {
+        let content = '';
+        let hash;
+        content = reader.result?.toString() ?? '';
+        hash = SHA256(content).toString();
+        console.log(content);
+
+        buff[index].content = content;
+        buff[index].hash = hash;
+        console.log(buff);
+
+        // Read next file
+        readFile(index + 1)
+      }
+      reader.readAsDataURL(file);
+    }
+    readFile(0);
+  }
 
   onSubmit() {
-    console.log(JSON.stringify(this.addedFiles.map((file) => {
-      return { name: file.name, type: file.type, size: file.size };
-    })));
+    this.readFiles = this.addedFiles.map((file) => {
+      let content = '';
+      let hash;
+      return { name: file.name, type: file.type, size: file.size, content: content, hash: hash };
+    });
+    this.readmultifiles(this.addedFiles, this.readFiles);
   }
 
-  addedFiles: File[] = [];
-
-  onChange(files: any) {
-    let newFiles = files.target.files;
-    console.log(newFiles)
-
+  onChange(filesInput: any) {
     this.addedFiles = [];
-    for (const file of newFiles) {
+    for (const file of filesInput.files) {
+      console.log(file);
       if (this.convertToMB(file.size) < 2) {
-        console.log("ok");
         this.addedFiles.push(file);
       } else {
         console.log("Nikaal bc");
       }
     }
-    files.target.value = "";
-    console.log(files.target.files);
-    console.log(this.addedFiles);
+    console.log('dsdf', this.addedFiles);
   }
 
   convertToMB(sizeInKB: number): number {
