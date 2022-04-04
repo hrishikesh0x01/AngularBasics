@@ -4,7 +4,7 @@
         <input type="file" multiple class="w-100 h-100 opacity-0" (change)="onChange($event.target)" id="file-input">
     </div>
     <div *ngFor="let file of this.readFiles">
-        {{ file.hash }}
+        <img [src]="file.content">
     </div>
     <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
 </div>

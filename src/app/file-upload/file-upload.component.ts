@@ -43,7 +43,7 @@ export class FileUploadComponent implements OnInit {
    * @param files Takes File[].
    * @param buff Output Array.
    */
-  readmultifiles(files: File[], buff: any) {
+   readMultipleFiles(files: File[], buff: any) {
     let reader = new FileReader();
     let emitter = this.filesEmitter;
     const readFile = (index: number) => {
@@ -73,11 +73,9 @@ export class FileUploadComponent implements OnInit {
 
   onSubmit() {
     this.readFiles = this.addedFiles.map((file) => {
-      let content = '';
-      let hash;
-      return { name: file.name, type: file.type, size: file.size, content: content, hash: hash };
+      return { name: file.name, type: file.type, size: file.size, content: null, hash: null };
     });
-    this.readmultifiles(this.addedFiles, this.readFiles);
+    this.readMultipleFiles(this.addedFiles, this.readFiles);
   }
 
   onChange(filesInput: any) {

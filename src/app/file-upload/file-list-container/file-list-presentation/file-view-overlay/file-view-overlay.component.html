@@ -1,0 +1,7 @@
+<div class="card p-4 w-100 h-100 position-relative">
+    <!-- <h4>{{ this.file.name }}</h4> -->
+    <iframe class="w-100 h-100" [src]="this.safeUrl"></iframe>
+    <button class="p-2 position-absolute top-0 end-0 border-0 rounded-2 bg-opacity-0" (click)="onButtonClick('close')">
+        <span class="icon icon-cancel"></span>
+    </button>
+</div>

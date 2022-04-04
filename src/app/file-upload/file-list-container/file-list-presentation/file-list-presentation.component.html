@@ -1,0 +1,73 @@
+<div class="employee-list-view w-100">
+    <div class="d-flex align-items-center main-content-title header-height">
+        <h4 class="title-text">Employees</h4>
+    </div>
+    <div class="w-100 pb-4 text-end">
+        <button type="button" class="btn btn-primary" routerLink="/file-upload/add">Upload Files</button>
+    </div>
+    <div class="d-flex overflow-auto w-100 mb-3" [ngClass]="{'flex-grow-1':!this.uploadedFiles}">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="table-cell">
+                    </th>
+                    <th class="table-cell">
+                        <div class="d-flex align-items-center">
+                            #
+                        </div>
+                    </th>
+                    <th class="table-cell">
+                        <div class="d-flex align-items-center">
+                            Name
+                        </div>
+                    </th>
+                    <th class="table-cell">
+                        <div class="d-flex align-items-center">
+                            Type
+                        </div>
+                    </th>
+                    <th class="table-cell">
+                        <div class="d-flex align-items-center">
+                            Size
+                        </div>
+                    </th>
+                    <th class="table-cell">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let file of this.uploadedFiles; let i = index;">
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            <input type="checkbox" name="" id="">
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            {{ file.id }}
+                        </div>
+
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            {{ file.name }}
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            {{ file.size }}
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
+                            <a class="edit-employee-link" (click)="viewFile(file)"><span
+                                    class="icon icon-eye"></span></a>
+                            <a class="delete-employee-link" (click)="deleteFile(file.id)"><span
+                                    class="icon icon-delete"></span></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

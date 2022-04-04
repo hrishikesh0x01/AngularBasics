@@ -51,3 +51,13 @@
 .form-control:focus {
     box-shadow: none;
 }
+
+.drop-zone {
+    height: 400px;
+    min-width: 400px;
+    border: 2px dashed gray;
+
+    #file-input {
+        cursor: pointer;
+    }
+}
