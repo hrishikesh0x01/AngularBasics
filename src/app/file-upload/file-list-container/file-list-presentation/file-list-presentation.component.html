@@ -55,14 +55,19 @@
                     </td>
                     <td class="table-cell">
                         <div class="d-flex align-items-center">
+                            {{ file.type }}
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <div class="d-flex align-items-center">
                             {{ file.size }}
                         </div>
                     </td>
                     <td class="table-cell">
                         <div class="d-flex align-items-center">
-                            <a class="edit-employee-link" (click)="viewFile(file)"><span
+                            <a class="fs-5 p-1 btn-link border-1 border-primary text-black text-decoration-none" (click)="viewFile(file)"><span
                                     class="icon icon-eye"></span></a>
-                            <a class="delete-employee-link" (click)="deleteFile(file.id)"><span
+                            <a class="ms-3 fs-5 p-1 btn-link border-1 border-primary text-black text-decoration-none" (click)="deleteFile(file.id)"><span
                                     class="icon icon-delete"></span></a>
                         </div>
                     </td>

@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { FileData, InvalidFile } from '../../models/FileData';
 
 ///////////////////////////////////////////////////////////
 import { FileUploadPresenterService } from '../file-upload-presenter/file-upload-presenter.service';
@@ -11,36 +12,38 @@ import { FileUploadPresenterService } from '../file-upload-presenter/file-upload
   styleUrls: ['./file-upload-presentation.component.scss']
 })
 export class FileUploadPresentationComponent implements OnInit {
-  // private _uploadedFiles: any;
-  private fileNames: string[] = [];
-  @Input() public set uploadedFiles(v: any) {
+  @Input() public set uploadedFiles(v: FileData[] | null) {
     if (v) {
-      v.forEach((file: any) => {
+      v.forEach((file: FileData) => {
         this.fileNames.push(file.name);
       });
-      // this._uploadedFiles = v;
     }
   }
 
-  private _serverFiles: File[] = [];
-  public get serverFiles(): File[] {
-    return this._serverFiles;
-  }
   @Input() public set serverFiles(v: File[] | null) {
     if (v) {
       this._serverFiles = v;
     }
   }
 
-  @Output() filesToUpload: EventEmitter<any>;
+  @Output() filesToUpload: EventEmitter<FileData[]>;
+  public get serverFiles(): File[] {
+    return this._serverFiles;
+  }
+
+  // @ViewChild('notifications', { static: true }) notifications!: ViewContainerRef;
+  // @ViewChild('toast', { static: true }) toast!: TemplateRef<any>;
 
   public addedFiles: File[];
-  // public readFiles: any[];
+  public invalidFiles: InvalidFile[];
 
-  constructor(private _fileUploadPresenter: FileUploadPresenterService) {
+  private fileNames: string[] = [];
+  private _serverFiles: File[];
+
+  constructor(private _fileUploadPresenter: FileUploadPresenterService, private _changeDetectorRef: ChangeDetectorRef) {
+    this._serverFiles = [];
     this.addedFiles = [];
-    // this.readFiles = [];
-
+    this.invalidFiles = [];
     this.filesToUpload = new EventEmitter();
   }
 
@@ -48,22 +51,39 @@ export class FileUploadPresentationComponent implements OnInit {
     this._fileUploadPresenter.readFiles$.subscribe((data) => {
       this.filesToUpload.emit(data);
     });
+
+    this._fileUploadPresenter.invalidFiles$.subscribe((file: InvalidFile) => {
+      this.invalidFiles.push(file);
+      setTimeout(() => this.removeToast(file.id), 2000);
+      // this.invalidFiles = [...this.invalidFiles];
+      // this.notifications?.insert(this.toast.createEmbeddedView({file: file}));
+      // console.log(this.invalidFiles);
+      // this._changeDetectorRef.markForCheck();
+    })
   }
 
-  removeAddedFile(i: number) {
+  public removeAddedFile(i: number) {
     this.addedFiles.splice(i, 1);
   }
 
-  onSubmit() {
-    this._fileUploadPresenter.readAllFiles(this.addedFiles);
+  public onSubmit() {
+    if (this.addedFiles.length) {
+      this._fileUploadPresenter.readAllFiles(this.addedFiles);
+    }
   }
 
-  onChange(filesInput: any) {
-    this.addedFiles = this._fileUploadPresenter.filterInvalidFiles(filesInput.files, this.fileNames);
+  public onChange(filesInput: any) {
+    console.log(filesInput);
+    this._fileUploadPresenter.filterInvalidFiles(filesInput.files, this.addedFiles, this.fileNames);
     console.log('hesoyam', this.addedFiles);
+    filesInput.value = "";
   }
 
   public convertToMB(sizeInKB: number): string {
     return (sizeInKB / (1024 ** 2)).toFixed(2);
+  }
+
+  removeToast(id: number) {
+    this.invalidFiles.splice(this.invalidFiles.findIndex((file: InvalidFile) => file.id === id), 1);
   }
 }

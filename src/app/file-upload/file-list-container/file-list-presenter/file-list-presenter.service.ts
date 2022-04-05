@@ -5,94 +5,95 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs/internal/Subject';
 
 /////////////////////////////////////////////////////////////////////////////////////
-import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';
 import { Button } from 'src/app/shared/models/button.model';
+import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';
 import { FileViewOverlayComponent } from '../file-list-presentation/file-view-overlay/file-view-overlay.component';
 
 @Injectable()
 export class FileListPresenterService {
-  private _delete: Subject<number>;
-  private _delete$: Observable<number>;
-
   public get delete$(): Observable<number> {
     return this._delete$;
   }
+  
+  private _delete: Subject<number>;
+  private _delete$: Observable<number>;
 
   constructor(private overlay: Overlay) {
     this._delete = new Subject();
     this._delete$ = this._delete.asObservable();
   }
 
-  confirmationPopupRef!: OverlayRef;
-  confirmationPopupComponentRef!: ComponentRef<ConfirmationPopupComponent>;
+  private _confirmationPopupRef!: OverlayRef;
+  private _confirmationPopupComponentRef!: ComponentRef<ConfirmationPopupComponent>;
 
-  displayConfirmationPopup(id?: number): void {
+  public displayConfirmationPopup(id?: number): void {
     let confirmationPopupConfig: OverlayConfig = {
       hasBackdrop: true,
       positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
     };
 
-    this.confirmationPopupRef = this.overlay.create(confirmationPopupConfig);
+    this._confirmationPopupRef = this.overlay.create(confirmationPopupConfig);
 
     const popupComponent = new ComponentPortal(ConfirmationPopupComponent);
 
-    this.confirmationPopupComponentRef = this.confirmationPopupRef.attach(popupComponent);
+    this._confirmationPopupComponentRef = this._confirmationPopupRef.attach(popupComponent);
 
-    this.confirmationPopupComponentRef.instance.msg = "Are you sure you want to delete ID: " + id + "?";
+    this._confirmationPopupComponentRef.instance.msg = "Are you sure you want to delete ID: " + id + "?";
 
-    this.confirmationPopupComponentRef.instance.buttons = [
+    this._confirmationPopupComponentRef.instance.buttons = [
       new Button('Cancel', 'secondary', 'cancel'),
       new Button('Delete', 'danger', 'delete'),
     ]
 
-    this.closeConfirmationPopup(id);
+    this._closeConfirmationPopup(id);
   }
 
-  private closeConfirmationPopup(id?: number): void {
-    this.confirmationPopupRef.backdropClick().subscribe(() => {
-      this.confirmationPopupRef.detach();
+  private _closeConfirmationPopup(id?: number): void {
+    this._confirmationPopupRef.backdropClick().subscribe(() => {
+      this._confirmationPopupRef.detach();
     });
 
-    this.confirmationPopupComponentRef.instance.buttonClick.subscribe((val) => {
+    this._confirmationPopupComponentRef.instance.buttonClick.subscribe((val: string) => {
       if (val === 'delete' && id) {
         this._delete.next(id);
       }
-      this.confirmationPopupRef.detach();
+      this._confirmationPopupRef.detach();
     });
   }
 
-  fileViewOverlayRef!: OverlayRef;
-  fileViewOverlayComponentRef!: ComponentRef<FileViewOverlayComponent>;
+  private _fileViewOverlayRef!: OverlayRef;
+  private _fileViewOverlayComponentRef!: ComponentRef<FileViewOverlayComponent>;
 
-  displayFileViewOverlay(file: any): void {
+  public displayFileViewOverlay(file: any): void {
     let viewOverlayConfig: OverlayConfig = {
       hasBackdrop: true,
+      backdropClass: "file-view-overlay-backdrop",
       positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically().width('75%').height('75%')
     };
 
-    this.fileViewOverlayRef = this.overlay.create(viewOverlayConfig);
+    this._fileViewOverlayRef = this.overlay.create(viewOverlayConfig);
 
     const viewOverlayComponent = new ComponentPortal(FileViewOverlayComponent);
 
-    this.fileViewOverlayComponentRef = this.fileViewOverlayRef.attach(viewOverlayComponent);
+    this._fileViewOverlayComponentRef = this._fileViewOverlayRef.attach(viewOverlayComponent);
 
-    this.fileViewOverlayComponentRef.instance.file = file;
+    this._fileViewOverlayComponentRef.instance.file = file;
 
-    this.fileViewOverlayComponentRef.instance.buttons = [
+    this._fileViewOverlayComponentRef.instance.buttons = [
       new Button('Close', 'secondary', 'close'),
     ];
 
-    this.closeFileViewOverlay();
+    this._closeFileViewOverlay();
   }
 
-  private closeFileViewOverlay(): void {
-    this.fileViewOverlayRef.backdropClick().subscribe(() => {
-      this.fileViewOverlayRef.detach();
+  private _closeFileViewOverlay(): void {
+    this._fileViewOverlayRef.backdropClick().subscribe(() => {
+      this._fileViewOverlayRef.detach();
     });
 
-    this.fileViewOverlayComponentRef.instance.buttonClick.subscribe((val) => {
+    this._fileViewOverlayComponentRef.instance.buttonClick.subscribe((val) => {
       if (val === 'close') {
-        this.confirmationPopupRef.detach();
+        this._fileViewOverlayRef.detach();
       }
     });
   }

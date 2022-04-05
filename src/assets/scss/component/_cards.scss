@@ -14,3 +14,8 @@
         box-shadow: 0 0 30px 5px #dedede;
     }
 }
+
+.file-view-overlay-backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: saturate(180%) blur(10px);
+}

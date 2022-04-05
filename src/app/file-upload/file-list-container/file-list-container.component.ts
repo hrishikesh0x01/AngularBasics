@@ -10,7 +10,7 @@ import { FileUploadService } from '../services/file-upload.service';
   styleUrls: ['./file-list-container.component.scss']
 })
 export class FileListContainerComponent implements OnInit {
-  uploadedFiles$: Observable<any>;
+  public uploadedFiles$: Observable<any>;
 
   constructor(private _fileUploadService: FileUploadService) {
     this.uploadedFiles$ = new Observable();

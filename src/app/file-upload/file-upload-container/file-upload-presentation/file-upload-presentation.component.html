@@ -1,29 +1,46 @@
-<div class="mt-5 mx-5 text-center">
-    <div class="drop-zone position-relative w-100 mb-4">
-        <div class="form-label position-absolute top-50 start-50 translate-middle">
-            <div class="w-100 text-center">
-                Drop Your Files Here
-            </div>
-            <div class="w-100 fs-3 text-center">
-                OR
-            </div>
-            <div class="w-100 text-center">
-                Click to Choose Files
-            </div>
-        </div>
-        <input type="file" multiple class="w-100 h-100 opacity-0" accept="image/*" (change)="onChange($event.target)"
-            id="file-input">
+<div class="h-100 p-5 text-center position-relative overflow-auto">
+  <div class="drop-zone position-relative w-100 mb-4">
+    <div class="form-label position-absolute top-50 start-50 translate-middle">
+      <div class="w-100 text-center">
+        Drop Your Files Here
+      </div>
+      <div class="w-100 fs-3 text-center">
+        OR
+      </div>
+      <div class="w-100 text-center">
+        Click to Choose Files
+      </div>
     </div>
-    <div class="row g-3 mb-4">
-        <div class="col-4" *ngFor="let file of this.addedFiles; let i = index;">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title small">{{ file.name }}</h5>
-                    <p class="card-text">{{ this.convertToMB(file.size) + 'MB' }}</p>
-                    <button class="btn btn-outline-danger" (click)="removeAddedFile(i)">Remove</button>
-                </div>
-            </div>
+    <input type="file" multiple class="w-100 h-100 opacity-0" (change)="onChange($event.target)" id="file-input">
+  </div>
+  <div class="row g-3 mb-4">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let file of this.addedFiles; let i = index;">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title small">{{ file.name }}</h5>
+          <p class="card-text">{{ this.convertToMB(file.size) + 'MB' }}</p>
+          <button class="btn btn-outline-danger" (click)="removeAddedFile(i)">Remove</button>
         </div>
+      </div>
     </div>
-    <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
+  </div>
+  <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
+  <div class="position-absolute p-4 bottom-0 end-0">
+    <div class="toast-container">
+      <ng-container *ngFor="let file of this.invalidFiles" [ngTemplateOutlet]="toast" [ngTemplateOutletContext]="{file:file}"></ng-container>
+    </div>
+  </div>
 </div>
+
+<ng-template let-file="file" #toast>
+  <div class="toast show">
+    <div class="toast-header">
+      <strong class="me-auto">{{ file.name }}</strong>
+      <small class="text-muted">{{ file.size }} bytes</small>
+      <button type="button" class="btn-close" (click)="removeToast(file.id)"></button>
+    </div>
+    <div class="toast-body text-danger">
+      {{ file.error }}
+    </div>
+  </div>
+</ng-template>

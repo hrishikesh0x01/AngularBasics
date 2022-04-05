@@ -44,7 +44,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody cdkDropList [cdkDropListData]="this.mentorData" (cdkDropListDropped)="drop($event)">
+            <tbody *ngIf="this.mentorData" cdkDropList [cdkDropListData]="this.mentorData" (cdkDropListDropped)="drop($event)">
                 <tr *ngIf="!this.mentorData?.length">
                     <td colspan="9">
                         <div class=" text-center">
@@ -52,7 +52,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr *ngFor="let mentor of this.mentorData | pagination: this.currentPage; let i = index;" cdkDrag>
+                <tr *ngFor="let mentor of this.mentorData; let i = index;" cdkDrag>
                     <td>
                         <div class="d-flex align-items-center">
                             <input class="form-check-input" type="checkbox" name="" id="">
@@ -104,10 +104,5 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="text-end w-100">
-        <button type="button" class="btn btn-primary"
-            (click)="this.currentPage = this.currentPage - 1">back</button>
-        <button type="button" class="btn btn-primary ms-4" (click)="this.currentPage = this.currentPage + 1">next</button>
     </div>
 </div>

@@ -127,9 +127,19 @@ export class MentorListPresentationComponent implements OnInit {
     }
     console.log(this.sortedBy, this.isDesc)
     this.mentorListPresenter.sortBy(this.sortedBy, this.mentorData, this.isDesc);
+    console.log(this._mentorData);
   }
 
   drop(event: CdkDragDrop<Mentor[]>) {
     moveItemInArray(this.mentorData, event.previousIndex, event.currentIndex);
+  }
+
+  previousPage() {
+    if (this.currentPage > 0) {
+      this.currentPage = this.currentPage - 1;
+    }
+  }
+  nextPage() {
+    this.currentPage = this.currentPage + 1;
   }
 }
