@@ -9,10 +9,10 @@ import { FileData, FileDataAdapter, InvalidFile } from '../../models/FileData';
 export class FileUploadPresenterService {
   public readFiles$: Observable<FileData[]>;
   public invalidFiles$: Observable<InvalidFile>;
-  
+
   private _readFiles: Subject<FileData[]>;
   private _invalidFiles: Subject<InvalidFile>;
-  
+
 
   constructor(private _fileDataAdapter: FileDataAdapter) {
     this._readFiles = new Subject();
@@ -51,40 +51,40 @@ export class FileUploadPresenterService {
    * @param files Takes File[].
    */
   public readAllFiles(files: File[]) {
-    const reader = new FileReader();
+    let filesRemaining = files.length;
     const readFiles = this._readFiles;
     const filesWithContent: FileData[] = [];
-    const readFile = (index: number) => {
-      if (index >= files.length) {
-        readFiles.next(filesWithContent);
-        return;
-      }
-      let file = files[index];
+    const readFile = (index: number, file: File) => {
+      const reader = new FileReader();
       reader.onload = (e) => {
-        let content = '';
         // let hash;
-        content = reader.result?.toString() ?? '';
+        let content = reader.result?.toString() ?? '';
         // hash = SHA256(content).toString();
         console.log(content);
 
         // filesWithContent[index].content = content.split(',')[1];
         // buff[index].hash = hash;
 
-        filesWithContent.push(this._fileDataAdapter.adapt({
-          name: file.name,
-          type: file.type,
-          size: file.size,
-          content: content
-        }));
+        filesWithContent[index].content = content;
+        console.log(index, ':', filesWithContent[index]);
+        filesRemaining--;
 
-        console.log(filesWithContent);
-
-        // Read next file
-        readFile(index + 1)
+        if (!filesRemaining) {
+          readFiles.next(filesWithContent);
+          return;
+        }
       }
       reader.readAsDataURL(file);
     }
-    readFile(0);
+    files.forEach((file: File, index: number) => {
+      filesWithContent.push(this._fileDataAdapter.adapt({
+        name: file.name,
+        type: file.type,
+        size: file.size,
+        content: '',
+      }));
+      readFile(index, file);
+    });
   }
 
   private convertToMB(sizeInKB: number): number {
