@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-/////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { Observable } from 'rxjs/internal/Observable';
 import { FileData } from '../models/FileData';
 import { FileUploadService } from '../services/file-upload.service';

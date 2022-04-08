@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-///////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { Details } from 'src/app/shared/models/details.model';
 import { CrudNoServerService } from '../../services/crud-no-server.service';
 

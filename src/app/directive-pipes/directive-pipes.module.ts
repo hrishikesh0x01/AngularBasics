@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-//////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { DirectivePipesRoutingModule } from './directive-pipes-routing.module';
 import { DirectivePipesComponent } from './directive-pipes.component';
 import { CustomDirectiveDirective } from './directives/customDirective/custom-directive.directive';

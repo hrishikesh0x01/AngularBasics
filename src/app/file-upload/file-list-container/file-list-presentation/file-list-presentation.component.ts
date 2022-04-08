@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-///////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { FileListPresenterService } from '../file-list-presenter/file-list-presenter.service';
 
 @Component({

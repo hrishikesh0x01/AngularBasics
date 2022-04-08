@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Overlay } from '@angular/cdk/overlay';
 
-//////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { Mentor } from 'src/app/shared/models/mentor.model';
 import { Department } from 'src/app/shared/models/department.model';
 import { MentorListPresenterService } from '../mentor-list-presenter/mentor-list-presenter.service';

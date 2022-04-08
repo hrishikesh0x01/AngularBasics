@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { FileData, InvalidFile } from '../../models/FileData';
 
-///////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { FileUploadPresenterService } from '../file-upload-presenter/file-upload-presenter.service';
 // import { SHA256 } from 'crypto-js';
 

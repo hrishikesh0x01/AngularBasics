@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-///////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { Adapter } from "./adapter.interface";
 
 export class Mentor {

@@ -2,7 +2,7 @@ import { Component, ComponentRef, OnInit } from '@angular/core';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 
-///////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { Department } from 'src/app/shared/models/department.model';
 import { Employee } from 'src/app/shared/models/employee.model';
 import { CrudService } from '../../services/crud.service';

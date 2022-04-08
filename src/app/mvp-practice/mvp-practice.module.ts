@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { OverlayModule } from '@angular/cdk/overlay';
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { MentorListContainerComponent } from './mentor-list-container/mentor-list-container.component';
 import { MentorFormContainerComponent } from './mentor-form-container/mentor-form-container.component';
 import { MVPPracticeComponent } from '../mvp-practice/mvp-practice.component';

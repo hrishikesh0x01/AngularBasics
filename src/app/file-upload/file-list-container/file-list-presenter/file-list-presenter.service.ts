@@ -4,7 +4,7 @@ import { ComponentRef, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs/internal/Subject';
 
-/////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { Button } from 'src/app/shared/models/button.model';
 import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';
 import { FileViewOverlayComponent } from '../file-list-presentation/file-view-overlay/file-view-overlay.component';

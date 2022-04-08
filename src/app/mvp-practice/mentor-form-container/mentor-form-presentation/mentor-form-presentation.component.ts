@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-//////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { Department } from 'src/app/shared/models/department.model';
 import { Designation } from 'src/app/shared/models/designation.model';
 import { Mentor } from 'src/app/shared/models/mentor.model';

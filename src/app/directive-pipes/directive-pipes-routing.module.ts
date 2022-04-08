@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-///////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------ //
 import { DirectivePipesComponent } from './directive-pipes.component';
 
 const routes: Routes = [
