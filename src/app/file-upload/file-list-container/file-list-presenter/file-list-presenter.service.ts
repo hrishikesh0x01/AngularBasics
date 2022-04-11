@@ -6,7 +6,7 @@ import { Subject } from 'rxjs/internal/Subject';
 
 // ------------------------------------------------------------------------------------------ //
 import { Button } from 'src/app/shared/models/button.model';
-import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';
+import { ConfirmationPopupComponent } from 'src/app/shared/components/confirmation-popup/confirmation-popup.component';
 import { FileViewOverlayComponent } from '../file-list-presentation/file-view-overlay/file-view-overlay.component';
 
 @Injectable()

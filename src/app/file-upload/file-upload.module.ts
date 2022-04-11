@@ -10,6 +10,7 @@ import { FileUploadPresentationComponent } from './file-upload-container/file-up
 import { FileListContainerComponent } from './file-list-container/file-list-container.component';
 import { FileListPresentationComponent } from './file-list-container/file-list-presentation/file-list-presentation.component';
 import { FileViewOverlayComponent } from './file-list-container/file-list-presentation/file-view-overlay/file-view-overlay.component';
+import { FileUploadService } from './services/file-upload.service';
 
 
 @NgModule({
@@ -25,6 +26,9 @@ import { FileViewOverlayComponent } from './file-list-container/file-list-presen
     FileUploadRoutingModule,
     SharedModule,
     OverlayModule
+  ],
+  providers: [
+    FileUploadService
   ]
 })
 export class FileUploadModule { }

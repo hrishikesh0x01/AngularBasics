@@ -7,7 +7,7 @@ import { Department } from 'src/app/shared/models/department.model';
 import { Employee } from 'src/app/shared/models/employee.model';
 import { CrudService } from '../../services/crud.service';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
-import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';
+import { ConfirmationPopupComponent } from 'src/app/shared/components/confirmation-popup/confirmation-popup.component';
 import { Button } from 'src/app/shared/models/button.model';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 

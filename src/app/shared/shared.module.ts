@@ -4,11 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // ------------------------------------------------------------------------------------------ //
 import { PhoneMaskDirective } from './directives/phone-mask.directive';
-import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-popup.component';
+import { ConfirmationPopupComponent } from './components/confirmation-popup/confirmation-popup.component';
 import { MapDeptPipe } from './pipes/map-dept.pipe';
 import { SearchFromArrayOnPipe } from './pipes/search-from-array-on.pipe';
 import { MapGenderPipe } from './pipes/map-gender.pipe';
 import { IdToNamePipe } from './pipes/id-to-name.pipe';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { IdToNamePipe } from './pipes/id-to-name.pipe';
     MapGenderPipe,
     SearchFromArrayOnPipe,
     IdToNamePipe,
+    NotificationComponent,
   ],
   imports: [
     CommonModule,

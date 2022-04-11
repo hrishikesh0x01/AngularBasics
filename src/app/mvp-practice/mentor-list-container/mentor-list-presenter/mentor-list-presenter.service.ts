@@ -5,7 +5,7 @@ import { ComponentRef, Injectable } from '@angular/core';
 // ------------------------------------------------------------------------------------------ //
 import { Subject } from 'rxjs/internal/Subject';
 import { Observable } from 'rxjs/internal/Observable';
-import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';
+import { ConfirmationPopupComponent } from 'src/app/shared/components/confirmation-popup/confirmation-popup.component';
 import { Button } from 'src/app/shared/models/button.model';
 import { Department } from 'src/app/shared/models/department.model';
 import { Designation } from 'src/app/shared/models/designation.model';

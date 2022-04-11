@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { ComponentRef, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs/internal/Subject';
+import { NotificationComponent } from 'src/app/shared/components/notification/notification.component';
 import { FileData, FileDataAdapter, InvalidFile } from '../../models/FileData';
 
 @Injectable({
@@ -14,7 +17,7 @@ export class FileUploadPresenterService {
   private _invalidFiles: Subject<InvalidFile>;
 
 
-  constructor(private _fileDataAdapter: FileDataAdapter) {
+  constructor(private _fileDataAdapter: FileDataAdapter, private overlay: Overlay) {
     this._readFiles = new Subject();
     this.readFiles$ = this._readFiles.asObservable();
     this._invalidFiles = new Subject();
@@ -76,6 +79,7 @@ export class FileUploadPresenterService {
       }
       reader.readAsDataURL(file);
     }
+
     files.forEach((file: File, index: number) => {
       filesWithContent.push(this._fileDataAdapter.adapt({
         name: file.name,
@@ -87,7 +91,42 @@ export class FileUploadPresenterService {
     });
   }
 
+  public removeToast(id: number, invalidFiles: InvalidFile[]) {
+    return invalidFiles.splice(invalidFiles.findIndex((file: InvalidFile) => file.id === id), 1);
+  }
+
   private convertToMB(sizeInKB: number): number {
     return sizeInKB / (1024 ** 2);
+  }
+
+  notificationToastrRef!: OverlayRef;
+  notificationToastrComponentRef!: ComponentRef<NotificationComponent>;
+
+  showNotificationToastr(file: InvalidFile): void {
+    let notificationToastrConfig: OverlayConfig = {
+      hasBackdrop: true,
+      positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
+    };
+
+    this.notificationToastrRef = this.overlay.create(notificationToastrConfig);
+
+    const notificationComponent = new ComponentPortal(NotificationComponent);
+
+    this.notificationToastrComponentRef = this.notificationToastrRef.attach(notificationComponent);
+
+    this.notificationToastrComponentRef.instance.file = file;
+
+    // this.confirmationPopupComponentRef.instance.buttons = [
+    //   new Button('Cancel', 'secondary', 'cancel'),
+    //   new Button('Delete', 'danger', 'delete'),
+    // ]
+
+    this.closeNotificationToastr();
+  }
+
+  closeNotificationToastr(): void {
+    this.notificationToastrRef.backdropClick().subscribe(() => {
+      this.notificationToastrRef.detach();
+    });
   }
 }

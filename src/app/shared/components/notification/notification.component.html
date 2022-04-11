@@ -1,0 +1,10 @@
+<div class="toast show">
+    <div class="toast-header">
+        <strong class="me-auto">{{ file.name }}</strong>
+        <small class="text-muted">{{ file.size }} bytes</small>
+        <button type="button" class="btn-close" (click)="removeToast(file.id)"></button>
+    </div>
+    <div class="toast-body text-danger">
+        {{ file.error }}
+    </div>
+</div>

@@ -7,9 +7,7 @@ import { FileData, FileDataAdapter } from '../models/FileData';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FileUploadService {
   private _apiLink: string;
 

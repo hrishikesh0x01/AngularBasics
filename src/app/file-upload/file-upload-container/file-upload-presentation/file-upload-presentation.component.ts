@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FileData, InvalidFile } from '../../models/FileData';
 
 // ------------------------------------------------------------------------------------------ //
@@ -40,7 +40,7 @@ export class FileUploadPresentationComponent implements OnInit {
   private fileNames: string[] = [];
   private _serverFiles: File[];
 
-  constructor(private _fileUploadPresenter: FileUploadPresenterService, private _changeDetectorRef: ChangeDetectorRef) {
+  constructor(private _fileUploadPresenter: FileUploadPresenterService) {
     this._serverFiles = [];
     this.addedFiles = [];
     this.invalidFiles = [];
@@ -54,12 +54,13 @@ export class FileUploadPresentationComponent implements OnInit {
 
     this._fileUploadPresenter.invalidFiles$.subscribe((file: InvalidFile) => {
       this.invalidFiles.push(file);
+      this._fileUploadPresenter.showNotificationToastr(file);
       setTimeout(() => this.removeToast(file.id), 2000);
-      // this.invalidFiles = [...this.invalidFiles];
-      // this.notifications?.insert(this.toast.createEmbeddedView({file: file}));
-      // console.log(this.invalidFiles);
-      // this._changeDetectorRef.markForCheck();
-    })
+    });
+  }
+
+  public removeToast(id: number) {
+    this._fileUploadPresenter.removeToast(id, this.invalidFiles);
   }
 
   public removeAddedFile(i: number) {
@@ -81,9 +82,5 @@ export class FileUploadPresentationComponent implements OnInit {
 
   public convertToMB(sizeInKB: number): string {
     return (sizeInKB / (1024 ** 2)).toFixed(2);
-  }
-
-  removeToast(id: number) {
-    this.invalidFiles.splice(this.invalidFiles.findIndex((file: InvalidFile) => file.id === id), 1);
   }
 }

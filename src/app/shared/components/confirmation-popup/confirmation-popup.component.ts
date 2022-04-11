@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 // ------------------------------------------------------------------------------------------ //
-import { Button } from '../models/button.model';
+import { Button } from '../../models/button.model';
 
 @Component({
   selector: 'app-confirmation-popup',
