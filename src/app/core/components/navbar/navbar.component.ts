@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Feature } from '../../models/feature.model';
 import { navItems } from '../../nav-items';
 
@@ -12,7 +12,11 @@ export class NavbarComponent implements OnInit {
   // Imported navbar entries from nav-items.ts file.
   features: Feature[][] = navItems;
 
-  constructor() { }
+  @Output() sidebarCloseEvent: EventEmitter<Event>;
+
+  constructor() {
+    this.sidebarCloseEvent = new EventEmitter();
+  }
 
   ngOnInit(): void { }
 
@@ -28,5 +32,9 @@ export class NavbarComponent implements OnInit {
         event.currentIndex,
       );
     }
+  }
+
+  sidebarClose() {
+    this.sidebarCloseEvent.emit();
   }
 }

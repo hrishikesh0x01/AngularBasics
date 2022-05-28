@@ -1,6 +1,6 @@
 <div class="d-flex wrapper overflow-hidden h-100">
-    <input checked type="checkbox" checked class="d-none" id="sidenav-checkbox">
-    <app-navbar class="d-flex sidenav overflow-hidden"></app-navbar>
+    <input type="checkbox" #sidebarToggle checked class="d-none" id="sidenav-checkbox">
+    <app-navbar class="d-flex sidenav overflow-hidden" (sidebarCloseEvent)="sidebarToggle.checked = true"></app-navbar>
     <label for="sidenav-checkbox" class="checkbox-label position-absolute">
         <div class="line line-1"></div>
         <div class="line line-2"></div>

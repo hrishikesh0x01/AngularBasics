@@ -7,6 +7,7 @@ import { UserCredentials } from '../components/auth/user-credentials.model';
   providedIn: 'root'
 })
 export class AuthService {
+  private authEndPoint: string = 'http://localhost:3001';
 
   constructor(private http: HttpClient) { }
 
@@ -19,15 +20,15 @@ export class AuthService {
   }
   
   login(creds: UserCredentials): Observable<any> {
-    return this.http.post<any>(`http://localhost:3001/login`, creds);
+    return this.http.post<any>(`${this.authEndPoint}/login`, creds);
   }
 
   register(creds: UserCredentials): Observable<any> {
-    return this.http.post<any>(`http://localhost:3001/register`, creds);
+    return this.http.post<any>(`${this.authEndPoint}/register`, creds);
   }
 
   checkAuth(): Observable<any> {
     localStorage.getItem('token');
-    return this.http.get<any>(`http://localhost:3001/check-auth`);
+    return this.http.get<any>(`${this.authEndPoint}/check-auth`);
   }
 }

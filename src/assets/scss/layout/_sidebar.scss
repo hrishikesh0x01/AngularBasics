@@ -6,7 +6,7 @@
     left: 16px;
     top: 21px;
 
-    z-index: 999;
+    z-index: 9999;
 
     .line {
         margin: 3px 1px;
@@ -34,7 +34,7 @@
     border-right: $border-main;
     transition: all cubic-bezier(1, 0.5, 0.5, 1) 0.25s;
     font-weight: 500;
-    z-index: 1000;
+    z-index: 9998;
 
     .nav-title-container {
         color: $primary-color;

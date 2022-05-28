@@ -1,7 +1,7 @@
 <aside class="d-flex flex-column h-100 w-100">
     <header class="d-flex align-items-center nav-title-container header-height flex-shrink-0 flex-grow-0">
         <div class="d-flex flex-grow-1 align-items-center nav-header-item">
-            <div for="" class="nav-header-icon invisible">
+            <div class="nav-header-icon invisible">
                 <div class="line line-1"></div>
                 <div class="line line-2"></div>
                 <div class="line line-3"></div>
@@ -31,7 +31,7 @@
                 <ul cdkDropList class="flex-grow-1 nav nav-list gutter-stable" [cdkDropListData]="feature_section"
                     (cdkDropListDropped)="drop($event)">
                     <li *ngFor="let feature of feature_section" class="nav-item">
-                        <a [routerLink]="feature.routePath" routerLinkActive="active"
+                        <a [routerLink]="feature.routePath" (click)="sidebarClose()" routerLinkActive="active"
                             class="d-flex align-items-center nav-link" cdkDragLockAxis="y" cdkDrag>
                             <div [ngClass]="['icon', feature.icon]"></div>
                             <div class="nav-link-text flex-grow-1 flex-shrink-0">
