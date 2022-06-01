@@ -30,6 +30,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('AngularBasics app is running!');
+    expect(compiled.querySelector('#sidenav-checkbox')?.nodeValue).toContain('checked');
   });
 });

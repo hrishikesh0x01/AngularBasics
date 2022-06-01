@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form-basics',
@@ -11,11 +11,12 @@ export class ReactiveFormBasicsComponent implements OnInit {
   submitted: boolean = false;
 
   constructor(private fb: FormBuilder) {
-    this.demoForm = this.createContactForm();
+    this.demoForm = {} as FormGroup;
   }
 
   ngOnInit(): void {
-    this.jsArrays();
+    // this.jsArrays();
+    this.demoForm = this.createContactForm();
   }
 
   createContactForm(): FormGroup {
@@ -24,11 +25,12 @@ export class ReactiveFormBasicsComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.maxLength(150), Validators.minLength(20)]],
       mobile: ['', [Validators.required, Validators.pattern(/\([0-9]{3}\)\-[0-9]{3}\-[0-9]{4}$/)]],
-      age: ['',]
+      age: ['',],
     });
   }
 
   onSelectionChange(event: Event) {
+    console.log(this.demoForm);
     if ((event.target as HTMLInputElement).value == '0') {
       // Removes single or multiple synchronous validators
       this.demoForm.controls['fullName'].removeValidators(Validators.required);
@@ -48,6 +50,10 @@ export class ReactiveFormBasicsComponent implements OnInit {
     }
   }
 
+  getAddressFormGroup(addrForm: FormGroup) {
+    this.demoForm.addControl('address', addrForm);
+  }
+
   showData() {
     this.submitted = true;
     console.log(this.demoForm);
@@ -61,7 +67,6 @@ export class ReactiveFormBasicsComponent implements OnInit {
   get getControls() {
     return this.demoForm.controls;
   }
-
 
   jsArrays() {
     let arr = [

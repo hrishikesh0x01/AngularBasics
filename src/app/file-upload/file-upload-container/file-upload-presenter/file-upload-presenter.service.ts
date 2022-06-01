@@ -99,34 +99,33 @@ export class FileUploadPresenterService {
     return sizeInKB / (1024 ** 2);
   }
 
-  notificationToastrRef!: OverlayRef;
-  notificationToastrComponentRef!: ComponentRef<NotificationComponent>;
-
+  
   showNotificationToastr(file: InvalidFile): void {
+    let notificationToastrRef!: OverlayRef;
+    let notificationToastrComponentRef!: ComponentRef<NotificationComponent>;
     let notificationToastrConfig: OverlayConfig = {
       hasBackdrop: true,
       positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
     };
 
-    this.notificationToastrRef = this.overlay.create(notificationToastrConfig);
+    notificationToastrRef = this.overlay.create(notificationToastrConfig);
 
     const notificationComponent = new ComponentPortal(NotificationComponent);
 
-    this.notificationToastrComponentRef = this.notificationToastrRef.attach(notificationComponent);
+    notificationToastrComponentRef = notificationToastrRef.attach(notificationComponent);
 
-    this.notificationToastrComponentRef.instance.file = file;
+    notificationToastrComponentRef.instance.file = file;
 
     // this.confirmationPopupComponentRef.instance.buttons = [
     //   new Button('Cancel', 'secondary', 'cancel'),
     //   new Button('Delete', 'danger', 'delete'),
     // ]
 
-    this.closeNotificationToastr();
-  }
-
-  closeNotificationToastr(): void {
-    this.notificationToastrRef.backdropClick().subscribe(() => {
-      this.notificationToastrRef.detach();
+    notificationToastrRef.backdropClick().subscribe(() => {
+      notificationToastrRef.detach();
+    });
+    notificationToastrComponentRef.instance.remove.subscribe(() => {
+      notificationToastrRef.detach();
     });
   }
 }
